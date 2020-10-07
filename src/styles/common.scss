@@ -1,0 +1,46 @@
+$radius: 6px;
+$accent: #0061d0;
+$theme: (
+  light: (
+    primary: #eff2f5,
+    secondary: #f3f7fa,
+    teriary: #ffffff,
+    border: #d8d4dd,
+    text: #282828,
+  ),
+  dark: (
+    primary: #262c32,
+    secondary: #3a3f42,
+    teriary: #5c6165,
+    border: #3b4146,
+    text: #e0e0e0,
+  ),
+);
+
+@mixin theme {
+  @each $theme-name, $palette in $theme {
+    // Temp theme map
+    $map-theme: () !global;
+
+    @each $key, $color in $palette {
+      $map-theme: map-merge(
+        $map-theme,
+        (
+          $key: $color,
+        )
+      ) !global;
+    }
+
+    body.#{$theme-name} {
+      @content;
+    }
+
+    // Clear map
+    $map-theme: null !global;
+  }
+}
+
+// Get color value from temp map
+@function t($key) {
+  @return map-get($map-theme, $key);
+}
