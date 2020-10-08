@@ -2,7 +2,13 @@
   <div class="item-group">
     <Text :content="label" color="secondary" size="small" bold v-if="label" />
     <div class="item-group__list">
-      <Item content="Javascript" tag="js" @item-click="$emit('item-click')" />
+      <Item
+        v-for="(item, i) in items"
+        :key="i"
+        :content="item.content"
+        :tag="item.tag"
+        @item-click="$emit('item-click', i)"
+      />
     </div>
   </div>
 </template>
@@ -16,11 +22,10 @@ export default defineComponent({
   name: 'Image',
   components: { Text, Item },
   props: {
-    source: String,
+    label: String,
+    items: Array,
   },
-  data() {
-    return { label: 'My works' };
-  },
+  emits: ['item-click'],
 });
 </script>
 
