@@ -1,0 +1,20 @@
+$widths: (
+  sm: 320px,
+  md: 375px,
+  lg: 768px,
+  xl: 1024px,
+);
+
+@mixin size($prefix) {
+  @if (map-has-key($map: $widths, $key: $prefix)) {
+    $px: map-get(
+      $map: $widths,
+      $key: $prefix,
+    );
+    @media screen and (min-width: $px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

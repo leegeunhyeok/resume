@@ -7,13 +7,22 @@
 </template>
 
 <style lang="scss">
-@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css");
-@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
+@import '@/styles/common';
+@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css');
+@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css');
 
-#app {
-  font-family: "NanumSquare", sans-serif;
+html {
+  font-family: 'NanumSquare', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: 14px;
+
+  @include size(xl) {
+    font-size: 16px;
+  }
 }
 </style>
