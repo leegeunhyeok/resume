@@ -10,6 +10,8 @@ import { defineComponent, computed } from 'vue';
 interface TextProps {
   color?: string;
   size?: string;
+  thin?: boolean;
+  bold?: boolean;
 }
 
 export default defineComponent({
@@ -17,12 +19,16 @@ export default defineComponent({
   props: {
     color: String,
     size: String,
+    thin: Boolean,
+    bold: Boolean,
   },
   setup(props: TextProps) {
-    const className = computed(() => ({
-      ...(props.size && { [props.size]: true }),
-      ...(props.color && { [props.color]: true }),
-    }));
+    const className = computed(() => [
+      props.color,
+      props.size,
+      props.thin ? 'thin' : null,
+      props.bold ? 'bold' : null,
+    ]);
     return { className };
   },
 });
@@ -45,7 +51,7 @@ export default defineComponent({
       font-size: 0.8rem;
     }
     &.large {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
 
     &.primary {
@@ -54,6 +60,14 @@ export default defineComponent({
 
     &.secondary {
       color: rgba($color, 0.8);
+    }
+
+    &.thin {
+      font-weight: 300;
+    }
+
+    &.bold {
+      font-weight: bold;
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <Text color="secondary" size="small">Hello!</Text>
+    <Text color="primary" size="large" thin>Hello!</Text>
   </div>
 </template>
 
