@@ -1,13 +1,12 @@
 <template>
-  <p class="text" :class="className">
-    <slot />
-  </p>
+  <p class="text" :class="className">{{ content }}</p>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
 
 interface TextProps {
+  content: string;
   color?: string;
   size?: string;
   thin?: boolean;
@@ -17,6 +16,10 @@ interface TextProps {
 export default defineComponent({
   name: 'Text',
   props: {
+    content: {
+      type: String,
+      required: true,
+    },
     color: String,
     size: String,
     thin: Boolean,
