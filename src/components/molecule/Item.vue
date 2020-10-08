@@ -1,18 +1,21 @@
 <template>
-  <div class="item">
-    <Text color="primary" size="large" thin>Hello!</Text>
+  <div class="item" @click="$emit('item-click')">
+    <Tag class="item__tag" :color="tag" v-if="tag" />
+    <Text color="primary" :content="content" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Text from '@/components/atom/Text.vue';
+import Tag from '@/components/atom/Tag.vue';
 
 export default defineComponent({
   name: 'Item',
-  components: { Text },
+  components: { Text, Tag },
   props: {
-    source: String,
+    content: String,
+    tag: String,
   },
 });
 </script>
@@ -20,14 +23,23 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common.scss';
 
-.item {
-  cursor: pointer;
-  border-radius: $radius;
-  overflow: hidden;
-  padding: 0.5rem 1rem;
+@include theme {
+  .item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: $radius;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
 
-  &.active {
-    background-color: $accent;
+    &:hover,
+    &:active {
+      background-color: rgba(t('mask'), 0.1);
+    }
+
+    &__tag {
+      margin-right: 0.5rem;
+    }
   }
 }
 </style>
