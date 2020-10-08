@@ -2,6 +2,27 @@
 
 $radius: 6px;
 $accent: #0061d0;
+
+$colors: (
+  js: #f4df4f,
+  ts: #4179c1,
+  node: #94ca4a,
+  python: #3f7287,
+  java: #a7742f,
+  c: #555555,
+  cpp: #e1597e,
+  shell: #9ddd66,
+  vue: #64b587,
+  react: #81d8f7,
+  rxjs: #da358d,
+  pwa: #5023c0,
+  git: #df5b40,
+  docker: #5caeeb,
+  linux: #272727,
+  vim: #4b9c54,
+  npm: #cb3837,
+);
+
 $theme: (
   light: (
     primary: #eff2f5,
@@ -9,6 +30,7 @@ $theme: (
     teriary: #ffffff,
     border: #d8d4dd,
     text: #282828,
+    mask: #000000,
   ),
   dark: (
     primary: #262c32,
@@ -16,6 +38,7 @@ $theme: (
     teriary: #5c6165,
     border: #3b4146,
     text: #e0e0e0,
+    mask: #ffffff,
   ),
 );
 
