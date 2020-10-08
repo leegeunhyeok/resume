@@ -45,13 +45,13 @@ export default defineComponent({
 
     &,
     &.medium {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
     &.small {
       font-size: 0.8rem;
     }
     &.large {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
     }
 
     &.primary {
