@@ -17,6 +17,7 @@ export default defineComponent({
     content: String,
     tag: String,
   },
+  emits: ['item-click'],
 });
 </script>
 
