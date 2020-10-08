@@ -19,10 +19,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: none;
   user-select: none;
-  font-size: 14px;
+  font-size: 12px;
 
-  @include size(xl) {
-    font-size: 16px;
+  @include size(sm) {
+    font-size: 14px;
   }
 }
 </style>

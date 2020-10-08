@@ -1,8 +1,9 @@
 $widths: (
-  sm: 320px,
-  md: 375px,
-  lg: 768px,
-  xl: 1024px,
+  xs: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
 );
 
 @mixin size($prefix) {
