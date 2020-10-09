@@ -31,7 +31,7 @@ export default defineComponent({
     align-items: center;
     border-radius: $radius;
     overflow: hidden;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
 
     &:hover,
     &:active {
