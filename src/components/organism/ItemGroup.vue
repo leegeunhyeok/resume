@@ -14,16 +14,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import Text from '@/components/atom/Text.vue';
 import Item from '@/components/molecule/Item.vue';
 
+interface Item {
+  tag?: string;
+  content: string;
+}
+
 export default defineComponent({
-  name: 'Image',
+  name: 'ItemGroup',
   components: { Text, Item },
   props: {
     label: String,
-    items: Array,
+    items: Array as PropType<Item[]>,
   },
   emits: ['item-click'],
 });
