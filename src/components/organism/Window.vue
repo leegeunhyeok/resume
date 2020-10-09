@@ -35,11 +35,12 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common';
 
-$header_height: 3rem;
+$header_height: 4rem;
+$header_icon_size: 1rem;
 
 @mixin window-content {
   height: 100%;
-  padding-top: ($header_height * 1.2);
+  padding-top: ($header_height + 1rem);
 }
 
 @include theme {
@@ -68,15 +69,15 @@ $header_height: 3rem;
       z-index: elevation(middle);
 
       &__actions {
-        $padding: $header_height / 3;
+        $padding: ($header_height + $header_icon_size) / 3;
         position: absolute;
         top: $padding;
         left: $padding;
 
         & > span {
           display: inline-block;
-          width: $padding;
-          height: $padding;
+          width: $header_icon_size;
+          height: $header_icon_size;
           border-radius: 50%;
           margin-right: 10px;
 
@@ -109,8 +110,8 @@ $header_height: 3rem;
       max-width: 250px;
       background-color: rgba(t(primary), 0.75);
       backdrop-filter: blur($blur);
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
       @include window-content;
     }
 

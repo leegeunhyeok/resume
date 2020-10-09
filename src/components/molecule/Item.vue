@@ -29,7 +29,7 @@ export default defineComponent({
     cursor: pointer;
     display: flex;
     align-items: center;
-    border-radius: $radius;
+    border-radius: $radius / 2;
     overflow: hidden;
     padding: 0.5rem;
 
