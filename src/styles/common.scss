@@ -1,7 +1,12 @@
 @import './responsive';
 
 $radius: 6px;
+$blur: 20px;
 $accent: #0061d0;
+
+$red: #ff5f57;
+$green: #28c63f;
+$yellow: #f5bd4f;
 
 $colors: (
   js: #f4df4f,
@@ -68,4 +73,23 @@ $theme: (
 // Get color value from temp map
 @function t($key) {
   @return map-get($map-theme, $key);
+}
+
+$elevation: (
+  lowest: 0,
+  low: 1,
+  middle: 2,
+  high: 3,
+  highest: 4,
+);
+
+@function elevation($key) {
+  @return map-get($elevation, $key);
+}
+
+@mixin page {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
