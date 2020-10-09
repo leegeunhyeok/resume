@@ -1,6 +1,13 @@
 <template>
   <div class="item-group">
-    <Text :content="label" color="secondary" size="small" bold v-if="label" />
+    <Text
+      class="item-group__label"
+      color="secondary"
+      size="small"
+      bold
+      :content="label"
+      v-if="label"
+    />
     <div class="item-group__list">
       <Item
         v-for="(item, i) in items"
@@ -39,6 +46,10 @@ export default defineComponent({
 
 .item-group {
   margin-bottom: 1rem;
+
+  &__label {
+    padding-left: 0.25rem;
+  }
 
   &__list {
     margin-top: 0.4rem;
