@@ -40,7 +40,7 @@ $header_icon_size: 1rem;
 
 @mixin window-content {
   height: 100%;
-  padding-top: ($header_height + 1rem);
+  padding-top: ($header_height + 0.5rem);
 }
 
 @include theme {
