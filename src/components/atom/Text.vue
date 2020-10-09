@@ -70,7 +70,7 @@ export default defineComponent({
     }
 
     &.bold {
-      font-weight: bold;
+      font-weight: 900;
     }
   }
 }
