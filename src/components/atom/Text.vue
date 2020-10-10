@@ -45,30 +45,32 @@ export default defineComponent({
 
   .text {
     margin: 0;
+    font-size: 1.2rem;
+    color: t(mask);
 
-    &,
-    &.medium {
-      font-size: 1.2rem;
-    }
+    // size
     &.small {
       font-size: 0.8rem;
+    }
+    &.medium {
+      font-size: 1.2rem;
     }
     &.large {
       font-size: 1.6rem;
     }
 
+    // color
     &.primary {
       color: $color;
     }
-
     &.secondary {
-      color: rgba($color, 0.8);
+      color: rgba($color, 0.6);
     }
 
+    // weight
     &.thin {
       font-weight: 300;
     }
-
     &.bold {
       font-weight: 900;
     }

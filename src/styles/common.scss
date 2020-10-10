@@ -7,6 +7,7 @@ $accent: #0061d0;
 $red: #ff5f57;
 $green: #28c63f;
 $yellow: #f5bd4f;
+$gray: #dbdbdc;
 
 $colors: (
   js: #f4df4f,
@@ -30,6 +31,7 @@ $colors: (
 
 $theme: (
   light: (
+    pure: #ffffff,
     primary: #eff2f5,
     secondary: #f3f7fa,
     teriary: #ffffff,
@@ -38,6 +40,7 @@ $theme: (
     mask: #000000,
   ),
   dark: (
+    pure: #1c1c1e,
     primary: #262c32,
     secondary: #3a3f42,
     teriary: #5c6165,
