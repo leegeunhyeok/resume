@@ -23,7 +23,6 @@ const updateTimeLoop = (store: Store) => {
       tick = baseTick - delta;
       store.commit(MutationTypes.SET_TIME, current);
       recent = current;
-      console.log('timer', tick);
       update();
     }, tick);
   })();
