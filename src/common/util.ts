@@ -4,7 +4,7 @@ export const numberPadding = (target: number, length: number) => {
     return strNumber;
   } else {
     let padding = '';
-    for (let i = 0; i < strNumber.length - length; i++, padding += '0');
+    for (let i = 0; i < length - strNumber.length; i++, padding += '0');
     return padding + strNumber;
   }
 };
