@@ -34,16 +34,16 @@
         <div class="dock__menu__item memo">
           <header />
           <div class="line" />
-          <Text content="빌드 정보!" />
+          <Text content="빌드 정보입니다" />
           <Text class="date" color="secondary" :content="`${RELEASE_DATE} (${VERSION})`" />
         </div>
         <div class="dock__menu__item half calendar">
           <Text :content="currentDateAndWeekDay.weekDay" />
           <Text size="large" :content="currentDateAndWeekDay.date" />
+          <Text size="small" content="프로그래밍" class="red" />
+          <Text size="small" content="운동" class="green" />
         </div>
-        <div class="dock__menu__item half">
-          B
-        </div>
+        <div class="dock__menu__item half photo">It's me</div>
       </div>
     </div>
   </div>
@@ -86,7 +86,6 @@ export default defineComponent({
     const showDockMenu = ref(false);
 
     const time = computed(() => store.getters[GetterTypes.TIME]);
-
     const currentDateAndWeekDay = computed(() => {
       const currentTime = store.state.date;
       const date = currentTime.getDate();
@@ -146,7 +145,7 @@ $menu-item-size: 16rem;
       padding: 1rem;
 
       &__row {
-        margin-top: 0.5rem;
+        margin-top: $menu-padding;
         width: 100%;
       }
 
@@ -158,8 +157,8 @@ $menu-item-size: 16rem;
         background-color: t(pure);
 
         &.half {
-          width: $menu-item-size / 2 - 0.5rem;
-          height: $menu-item-size / 2 - 0.5rem;
+          width: $menu-item-size / 2 - $menu-padding;
+          height: $menu-item-size / 2 - $menu-padding;
           margin-bottom: 0;
           float: left;
 
@@ -219,7 +218,7 @@ $menu-item-size: 16rem;
 
         // Memo widget
         &.memo {
-          height: $menu-item-size / 2 - 0.5rem;
+          height: $menu-item-size / 2 - $menu-padding;
 
           & > header {
             height: 25%;
@@ -235,13 +234,56 @@ $menu-item-size: 16rem;
 
           & > p {
             margin: 0;
-            padding: 0.5rem;
+            padding: $menu-padding;
             padding-bottom: 0;
 
             &.date {
               padding-top: 0;
             }
           }
+        }
+
+        // Calendar
+        &.calendar {
+          padding: $menu-padding;
+
+          & > p.text.small {
+            padding-left: 0.5rem;
+          }
+
+          & > * {
+            position: relative;
+
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              float: left;
+              width: 3px;
+              height: 0.8rem;
+              border-radius: 10px;
+              margin-right: 0.2rem;
+            }
+          }
+
+          & > *.red::after {
+            background-color: $red;
+          }
+          & > *.green::after {
+            background-color: $green;
+          }
+        }
+
+        &.photo {
+          padding: $menu-padding;
+          color: #000;
+          font-size: 1.4rem;
+          background-image: url('~@/assets/avatar.png');
+          background-size: cover;
+          line-height: $dock-height * 2.6;
+          font-weight: 900;
         }
       }
     }
