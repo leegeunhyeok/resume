@@ -6,7 +6,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'Image',
+  name: 'Tag',
   props: {
     color: String,
   },
