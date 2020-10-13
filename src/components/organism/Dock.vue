@@ -12,42 +12,44 @@
         </div>
       </div>
     </div>
-    <div class="dock__menu" v-show="showDockMenu">
-      <Text class="dock__menu__title" content="반갑습니다" size="large" bold />
-      <div class="dock__menu__row">
-        <div class="dock__menu__item weather">
-          <div>
-            <Text content="Geunhyeok LEE" size="small" />
+    <transition name="dock-menu">
+      <div class="dock__menu" v-show="showDockMenu">
+        <Text class="dock__menu__title" content="반갑습니다" size="large" bold />
+        <div class="dock__menu__row">
+          <div class="dock__menu__item weather">
+            <div>
+              <Text content="Geunhyeok LEE" size="small" />
+            </div>
+            <div class="common">
+              <Text content="36.5℃" size="large" bold />
+              <Text content="Happy" size="small" bold />
+            </div>
+            <div class="week">
+              <span class="sunny"></span>
+              <span class="sunny"></span>
+              <span class="sunny"></span>
+              <span class="sunny"></span>
+              <span class="sunny"></span>
+            </div>
           </div>
-          <div class="common">
-            <Text content="36.5℃" size="large" bold />
-            <Text content="Happy" size="small" bold />
+          <div class="dock__menu__item memo">
+            <header />
+            <div class="line" />
+            <Text content="빌드 정보입니다" />
+            <Text class="date" color="secondary" :content="`${RELEASE_DATE} (${VERSION})`" />
           </div>
-          <div class="week">
-            <span class="sunny"></span>
-            <span class="sunny"></span>
-            <span class="sunny"></span>
-            <span class="sunny"></span>
-            <span class="sunny"></span>
+          <div class="dock__menu__item half calendar">
+            <Text :content="currentDateAndWeekDay.weekDay" />
+            <Text size="large" :content="currentDateAndWeekDay.date" />
+            <Text size="small" content="프로그래밍" class="red" />
+            <Text size="small" content="운동" class="green" />
           </div>
-        </div>
-        <div class="dock__menu__item memo">
-          <header />
-          <div class="line" />
-          <Text content="빌드 정보입니다" />
-          <Text class="date" color="secondary" :content="`${RELEASE_DATE} (${VERSION})`" />
-        </div>
-        <div class="dock__menu__item half calendar">
-          <Text :content="currentDateAndWeekDay.weekDay" />
-          <Text size="large" :content="currentDateAndWeekDay.date" />
-          <Text size="small" content="프로그래밍" class="red" />
-          <Text size="small" content="운동" class="green" />
-        </div>
-        <div class="dock__menu__item half photo">
-          <Text size="large" content="It's me" />
+          <div class="dock__menu__item half photo">
+            <Text size="large" content="It's me" />
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -316,5 +318,16 @@ $menu-item-size: 16rem;
   100% {
     transform: scale(1.1);
   }
+}
+
+// Dock menu transition
+.dock-menu-enter-active,
+.dock-menu-leave-active {
+  transition: transform 0.5s ease;
+}
+
+.dock-menu-enter-from,
+.dock-menu-leave-to {
+  transform: translateX(-110%);
 }
 </style>
