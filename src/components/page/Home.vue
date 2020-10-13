@@ -1,16 +1,27 @@
 <template>
   <div class="home">
-    <ItemGroup label="Languages" :items="items" />
+    <Window title="hello">
+      <template v-slot:side>
+        <ItemGroup label="Languages" :items="items" />
+      </template>
+      <template v-slot:default>
+        <Text size="large" content="Title" bold />
+      </template>
+    </Window>
+    <Dock />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Text from '@/components/atom/Text.vue';
+import Window from '@/components/organism/Window.vue';
+import Dock from '@/components/organism/Dock.vue';
 import ItemGroup from '@/components/organism/ItemGroup.vue';
 
 export default defineComponent({
   name: 'Home',
-  components: { ItemGroup },
+  components: { Text, Window, ItemGroup, Dock },
   setup() {
     const items = [
       {
@@ -30,3 +41,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+@import '@/styles/common';
+
+.home {
+  @include page;
+}
+</style>
