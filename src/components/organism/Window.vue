@@ -38,27 +38,50 @@ export default defineComponent({
 $header_height: 4rem;
 $header_icon_size: 1rem;
 
+@mixin window-center {
+  top: 45%;
+  left: 50%;
+  max-width: 1000px;
+  max-height: 650px;
+  transform: translate(-50%, -50%);
+}
+
 @mixin window-content {
   height: 100%;
   padding-top: ($header_height + 0.5rem);
+  float: left;
+  overflow-y: auto;
+
+  @include size(sm) {
+    float: none;
+  }
 }
 
 @include theme {
   .window {
     position: fixed;
-    top: 45%;
-    left: 50%;
-    display: flex;
+    top: 0;
+    left: 0;
     position: relative;
     box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);
     border-radius: $radius;
-    height: 50vh;
-    width: 70%;
-    max-width: 1000px;
-    max-height: 650px;
+    height: calc(100% - #{$dock-height});
+    width: 100%;
     z-index: elevation(low);
     overflow: hidden;
-    transform: translate(-50%, -50%);
+
+    @include size(sm) {
+      display: flex;
+      height: 60vh;
+      width: 80%;
+      @include window-center;
+    }
+
+    @include size(xl) {
+      height: 60vh;
+      width: 60%;
+      @include window-center;
+    }
 
     &__header {
       position: absolute;
@@ -107,12 +130,19 @@ $header_icon_size: 1rem;
 
     &__side {
       width: 100%;
-      max-width: 250px;
       background-color: rgba(t(primary), 0.75);
       backdrop-filter: blur($blur);
       padding-left: 1rem;
       padding-right: 1rem;
+      max-height: 200px;
       @include window-content;
+      @include size(sm) {
+        max-height: none;
+        max-width: 200px;
+      }
+      @include size(md) {
+        max-width: 250px;
+      }
     }
 
     &__content {

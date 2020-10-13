@@ -104,7 +104,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common';
 
-$dock-height: 4.5rem;
 $menu-padding: 0.5rem;
 $menu-item-size: 16rem;
 
