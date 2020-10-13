@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="dock__menu" v-show="showDockMenu">
-      <Text content="반갑습니다" size="large" bold />
+      <Text class="dock__menu__title" content="반갑습니다" size="large" bold />
       <div class="dock__menu__row">
         <div class="dock__menu__item weather">
           <div>
@@ -43,7 +43,9 @@
           <Text size="small" content="프로그래밍" class="red" />
           <Text size="small" content="운동" class="green" />
         </div>
-        <div class="dock__menu__item half photo">It's me</div>
+        <div class="dock__menu__item half photo">
+          <Text size="large" content="It's me" />
+        </div>
       </div>
     </div>
   </div>
@@ -143,6 +145,10 @@ $menu-item-size: 16rem;
       backdrop-filter: blur($blur);
       border-radius: $radius;
       padding: 1rem;
+
+      &__title {
+        color: #fff;
+      }
 
       &__row {
         margin-top: $menu-padding;
