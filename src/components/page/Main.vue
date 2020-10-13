@@ -7,8 +7,8 @@
       <div class="main__content" v-else>
         <div class="main__content__wallpaper" :style="{ transform: `scale(${zoom})` }" />
         <div class="main__content__wrap hello" :style="{ opacity }">
-          <Text size="large" content="For better" bold />
-          <Text size="large" content="Web experience." bold />
+          <Text size="large" content="For better" font="normal" bold />
+          <Text size="large" content="Web experience." font="normal" bold />
         </div>
         <div class="main__content__wrap login">
           <div class="profile">
@@ -130,7 +130,6 @@ $profile-image-size: 12rem;
 
         &.hello {
           p {
-            font-family: 'NanumBarunGothic';
             font-size: $main-text-size !important;
             opacity: 0;
             transition: color 0.1s;

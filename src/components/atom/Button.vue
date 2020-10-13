@@ -40,6 +40,7 @@ button {
   border: none;
   border-radius: $radius;
   transition: opacity 0.2s;
+  font-family: inherit;
 
   &:hover,
   &:active {

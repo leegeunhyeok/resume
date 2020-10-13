@@ -8,6 +8,7 @@ import { defineComponent, computed } from 'vue';
 interface TextProps {
   content: string;
   color?: string;
+  font?: string;
   size?: string;
   thin?: boolean;
   bold?: boolean;
@@ -22,6 +23,7 @@ export default defineComponent({
     },
     color: String,
     size: String,
+    font: String,
     thin: Boolean,
     bold: Boolean,
   },
@@ -31,6 +33,7 @@ export default defineComponent({
       props.size,
       props.thin ? 'thin' : null,
       props.bold ? 'bold' : null,
+      props.font || null,
     ]);
     return { className };
   },
@@ -57,6 +60,15 @@ export default defineComponent({
     }
     &.large {
       font-size: 1.6rem;
+    }
+
+    // font
+    &.normal {
+      font-family: inherit;
+    }
+    &,
+    &.round {
+      font-family: 'NanumSquareRound', sans-serif;
     }
 
     // color
