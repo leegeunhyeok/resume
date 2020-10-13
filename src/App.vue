@@ -1,9 +1,7 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <transition name="fade" mode="out-in">
+    <router-view />
+  </transition>
 </template>
 
 <script lang="ts">
