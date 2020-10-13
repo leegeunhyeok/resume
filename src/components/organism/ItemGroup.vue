@@ -1,15 +1,15 @@
 <template>
-  <div class="item-group">
+  <div class="list-group">
     <Text
-      class="item-group__label"
+      class="list-group__label"
       color="secondary"
       size="small"
       bold
       :content="label"
       v-if="label"
     />
-    <div class="item-group__list">
-      <Item
+    <div class="list-group__list">
+      <ListItem
         v-for="(item, i) in items"
         :key="i"
         :content="item.content"
@@ -23,19 +23,19 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import Text from '@/components/atom/Text.vue';
-import Item from '@/components/molecule/Item.vue';
+import ListItem from '@/components/molecule/ListItem.vue';
 
-interface Item {
+interface ListItem {
   tag?: string;
   content: string;
 }
 
 export default defineComponent({
-  name: 'ItemGroup',
-  components: { Text, Item },
+  name: 'ListGroup',
+  components: { Text, ListItem },
   props: {
     label: String,
-    items: Array as PropType<Item[]>,
+    items: Array as PropType<ListItem[]>,
   },
   emits: ['item-click'],
 });
@@ -44,7 +44,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common';
 
-.item-group {
+.list-group {
   margin-bottom: 1rem;
 
   &__label {
