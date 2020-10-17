@@ -59,7 +59,7 @@ $header_icon_size: 1rem;
 
 @include theme {
   .window {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
     position: relative;
