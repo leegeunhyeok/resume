@@ -32,7 +32,11 @@ $icon-size: 7rem;
   cursor: pointer;
   border-radius: $radius;
   overflow: hidden;
-  margin: 1rem;
+  margin: 1.5rem 2rem;
+
+  @include size(sm) {
+    margin: 1rem;
+  }
 
   & > img {
     width: $icon-size;

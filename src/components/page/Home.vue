@@ -10,7 +10,7 @@
       <AppIcon name="Contact" :icon="require('@/assets/app/contact.png')"/>
       <AppIcon name="Information" :icon="require('@/assets/app/setting.png')"/>
     </div>
-    <Window class="window" title="hello" style="display: none">
+    <Window title="hello" style="display: none">
       <template v-slot:side>
         <ItemGroup label="Languages" :items="items" />
       </template>
@@ -71,7 +71,7 @@ export default defineComponent({
     margin: auto;
     padding: 1rem;
     padding-bottom: $dock-height;
-    max-width: 20rem;
+    max-width: 24rem;
 
     @include size(sm) {
       max-width: 40rem;
