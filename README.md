@@ -31,5 +31,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Resources
 
 - macOS 11 style icons by [octaviotti](https://www.deviantart.com/octaviotti).
-- macOS 11 style wallpaper by [sammmstr](https://www.reddit.com/r/Inkscape/comments/hmrrt0/recreated_the_mac_big_sur_wallpaper_in_inkscape).
+- Wallpaper image by [ultralinx](https://theultralinx.com/2018/11/gradient-wave-wallpaper-by-ultralinx).
 - Weather sun icon from [myiconfinder](http://www.myiconfinder.com/icon/sun-heat-hot-weather-summer-sunshine/22781).
