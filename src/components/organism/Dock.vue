@@ -302,13 +302,13 @@ $menu-item-size: 16rem;
     border-radius: 50%;
     width: $dock-height * 0.5;
     height: $dock-height * 0.5;
-    border: 3px solid $gray;
     transition: background-color 0.2s;
     animation: breath 1s alternate infinite;
+    background-color: t(primary);
 
     &:hover,
     &:active {
-      background-color: rgba($gray, 0.5);
+      background-color: rgba(t(primary), 0.5);
     }
   }
 }
