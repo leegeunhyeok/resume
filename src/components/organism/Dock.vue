@@ -304,7 +304,7 @@ $menu-item-size: 16rem;
     height: $dock-height * 0.5;
     transition: background-color 0.2s;
     animation: breath 1s alternate infinite;
-    background-color: t(primary);
+    border: 0.5rem solid t(primary);
 
     &:hover,
     &:active {
