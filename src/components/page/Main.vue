@@ -142,11 +142,11 @@ $profile-image-size: 12rem;
             transition: color 0.1s;
 
             &:nth-child(1) {
-              animation: fade 1s 1s linear forwards;
+              animation: fade 1s 1.6s linear forwards;
             }
 
             &:nth-child(2) {
-              animation: fade 1s 1.5s linear forwards;
+              animation: fade 1s 2s linear forwards;
             }
           }
         }

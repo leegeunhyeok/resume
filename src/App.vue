@@ -78,7 +78,7 @@ body.loaded {
 // Common transition
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s;
+  transition: opacity 0.8s;
 }
 
 .fade-enter-from,

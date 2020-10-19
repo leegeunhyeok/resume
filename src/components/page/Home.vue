@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <div class="home__apps">
-      <AppIcon name="Projects" :icon="require('@/assets/app/folder.png')"/>
-      <AppIcon name="Activity" :icon="require('@/assets/app/calendar.png')"/>
-      <AppIcon name="About me" :icon="require('@/assets/app/note.png')"/>
-      <AppIcon name="Terminal" :icon="require('@/assets/app/terminal.png')"/>
-      <AppIcon name="Browser" :icon="require('@/assets/app/safari.png')"/>
-      <AppIcon name="Email" :icon="require('@/assets/app/message.png')"/>
-      <AppIcon name="Contact" :icon="require('@/assets/app/contact.png')"/>
-      <AppIcon name="Information" :icon="require('@/assets/app/setting.png')"/>
+      <AppIcon name="Projects" :icon="require('@/assets/app/folder.png')" />
+      <AppIcon name="Activity" :icon="require('@/assets/app/calendar.png')" />
+      <AppIcon name="About me" :icon="require('@/assets/app/note.png')" />
+      <AppIcon name="Terminal" :icon="require('@/assets/app/terminal.png')" />
+      <AppIcon name="Browser" :icon="require('@/assets/app/safari.png')" />
+      <AppIcon name="Email" :icon="require('@/assets/app/message.png')" />
+      <AppIcon name="Contact" :icon="require('@/assets/app/contact.png')" />
+      <AppIcon name="Information" :icon="require('@/assets/app/setting.png')" />
     </div>
     <Window title="hello" style="display: none">
       <template v-slot:side>
@@ -24,16 +24,23 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useStore } from '@/store';
 import Text from '@/components/atom/Text.vue';
 import AppIcon from '@/components/atom/AppIcon.vue';
 import Window from '@/components/organism/Window.vue';
 import Dock from '@/components/organism/Dock.vue';
 import ItemGroup from '@/components/organism/ItemGroup.vue';
+import { GetterTypes } from '@/store/getter';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'Home',
   components: { Text, AppIcon, Window, ItemGroup, Dock },
   setup() {
+    const router = useRouter();
+    const { getters } = useStore();
+    getters[GetterTypes.READY] || router.push({ path: '/' });
+
     const items = [
       {
         tag: 'js',
