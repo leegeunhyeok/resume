@@ -1,13 +1,16 @@
 <template>
-  <transition name="fade" mode="out-in">
-    <router-view />
-  </transition>
+  <router-view v-slot="{ Component }">
+    <transition :name="isReady ? 'fade' : null" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import store, { Store, provideStore } from '@/store';
 import { MutationTypes } from './store/mutation';
+import { GetterTypes } from './store/getter';
 
 const updateTimeLoop = (store: Store) => {
   const baseTick = 1000;
@@ -31,6 +34,12 @@ export default defineComponent({
   setup() {
     provideStore(store);
     updateTimeLoop(store);
+
+    setInterval(() => console.log(store.getters[GetterTypes.READY] ? 'fade' : null), 500);
+
+    return {
+      isReady: store.getters[GetterTypes.READY],
+    };
   },
 });
 </script>
@@ -61,7 +70,7 @@ body,
   @include page;
 }
 
-body {
+body.loaded {
   background: url('~@/assets/wallpaper.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,7 +83,7 @@ body {
 // Common transition
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 
 .fade-enter-from,
