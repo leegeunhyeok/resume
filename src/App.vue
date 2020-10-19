@@ -1,13 +1,13 @@
 <template>
   <router-view v-slot="{ Component }">
-    <transition :name="isReady ? 'fade' : null" mode="out-in">
+    <transition :name="transition" mode="out-in">
       <component :is="Component" />
     </transition>
   </router-view>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
 import store, { Store, provideStore } from '@/store';
 import { MutationTypes } from './store/mutation';
 import { GetterTypes } from './store/getter';
@@ -34,12 +34,8 @@ export default defineComponent({
   setup() {
     provideStore(store);
     updateTimeLoop(store);
-
-    setInterval(() => console.log(store.getters[GetterTypes.READY] ? 'fade' : null), 500);
-
-    return {
-      isReady: store.getters[GetterTypes.READY],
-    };
+    const transition = computed(() => (store.getters[GetterTypes.READY] ? 'fade' : null));
+    return { transition };
   },
 });
 </script>
@@ -72,7 +68,6 @@ body,
 
 body.loaded {
   background: url('~@/assets/wallpaper.jpg');
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -83,7 +78,7 @@ body.loaded {
 // Common transition
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 1s;
 }
 
 .fade-enter-from,
