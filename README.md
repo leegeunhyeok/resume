@@ -29,7 +29,7 @@ Using [Vue 3](https://github.com/vuejs/vue-next) with [TS](https://github.com/mi
 <code><img alt="sass" src="https://user-images.githubusercontent.com/26512984/88482103-2754bf00-cf9a-11ea-9e2f-075735d3db3c.jpg" width="32"></code>
 <code><img alt="Webpack" src="https://user-images.githubusercontent.com/26512984/88482177-a21dda00-cf9a-11ea-82ad-d2dede682d37.jpg" width="32"></code>
 
-and alse included vuex, vue-router
+and also included vuex, vue-router
 
 ---
 
