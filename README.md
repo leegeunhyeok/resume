@@ -22,7 +22,7 @@ WIP...
 
 ## Tech stacks 👨‍💻
 
-Using [Vue 3](https://github.com/vuejs/vue-next) with [TS](https://github.com/microsoft/TypeScript) ❤️!
+Using [Vue 3](https://github.com/vuejs/vue-next) with [TS](https://github.com/microsoft/TypeScript)! ❤️
 
 <code><img alt="vue" src="https://user-images.githubusercontent.com/26512984/88481837-ac3ed900-cf98-11ea-8a23-b53146870c81.jpg" width="32"></code>
 <code><img alt="ts" src="https://user-images.githubusercontent.com/26512984/88481840-ae089c80-cf98-11ea-84f5-27da9f22c606.jpg" width="32"></code>
