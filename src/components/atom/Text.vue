@@ -6,7 +6,7 @@
 import { defineComponent, computed } from 'vue';
 
 interface TextProps {
-  content: string;
+  content: string | number;
   color?: string;
   font?: string;
   size?: string;
@@ -18,7 +18,7 @@ export default defineComponent({
   name: 'Text',
   props: {
     content: {
-      type: String,
+      type: [String, Number],
       required: true,
     },
     color: String,
