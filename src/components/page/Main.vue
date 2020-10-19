@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <transition name="fade">
-      <div class="main__loading" v-if="!isLoaded">
+    <transition name="fade" mode="in-out">
+      <div class="main__loading" v-if="loading">
         <Progress :value="progress" />
       </div>
       <div class="main__content" v-else>
@@ -25,6 +25,8 @@
 <script lang="ts">
 import { defineComponent, onMounted, onBeforeUnmount, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
+import { useStore } from '@/store';
+import { MutationTypes } from '@/store/mutation';
 import Progress from '@/components/atom/Progress.vue';
 import Button from '@/components/atom/Button.vue';
 import Text from '@/components/atom/Text.vue';
@@ -35,9 +37,10 @@ export default defineComponent({
   name: 'Main',
   components: { Progress, Button, Text },
   setup() {
+    const { commit } = useStore();
     const router = useRouter();
     const progress = ref(0);
-    const isLoaded = ref(false);
+    const loading = ref(true);
     const zoom = ref(maxScale);
     const opacity = ref(1);
 
@@ -52,21 +55,25 @@ export default defineComponent({
     // Lazy (wait for 1 sec)
     watch(
       () => progress.value,
-      (val) => {
+      val => {
         if (val >= 100) {
-          setTimeout(() => (isLoaded.value = true), 1000);
+          setTimeout(() => {
+            loading.value = false;
+            document.body.classList.add('loaded');
+            commit(MutationTypes.APP_LOADED, undefined);
+          }, 1000);
         }
       },
     );
 
     // Sample
-    setTimeout(() => (progress.value = 100), 0);
+    setTimeout(() => (progress.value = 100), 1000);
 
     // Life cycle hooks
     onMounted(() => window.addEventListener('scroll', scrollHandler));
     onBeforeUnmount(() => window.addEventListener('scroll', scrollHandler));
 
-    return { isLoaded, progress, zoom, opacity, toHome };
+    return { loading, progress, zoom, opacity, toHome };
   },
 });
 </script>
@@ -135,11 +142,11 @@ $profile-image-size: 12rem;
             transition: color 0.1s;
 
             &:nth-child(1) {
-              animation: fade 1s 0.5s linear forwards;
+              animation: fade 1s 1s linear forwards;
             }
 
             &:nth-child(2) {
-              animation: fade 1s 0.8s linear forwards;
+              animation: fade 1s 1.5s linear forwards;
             }
           }
         }
