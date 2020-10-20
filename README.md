@@ -20,7 +20,9 @@ Geunhyeok's resume template. [show](https://this.geundung.dev)
 - Fully responsive design 📱
 - PWA Support 🔥
 
-## 👨‍💻 Browser support
+## 🌍 Browser support
+
+WIP...
 
 ## 👨‍💻 Tech stacks
 
