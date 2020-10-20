@@ -1,54 +1,73 @@
 <template>
-  <div class="main">
-    <transition name="fade" mode="in-out">
-      <div class="main__loading" v-if="loading">
-        <Progress :value="progress" />
+  <div class="intro">
+    <div class="intro__content">
+      <div class="intro__content__wallpaper" :style="{ transform: `scale(${zoom})` }" />
+      <div class="intro__content__wrap hello" :style="{ opacity }">
+        <Text v-for="(text, i) in texts" :content="text" font="normal" size="large" bold :key="i" />
       </div>
-      <Intro
-        :name="Template.name"
-        :photo="Template.photo"
-        :texts="Template.introText"
-        @next="toHome"
-        v-else
-      />
-    </transition>
+      <div class="intro__content__wrap login">
+        <div class="profile">
+          <img :src="photo" />
+        </div>
+        <Text size="large" bold :content="name" />
+        <Button text="Login" size="large" color="glass" @click="$emit('next')" />
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, PropType, onMounted, onBeforeUnmount, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
-import Progress from '@/components/atom/Progress.vue';
-import Intro from '@/components/template/Intro.vue';
-import { useRouter } from 'vue-router';
+import Button from '@/components/atom/Button.vue';
+import Text from '@/components/atom/Text.vue';
 
-// Template
-const Template = {
-  name: 'Geunhyeok LEE',
-  photo: require('@/assets/avatar.png'),
-  introText: ['For better', 'Web experience.'],
-};
+const maxScale = 2;
 
 export default defineComponent({
-  name: 'Main',
-  components: { Progress, Intro },
+  name: 'Intro',
+  components: { Button, Text },
+  props: {
+    name: {
+      type: String,
+      isRequired: true,
+    },
+    photo: {
+      type: String,
+      isRequired: true,
+    },
+    texts: Array as PropType<string[]>,
+  },
+  emits: ['next'],
   setup() {
     const { commit } = useStore();
     const router = useRouter();
     const progress = ref(0);
     const loading = ref(true);
+    const zoom = ref(maxScale);
+    const opacity = ref(1);
 
     const toHome = () => router.push({ path: '/home' });
-    // Loading Sample
+    const scrollHandler = () => {
+      const scale = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      zoom.value = Math.max(-1 * scale + maxScale, 1);
+      opacity.value = 1 - Math.min(window.scrollY / (window.innerHeight / 2), 1);
+    };
+
+    // Sample
     setTimeout(() => {
       progress.value = 100;
-      loading.value = false;
       document.body.classList.add('loaded');
       commit(MutationTypes.APP_LOADED, undefined);
     }, 1000);
 
-    return { Template, loading, progress, toHome };
+    // Life cycle hooks
+    onMounted(() => window.addEventListener('scroll', scrollHandler));
+    onBeforeUnmount(() => window.addEventListener('scroll', scrollHandler));
+
+    return { loading, progress, zoom, opacity, toHome };
   },
 });
 </script>
@@ -56,11 +75,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common';
 
-$main-text-size: 3.2rem;
+$intro-text-size: 3.2rem;
 $profile-image-size: 12rem;
 
 @include theme {
-  .main {
+  .intro {
     @include page;
 
     &__loading {
@@ -108,11 +127,11 @@ $profile-image-size: 12rem;
       &__wrap {
         @include page;
         position: relative;
-        padding-top: calc(50vh - #{$main-text-size * 2});
+        padding-top: calc(50vh - #{$intro-text-size * 2});
 
         &.hello {
           p {
-            font-size: $main-text-size !important;
+            font-size: $intro-text-size !important;
             opacity: 0;
             transition: color 0.1s;
 
