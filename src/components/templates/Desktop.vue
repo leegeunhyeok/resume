@@ -1,8 +1,9 @@
 <template>
   <div class="desktop">
     <div class="desktop__apps">
+      <!-- Max icons: 8 -->
       <Icon
-        v-for="(app, i) in apps"
+        v-for="(app, i) in apps.slice(0, 8)"
         :name="app.name"
         :icon="app.icon"
         :key="i"
