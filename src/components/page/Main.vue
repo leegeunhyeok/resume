@@ -17,11 +17,11 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
 import Progress from '@/components/atom/Progress.vue';
 import Intro from '@/components/template/Intro.vue';
-import { useRouter } from 'vue-router';
 
 // Template
 const Template = {
