@@ -24,7 +24,7 @@
         </template>
       </Window>
     </transition>
-    <Dock />
+    <Dock :name="dock.name" :hobby="dock.hobby" :photo="dock.photo" />
   </div>
 </template>
 

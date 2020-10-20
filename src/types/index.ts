@@ -39,18 +39,13 @@ export interface LinkApp extends App {
   url: string;
 }
 
-interface DockMemo {
-  title: string;
-  content: string;
-}
-
-interface DockPhoto {
+export interface DockPhoto {
   source: string;
   title: string;
 }
 
 export interface DockMenu {
-  memo?: DockMemo;
+  name: string;
   hobby: string[];
   photo: DockPhoto;
 }

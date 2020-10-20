@@ -18,7 +18,7 @@
         <div class="dock__menu__row">
           <div class="dock__menu__item weather">
             <div>
-              <Text content="Geunhyeok LEE" size="small" />
+              <Text :content="name" size="small" />
             </div>
             <div class="common">
               <Text content="36.5℃" size="large" bold />
@@ -41,11 +41,12 @@
           <div class="dock__menu__item half calendar">
             <Text :content="currentDateAndWeekDay.weekDay" />
             <Text size="large" :content="currentDateAndWeekDay.date" />
-            <Text size="small" content="프로그래밍" class="red" />
-            <Text size="small" content="운동" class="green" />
+            <Text size="small" :content="hobby[0]" class="red" v-if="hobby[0]" />
+            <Text size="small" :content="hobby[1]" class="green" v-if="hobby[1]" />
           </div>
-          <div class="dock__menu__item half photo">
-            <Text size="large" content="It's me" />
+          <div class="dock__menu__item half photo" v-if="photo.source">
+            <img :src="photo.source" alt="photo" />
+            <Text size="large" :content="photo.title" />
           </div>
         </div>
       </div>
@@ -54,10 +55,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue';
+import { defineComponent, PropType, ref, computed } from 'vue';
 import { VERSION, RELEASE_DATE } from '@/common';
 import { useStore } from '@/store';
 import { GetterTypes } from '@/store/getter';
+import { DockPhoto } from '@/types';
 import Text from '@/components/atoms/Text.vue';
 
 const getDayString = (day: number) => {
@@ -83,7 +85,18 @@ export default defineComponent({
   name: 'Dock',
   components: { Text },
   props: {
-    clock: String,
+    name: {
+      type: String,
+      required: true,
+    },
+    photo: {
+      type: Object as PropType<DockPhoto>,
+      default: {},
+    },
+    hobby: {
+      type: Array as PropType<string[]>,
+      default: [],
+    },
   },
   setup() {
     const store = useStore();
@@ -157,6 +170,7 @@ $menu-item-size: 16rem;
       }
 
       &__item {
+        position: relative;
         width: $menu-item-size;
         margin-bottom: 1rem;
         border-radius: $radius;
@@ -287,10 +301,20 @@ $menu-item-size: 16rem;
           padding: $menu-padding;
           color: #000;
           font-size: 1.4rem;
-          background-image: url('~@/assets/avatar.png');
-          background-size: cover;
           line-height: $dock-height * 2.6;
           font-weight: 900;
+
+          & > * {
+            position: absolute;
+          }
+
+          & > img {
+            top: 0;
+            left: 0;
+            max-width: 100%;
+            max-height: 100%;
+            text-align: center;
+          }
         }
       }
     }

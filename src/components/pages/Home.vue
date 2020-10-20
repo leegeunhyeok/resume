@@ -86,12 +86,12 @@ const Template: DesktopTemplate = {
     },
   ],
   dock: {
-    memo: {
-      title: '빌드 노트',
-      content: 'Updated: 2020.10.21',
-    },
+    name: 'Geunhyeok LEE',
     hobby: ['프로그래밍', '운동'],
-    photo: require('@/assets/avatar.png'),
+    photo: {
+      source: require('@/assets/avatar.png'),
+      title: "It's me",
+    },
   },
 };
 
