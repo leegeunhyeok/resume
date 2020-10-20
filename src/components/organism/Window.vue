@@ -6,7 +6,7 @@
         <span class="yellow" />
         <span class="green" />
       </div>
-      <div class="window__header__title">
+      <div class="window__header__title" :class="$slots.side || 'no-side'">
         <div class="padding" />
         <Text :content="title" size="large" />
       </div>
@@ -98,7 +98,7 @@ $content-padding: 1rem;
       z-index: elevation(middle);
 
       &__actions {
-        $padding: ($header_height + $header_icon_size) / 3;
+        $padding: ($header_height + $header_icon_size) / 3.5;
         position: absolute;
         top: $padding;
         left: $padding;
@@ -141,6 +141,10 @@ $content-padding: 1rem;
         }
         @include size(md) {
           padding-left: calc(#{$side-md-width} + #{$content-padding});
+        }
+
+        &.no-side {
+          padding-left: 8rem !important;
         }
       }
     }
