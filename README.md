@@ -8,7 +8,7 @@ WIP...
   <br>
   <img src="./src/assets/pwa-support.png" width="150">
 
-Geunhyeok's resume template. [Visit](https://this.geundung.dev)
+Geunhyeok's resume template. [show](https://this.geundung.dev)
 
 </div>
 
@@ -19,6 +19,8 @@ Geunhyeok's resume template. [Visit](https://this.geundung.dev)
 - macOS 11 Big Sur style 🍎
 - Fully responsive design 📱
 - PWA Support 🔥
+
+## 👨‍💻 Browser support
 
 ## 👨‍💻 Tech stacks
 
@@ -31,9 +33,7 @@ Using [Vue 3](https://github.com/vuejs/vue-next) with [TS](https://github.com/mi
 
 and also included vuex, vue-router
 
----
-
-## Template docs
+## Template Docs
 
 ### 🐥 HTML Basics
 
@@ -53,7 +53,7 @@ module.exports = {
 };
 ```
 
-### 👋 Intro Page
+### 👋 Intro page
 
 Check `src/components/pages/Main.vue`.
 
@@ -82,7 +82,7 @@ interface IntroTemplate {
 <img src="./docs/intro-1.png" alt="intro 1">
 <img src="./docs/intro-2.png" alt="intro 2">
 
-### 🏠 Desktop Page
+### 🏠 Desktop page
 
 Check `src/components/pages/Home.vue`.
 
@@ -196,6 +196,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Wallpaper image by [ultralinx](https://theultralinx.com/2018/11/gradient-wave-wallpaper-by-ultralinx).
 - Weather sun icon from [myiconfinder](http://www.myiconfinder.com/icon/sun-heat-hot-weather-summer-sunshine/22781).
 
-## ⭐️ LICENSE
+## ⭐️ License
 
-[MIT](./LICENSE)
+Developed by [Geunhyeok LEE](https://github.com/leegeunhyeok)
+
+- [MIT](./LICENSE) License.
