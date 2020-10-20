@@ -1,10 +1,14 @@
 <template>
   <div class="window">
-    <div class="window__header" @mousedown="moveStart">
+    <div class="window__header">
       <div class="window__header__actions">
         <span class="red" @click="$emit('close')" />
         <span class="yellow" />
         <span class="green" />
+      </div>
+      <div class="window__header__title">
+        <div class="padding" />
+        <Text :content="title" size="large" />
       </div>
     </div>
     <div class="window__side" v-if="$slots.side">
@@ -18,17 +22,15 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Text from '@/components/atom/Text.vue';
 
 export default defineComponent({
   name: 'Window',
+  components: { Text },
   props: {
     title: String,
   },
   emits: ['close'],
-  setup() {
-    const moveStart = () => console.log('start');
-    return { moveStart };
-  },
 });
 </script>
 
@@ -38,7 +40,11 @@ export default defineComponent({
 $header_height: 4rem;
 $header_icon_size: 1rem;
 
-@mixin window-center {
+$side-sm-width: 200px;
+$side-md-width: 250px;
+$content-padding: 1rem;
+
+@mixin window-position {
   top: 45%;
   left: 50%;
   max-width: 1000px;
@@ -74,13 +80,13 @@ $header_icon_size: 1rem;
       display: flex;
       height: 60vh;
       width: 80%;
-      @include window-center;
+      @include window-position;
     }
 
     @include size(xl) {
       height: 60vh;
       width: 60%;
-      @include window-center;
+      @include window-position;
     }
 
     &__header {
@@ -126,6 +132,17 @@ $header_icon_size: 1rem;
           }
         }
       }
+
+      &__title {
+        line-height: $header_height;
+
+        @include size(sm) {
+          padding-left: calc(#{$side-sm-width} + #{$content-padding});
+        }
+        @include size(md) {
+          padding-left: calc(#{$side-md-width} + #{$content-padding});
+        }
+      }
     }
 
     &__side {
@@ -138,18 +155,18 @@ $header_icon_size: 1rem;
       @include window-content;
       @include size(sm) {
         max-height: none;
-        max-width: 200px;
+        max-width: $side-sm-width;
       }
       @include size(md) {
-        max-width: 250px;
+        max-width: $side-md-width;
       }
     }
 
     &__content {
       width: 100%;
       background-color: t(primary);
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: $content-padding;
+      padding-right: $content-padding;
       @include window-content;
     }
   }
