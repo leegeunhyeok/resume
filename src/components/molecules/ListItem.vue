@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Text from '@/components/atom/Text.vue';
-import Tag from '@/components/atom/Tag.vue';
+import Text from '@/components/atoms/Text.vue';
+import Tag from '@/components/atoms/Tag.vue';
 
 export default defineComponent({
   name: 'Item',

@@ -20,8 +20,8 @@ import { defineComponent, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
-import Progress from '@/components/atom/Progress.vue';
-import Intro from '@/components/template/Intro.vue';
+import Progress from '@/components/atoms/Progress.vue';
+import Intro from '@/components/templates/Intro.vue';
 
 // Template
 const Template = {

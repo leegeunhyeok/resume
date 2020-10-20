@@ -22,9 +22,9 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import Text from '@/components/atom/Text.vue';
-import ListItem from '@/components/molecule/ListItem.vue';
 import { ListItem as ListItemProps } from '@/types';
+import Text from '@/components/atoms/Text.vue';
+import ListItem from '@/components/molecules/ListItem.vue';
 
 export default defineComponent({
   name: 'ListGroup',

@@ -57,8 +57,8 @@
 import { defineComponent, ref, computed } from 'vue';
 import { VERSION, RELEASE_DATE } from '@/common';
 import { useStore } from '@/store';
-import Text from '@/components/atom/Text.vue';
 import { GetterTypes } from '@/store/getter';
+import Text from '@/components/atoms/Text.vue';
 
 const getDayString = (day: number) => {
   switch (day) {

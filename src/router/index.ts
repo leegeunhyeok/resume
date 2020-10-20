@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Main from '@/components/page/Main.vue';
+import Main from '@/components/pages/Main.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
     path: '/home',
     name: 'Home',
     // Lazy loading
-    component: () => import(/* webpackChunkName: "home" */ '@/components/page/Home.vue'),
+    component: () => import(/* webpackChunkName: "home" */ '@/components/pages/Home.vue'),
   },
 ];
 

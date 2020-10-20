@@ -4,11 +4,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { useStore } from '@/store';
-import Desktop from '@/components/template/Desktop.vue';
-import { GetterTypes } from '@/store/getter';
 import { useRouter } from 'vue-router';
+import { useStore } from '@/store';
+import { GetterTypes } from '@/store/getter';
 import { AppType, DockMenu } from '@/types';
+import Desktop from '@/components/templates/Desktop.vue';
 
 interface DesktopTemplate {
   apps: AppType[];

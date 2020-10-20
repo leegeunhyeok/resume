@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Text from '@/components/atom/Text.vue';
+import Text from '@/components/atoms/Text.vue';
 
 export default defineComponent({
   name: 'Window',

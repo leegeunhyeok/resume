@@ -30,12 +30,12 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, computed } from 'vue';
-import Text from '@/components/atom/Text.vue';
-import Icon from '@/components/atom/Icon.vue';
-import Window from '@/components/organism/Window.vue';
-import Dock from '@/components/organism/Dock.vue';
-import ItemGroup from '@/components/organism/ItemGroup.vue';
 import { AppType, Content, ListItem, DockMenu } from '@/types';
+import Text from '@/components/atoms/Text.vue';
+import Icon from '@/components/atoms/Icon.vue';
+import Window from '@/components/organisms/Window.vue';
+import Dock from '@/components/organisms/Dock.vue';
+import ItemGroup from '@/components/organisms/ItemGroup.vue';
 
 interface DesktopProps {
   apps: AppType[];

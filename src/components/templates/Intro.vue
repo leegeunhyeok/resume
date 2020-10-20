@@ -21,8 +21,8 @@ import { defineComponent, PropType, onMounted, onBeforeUnmount, ref } from 'vue'
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
-import Button from '@/components/atom/Button.vue';
-import Text from '@/components/atom/Text.vue';
+import Button from '@/components/atoms/Button.vue';
+import Text from '@/components/atoms/Text.vue';
 
 const maxScale = 2;
 
