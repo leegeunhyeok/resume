@@ -10,7 +10,7 @@
       />
     </div>
     <transition name="fade">
-      <Window :title="activeApp?.name" @close="activeApp = null" v-show="activeApp">
+      <Window :title="activeApp?.name" @close="closeWindow" v-show="isOpen">
         <template v-slot:side v-if="activeApp?.type === 'list'">
           <ItemGroup
             v-for="(list, i) in listGroup"
@@ -61,6 +61,7 @@ export default defineComponent({
     },
   },
   setup() {
+    const isOpen = ref(false);
     const activeApp = ref<null | AppType>(null);
     const listGroup = computed(() => {
       if (activeApp.value?.type !== 'list') return [];
@@ -78,10 +79,13 @@ export default defineComponent({
         window.open(app.url, '_blank');
       } else {
         activeApp.value = app;
+        isOpen.value = true;
       }
     };
 
-    return { appExecute, activeApp, listGroup };
+    const closeWindow = () => (isOpen.value = false);
+
+    return { appExecute, activeApp, listGroup, isOpen, closeWindow };
   },
 });
 </script>
