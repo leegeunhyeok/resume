@@ -12,7 +12,7 @@
       <ListItem
         v-for="(item, i) in items"
         :key="i"
-        :content="item.content"
+        :content="item.title"
         :tag="item.tag"
         @item-click="$emit('item-click', i)"
       />
@@ -24,18 +24,14 @@
 import { defineComponent, PropType } from 'vue';
 import Text from '@/components/atom/Text.vue';
 import ListItem from '@/components/molecule/ListItem.vue';
-
-interface ListItem {
-  tag?: string;
-  content: string;
-}
+import { ListItem as ListItemProps } from '@/types';
 
 export default defineComponent({
   name: 'ListGroup',
   components: { Text, ListItem },
   props: {
     label: String,
-    items: Array as PropType<ListItem[]>,
+    items: Array as PropType<ListItemProps[]>,
   },
   emits: ['item-click'],
 });
