@@ -35,7 +35,7 @@ Using [Vue 3](https://github.com/vuejs/vue-next) with [TS](https://github.com/mi
 
 and also included vuex, vue-router
 
-## Template Docs
+## 📖 Template Docs
 
 ### 🐥 HTML Basics
 
@@ -97,8 +97,9 @@ const Template: DesktopTemplate = {
       type: 'APP_TYPE',
       name: 'APP_NAME',
       icon: require('@/assets/app/IMAGE'),
-      ...
-    }
+      // ... App config
+    },
+    ...
   ],
   dock: {
     name: 'NAME',
@@ -108,7 +109,7 @@ const Template: DesktopTemplate = {
       title: "TITLE",
     },
   },
-}
+};
 ```
 
 ```ts
@@ -134,10 +135,10 @@ export interface LinkApp extends App {
 }
 
 interface DesktopTemplate {
-  apps: (ListApp | PageApp | LinkApp)[];
+  apps: (ListApp | PageApp | LinkApp)[]; // Max: 8
   dock: {
     name: string;
-    hobby: string[];
+    hobby: string[]; // Max: 2
     photo: {
       source: any; // require('path')
       title: string;
