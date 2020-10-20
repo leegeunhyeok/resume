@@ -1,6 +1,6 @@
 <template>
-  <div class="app-icon">
-    <img :src="icon" :alt="name"/>
+  <div class="icon">
+    <img :src="icon" :alt="name" />
     <p>{{ name }}</p>
   </div>
 </template>
@@ -9,15 +9,15 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'AppIcon',
+  name: 'Icon',
   props: {
     icon: {
       type: String,
-      required: true
+      required: true,
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
   },
 });
@@ -28,7 +28,7 @@ export default defineComponent({
 
 $icon-size: 7rem;
 
-.app-icon {
+.icon {
   cursor: pointer;
   border-radius: $radius;
   overflow: hidden;
@@ -49,7 +49,7 @@ $icon-size: 7rem;
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   }
 }
 </style>
