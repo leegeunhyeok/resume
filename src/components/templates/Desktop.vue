@@ -10,21 +10,19 @@
         @click="appExecute(app)"
       />
     </div>
-    <transition name="fade">
-      <Window :title="activeApp?.name" @close="closeWindow" v-show="isOpen">
-        <template v-slot:side v-if="activeApp?.type === 'list'">
-          <ItemGroup
-            v-for="(list, i) in listGroup"
-            :label="list.group"
-            :items="list.items"
-            :key="i"
-          />
-        </template>
-        <template v-slot:default>
-          <Text size="large" content="Title" bold />
-        </template>
-      </Window>
-    </transition>
+    <Window :title="activeApp?.name" @close="closeWindow" v-show="isOpen">
+      <template v-slot:side v-if="activeApp?.type === 'list'">
+        <ItemGroup
+          v-for="(list, i) in listGroup"
+          :label="list.group"
+          :items="list.items"
+          :key="i"
+        />
+      </template>
+      <template v-slot:default>
+        <Text size="large" content="Title" bold />
+      </template>
+    </Window>
     <Dock :name="dock.name" :hobby="dock.hobby" :photo="dock.photo" />
   </div>
 </template>
