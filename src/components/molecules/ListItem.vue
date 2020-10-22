@@ -1,5 +1,5 @@
 <template>
-  <div class="item" @click="$emit('item-click')">
+  <div class="item" @click="$emit('click')">
     <Tag class="item__tag" :color="tag" v-if="tag" />
     <Text color="primary" :content="content" />
   </div>
@@ -11,13 +11,13 @@ import Text from '@/components/atoms/Text.vue';
 import Tag from '@/components/atoms/Tag.vue';
 
 export default defineComponent({
-  name: 'Item',
+  name: 'ListItem',
   components: { Text, Tag },
   props: {
     content: String,
     tag: String,
   },
-  emits: ['item-click'],
+  emits: ['click'],
 });
 </script>
 

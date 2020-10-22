@@ -14,7 +14,7 @@
         :key="i"
         :content="item.title"
         :tag="item.tag"
-        @item-click="$emit('item-click', i)"
+        @click="$emit('select', i)"
       />
     </div>
   </div>
@@ -27,13 +27,13 @@ import Text from '@/components/atoms/Text.vue';
 import ListItem from '@/components/molecules/ListItem.vue';
 
 export default defineComponent({
-  name: 'ListGroup',
+  name: 'ItemGroup',
   components: { Text, ListItem },
   props: {
     label: String,
     items: Array as PropType<ListItemProps[]>,
   },
-  emits: ['item-click'],
+  emits: ['select'],
 });
 </script>
 
