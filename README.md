@@ -35,6 +35,10 @@ Using [Vue 3](https://github.com/vuejs/vue-next) with [TS](https://github.com/mi
 
 and also included vuex, vue-router
 
+## 🚘 Road Map
+
+- [ ] Support `SSR` or `static` page via [Nuxt.js](https://github.com/nuxt/nuxt.js)
+
 ## 📖 Template Docs
 
 ### 🐥 HTML Basics
