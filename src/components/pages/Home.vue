@@ -26,7 +26,12 @@ const Template: DesktopTemplate = {
           group: 'Laugnage',
           title: 'JavaScript',
           tag: 'js',
-          content: [],
+          content: [
+            {
+              type: 'text',
+              data: 'Hello',
+            },
+          ],
         },
         {
           group: 'Laugnage',

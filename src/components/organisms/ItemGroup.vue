@@ -9,7 +9,7 @@
       v-if="label"
     />
     <div class="list-group__list">
-      <ListItem
+      <Item
         v-for="(item, i) in items"
         :key="i"
         :content="item.title"
@@ -24,11 +24,11 @@
 import { defineComponent, PropType } from 'vue';
 import { ListItem as ListItemProps } from '@/types';
 import Text from '@/components/atoms/Text.vue';
-import ListItem from '@/components/molecules/ListItem.vue';
+import Item from '@/components/molecules/Item.vue';
 
 export default defineComponent({
   name: 'ItemGroup',
-  components: { Text, ListItem },
+  components: { Text, Item },
   props: {
     label: String,
     items: Array as PropType<ListItemProps[]>,
