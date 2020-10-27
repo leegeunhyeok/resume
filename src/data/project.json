@@ -1,0 +1,26 @@
+{
+  "tags": {
+    "language": [
+      {
+        "id": "js",
+        "label": "JavaScript"
+      },
+      {
+        "id": "ts",
+        "label": "TypeScript"
+      }
+    ]
+  },
+  "content": [
+    {
+      "tag": "js",
+      "title": "test",
+      "desc": "Hello,"
+    },
+    {
+      "tag": ["js", "ts"],
+      "title": "node-schook-kr",
+      "desc": "Hello 2"
+    }
+  ]
+}

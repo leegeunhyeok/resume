@@ -3,88 +3,48 @@
     <div class="desktop__apps">
       <!-- Max icons: 8 -->
       <Icon
-        v-for="(app, i) in apps.slice(0, 8)"
-        :name="app.name"
-        :icon="app.icon"
+        v-for="(app, i) in Object.entries(apps).slice(0, 8)"
+        :name="app[0]"
+        :icon="app[1]"
         :key="i"
         @click="appExecute(app)"
       />
     </div>
-    <Window :title="activeApp?.name" @close="closeWindow" v-show="isOpen">
-      <template v-slot:side v-if="activeApp?.type === 'list'">
-        <ItemGroup
-          v-for="(list, i) in listGroup"
-          :label="list.group"
-          :items="list.items"
-          :key="i"
-        />
-      </template>
-      <template v-slot:default>
-        <Text size="large" content="Title" bold />
-      </template>
-    </Window>
+    <ProjectWindow v-show="true" />
     <Dock :name="dock.name" :hobby="dock.hobby" :photo="dock.photo" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref, computed } from 'vue';
-import { AppType, Content, ListItem, DockMenu } from '@/types';
-import Text from '@/components/atoms/Text.vue';
+import { defineComponent, PropType } from 'vue';
+import { DockMenu } from '@/types';
 import Icon from '@/components/atoms/Icon.vue';
-import Window from '@/components/organisms/Window.vue';
 import Dock from '@/components/organisms/Dock.vue';
-import ItemGroup from '@/components/organisms/ItemGroup.vue';
+import ProjectWindow from '@/components/organisms/ProjectWindow.vue';
 
-interface DesktopProps {
-  apps: AppType[];
-  dock: DockMenu;
-}
-
-interface ListGroup {
-  group?: string;
-  items: (ListItem & { content: Content[] })[];
-}
+const apps = {
+  projects: require('@/assets/app/folder.png'),
+  activity: require('@/assets/app/calendar.png'),
+  // eslint-disable-next-line @typescript-eslint/camelcase
+  about_me: require('@/assets/app/note.png'),
+  terminal: require('@/assets/app/terminal.png'),
+  browser: require('@/assets/app/safari.png'),
+  email: require('@/assets/app/message.png'),
+  contact: require('@/assets/app/contact.png'),
+  information: require('@/assets/app/setting.png'),
+};
 
 export default defineComponent({
   name: 'Desktop',
-  components: { Text, Icon, Window, ItemGroup, Dock },
+  components: { Icon, ProjectWindow, Dock },
   props: {
-    apps: {
-      type: Array as PropType<AppType[]>,
-      default: [],
-    },
     dock: {
       type: Object as PropType<DockMenu>,
       required: true,
     },
   },
   setup() {
-    const isOpen = ref(false);
-    const activeApp = ref<null | AppType>(null);
-    const listGroup = computed(() => {
-      if (activeApp.value?.type !== 'list') return [];
-      return activeApp.value.items.reduce((prev, { group, tag, title, content }) => {
-        const groupObject = prev.find(x => x.group === group);
-        groupObject
-          ? groupObject.items.push({ tag, title, content })
-          : prev.push({ group, items: [{ tag, title, content }] });
-        return prev;
-      }, [] as ListGroup[]);
-    });
-
-    const appExecute = (app: AppType) => {
-      if (app.type === 'link') {
-        window.open(app.url, '_blank');
-      } else {
-        activeApp.value = app;
-        isOpen.value = true;
-      }
-    };
-
-    const closeWindow = () => (isOpen.value = false);
-
-    return { appExecute, activeApp, listGroup, isOpen, closeWindow };
+    return { apps };
   },
 });
 </script>
