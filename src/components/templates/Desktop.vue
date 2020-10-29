@@ -4,7 +4,7 @@
       <!-- Max icons: 8 -->
       <Icon
         v-for="(app, i) in Object.entries(apps).slice(0, 8)"
-        :name="app[0]"
+        :name="toAppName(app[0])"
         :icon="app[1]"
         :key="i"
         @click="appExecute(app)"
@@ -44,7 +44,9 @@ export default defineComponent({
     },
   },
   setup() {
-    return { apps };
+    const toAppName = (name: string) =>
+      name.charAt(0).toUpperCase() + name.replace('_', ' ').slice(1);
+    return { apps, toAppName };
   },
 });
 </script>
