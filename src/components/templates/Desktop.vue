@@ -7,19 +7,23 @@
         :name="toAppName(app[0])"
         :icon="app[1]"
         :key="i"
-        @click="appExecute(app)"
+        @click="executeApp(app[0])"
       />
     </div>
-    <ProjectWindow v-show="true" />
+    <!-- Application windows -->
+    <ProjectWindow @close="currentApp = null" v-show="currentApp === 'projects'" />
+    <!-- Dock (Footer) -->
     <Dock :name="dock.name" :hobby="dock.hobby" :photo="dock.photo" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import { DockMenu } from '@/types';
 import Icon from '@/components/atoms/Icon.vue';
 import Dock from '@/components/organisms/Dock.vue';
+
+// Application windows
 import ProjectWindow from '@/components/organisms/ProjectWindow.vue';
 
 const apps = {
@@ -44,9 +48,23 @@ export default defineComponent({
     },
   },
   setup() {
+    // Showing window (= app name)
+    const currentApp = ref<keyof typeof apps | null>(null);
+
+    /**
+     * Change first char to uppercase and replace _ to spaces
+     * @param {string} name Origin key
+     */
     const toAppName = (name: string) =>
       name.charAt(0).toUpperCase() + name.replace('_', ' ').slice(1);
-    return { apps, toAppName };
+
+    /**
+     * Show target application window
+     * @param {string} appKey Application key
+     */
+    const executeApp = (appKey: keyof typeof apps): void => void (currentApp.value = appKey);
+
+    return { apps, currentApp, toAppName, executeApp };
   },
 });
 </script>
