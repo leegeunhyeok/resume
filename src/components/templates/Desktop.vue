@@ -11,7 +11,11 @@
       />
     </div>
     <!-- Application windows -->
-    <ProjectWindow @close="currentApp = null" v-show="currentApp === 'projects'" />
+    <ProjectWindow
+      :data="appData['projects']"
+      @close="currentApp = null"
+      v-show="currentApp === 'projects'"
+    />
     <!-- Dock (Footer) -->
     <Dock :name="dock.name" :hobby="dock.hobby" :photo="dock.photo" />
   </div>
@@ -42,6 +46,9 @@ export default defineComponent({
   name: 'Desktop',
   components: { Icon, ProjectWindow, Dock },
   props: {
+    appData: {
+      type: Object as PropType<{ [key in keyof typeof apps]: unknown }>,
+    },
     dock: {
       type: Object as PropType<DockMenu>,
       required: true,

@@ -12,7 +12,7 @@
       <Item
         v-for="(item, i) in items"
         :key="i"
-        :content="item.title"
+        :content="item.label"
         :tag="item.tag"
         @click="$emit('select', i)"
       />
@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { ListItem as ListItemProps } from '@/types';
+import { Item as ItemData } from '@/types';
 import Text from '@/components/atoms/Text.vue';
 import Item from '@/components/molecules/Item.vue';
 
@@ -30,8 +30,8 @@ export default defineComponent({
   name: 'ItemGroup',
   components: { Text, Item },
   props: {
-    label: String,
-    items: Array as PropType<ListItemProps[]>,
+    group: String,
+    items: Array as PropType<ItemData[]>,
   },
   emits: ['select'],
 });
