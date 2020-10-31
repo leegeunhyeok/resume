@@ -15,7 +15,7 @@ export const scrollTo = (to: number, done: Function) => {
 
   requestAnimationFrame(() => {
     element.scrollTop = element.scrollTop + perTick;
-    if (element.scrollTop === to) {
+    if (element.scrollTop >= to) {
       done();
     } else {
       scrollTo(to, done);
