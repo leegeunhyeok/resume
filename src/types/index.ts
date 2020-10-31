@@ -1,4 +1,12 @@
-export type ContentType = 'text' | 'image' | 'link';
+export interface BoxProps {
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+}
+
+export type ContentType = 'text' | 'image';
 export interface Content {
   type: ContentType;
   data: string;
