@@ -5,8 +5,8 @@
       color="secondary"
       size="small"
       bold
-      :content="label"
-      v-if="label"
+      :content="group"
+      v-if="group"
     />
     <div class="list-group__list">
       <Item
