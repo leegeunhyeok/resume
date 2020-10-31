@@ -10,7 +10,7 @@
           <img :src="photo" />
         </div>
         <Text size="large" bold :content="name" />
-        <Button text="Login" size="large" color="glass" @click="$emit('next')" />
+        <Button text="Login" size="large" color="glass" @click="toHome" />
       </div>
     </div>
   </div>
@@ -21,6 +21,8 @@ import { defineComponent, PropType, onMounted, onBeforeUnmount, ref } from 'vue'
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
+import { scrollTo } from '@/common/util';
+
 import Button from '@/components/atoms/Button.vue';
 import Text from '@/components/atoms/Text.vue';
 
@@ -40,7 +42,6 @@ export default defineComponent({
     },
     texts: Array as PropType<string[]>,
   },
-  emits: ['next'],
   setup() {
     const { commit } = useStore();
     const router = useRouter();
@@ -48,8 +49,16 @@ export default defineComponent({
     const loading = ref(true);
     const zoom = ref(maxScale);
     const opacity = ref(1);
+    const scrolling = ref(false);
 
-    const toHome = () => router.push({ path: '/home' });
+    const toHome = () => {
+      if (scrolling.value) return;
+      scrolling.value = true;
+      scrollTo(document.body.scrollHeight - document.body.clientHeight, () => {
+        router.push({ path: '/home' });
+      });
+    };
+
     const scrollHandler = () => {
       const scale = window.scrollY / (document.body.scrollHeight - window.innerHeight);
       zoom.value = Math.max(-1 * scale + maxScale, 1);
@@ -61,7 +70,7 @@ export default defineComponent({
       progress.value = 100;
       document.body.classList.add('loaded');
       commit(MutationTypes.APP_LOADED, undefined);
-    }, 1000);
+    }, 0);
 
     // Life cycle hooks
     onMounted(() => window.addEventListener('scroll', scrollHandler));
