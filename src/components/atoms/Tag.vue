@@ -22,6 +22,11 @@ export default defineComponent({
   height: 1rem;
   border-radius: 50%;
 
+  &.empty {
+    background-color: transparent;
+    border: 1px solid #eee;
+  }
+
   @each $name, $color in $colors {
     &.#{$name} {
       background-color: $color;
