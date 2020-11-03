@@ -14,7 +14,7 @@
         :key="i"
         :content="item.label"
         :tag="item.tag"
-        @click="$emit('select', i)"
+        @click="$emit('select', item.tag)"
       />
     </div>
   </div>
