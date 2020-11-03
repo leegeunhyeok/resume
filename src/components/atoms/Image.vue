@@ -16,10 +16,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles';
+@import '@/styles/common';
 
 .image {
+  position: relative;
   border-radius: $radius;
   overflow: hidden;
+
+  & > img {
+    display: block;
+    width: 100%;
+  }
 }
 </style>
