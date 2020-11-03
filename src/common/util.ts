@@ -22,3 +22,5 @@ export const scrollTo = (to: number, done: Function) => {
     }
   });
 };
+
+export const contentFrom = (path: string) => require('@/assets/contents/' + path);
