@@ -37,7 +37,7 @@ and also included vuex, vue-router
 
 ## 🚘 Road Map
 
-- [ ] Support `SSR` or `static` page via [Nuxt.js](https://github.com/nuxt/nuxt.js)
+- [ ] Support `SSR` or `static` page via [Nuxt.js](https://github.com/nuxt/nuxt.js). (Waiting for Vue 3 support)
 
 ## 📖 Template Docs
 
