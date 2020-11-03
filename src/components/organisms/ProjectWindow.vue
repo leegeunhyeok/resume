@@ -6,18 +6,35 @@
         :group="list.group"
         :items="list.items"
         :key="i"
-        @select="setContent(list.items[$event].content)"
+        @select="setTagFilter($event)"
       />
     </template>
     <template v-slot:default>
-      Content
+      <div class="project__items" v-for="(data, i) in filteredContent" :key="i">
+        <DetailedImage
+          :source="contentFrom(data.image)"
+          :detail="{ title: data.name, description: data.description }"
+        />
+        <div class="project__items__tag">
+          <Tag
+            v-for="(tag, i) in data.tag"
+            :color="tag"
+            :key="i"
+            :style="{ zIndex: data.tag.length - i }"
+          />
+        </div>
+      </div>
     </template>
   </Window>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue';
-import { Content } from '@/types';
+import { defineComponent, PropType, ref, computed } from 'vue';
+import { Content as ContentData } from '@/types';
+import { contentFrom } from '@/common/util';
+
+import Tag from '@/components/atoms/Tag.vue';
+import DetailedImage from '@/components/molecules/DetailedImage.vue';
 import Window from '@/components/organisms/Window.vue';
 import ItemGroup from '@/components/organisms/ItemGroup.vue';
 
@@ -31,7 +48,7 @@ interface Project {
   date: string;
   description: string;
   tag: string[];
-  content: Content[];
+  content: ContentData[];
 }
 
 interface ProjectWindowProps {
@@ -39,9 +56,16 @@ interface ProjectWindowProps {
   content: Project[];
 }
 
+const General: Tag[] = [
+  {
+    tag: 'empty',
+    label: 'All',
+  },
+];
+
 export default defineComponent({
   name: 'ProjectWindow',
-  components: { Window, ItemGroup },
+  components: { Tag, DetailedImage, Window, ItemGroup },
   props: {
     data: {
       type: Object as PropType<ProjectWindowProps>,
@@ -50,11 +74,60 @@ export default defineComponent({
   },
   emits: ['close'],
   setup(props) {
-    return {
-      groupList: computed(() =>
-        Object.entries(props.data.tags).map(([group, items]) => ({ group, items })),
+    const currentTag = ref<string | null>(null);
+    const groupList = computed(() =>
+      Object.entries({ general: General, ...props.data.tags }).map(([group, items]) => ({
+        group,
+        items,
+      })),
+    );
+
+    const filteredContent = computed(() =>
+      props.data.content.filter(content =>
+        currentTag.value ? content.tag.find(t => t === currentTag.value) : true,
       ),
+    );
+
+    console.log(filteredContent);
+
+    const setTagFilter = (tag: string) => (currentTag.value = tag === 'empty' ? null : tag);
+
+    return {
+      groupList,
+      filteredContent,
+      setTagFilter,
+      contentFrom,
     };
   },
 });
 </script>
+
+<style lang="scss" scoped>
+@import '@/styles/common';
+
+$overlap: 7px;
+
+.project {
+  &__items {
+    position: relative;
+    margin-bottom: 1rem;
+
+    &__tag {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: $radius / 2;
+      z-index: 1;
+      padding: 0 4px;
+      padding-left: $overlap * 1.5;
+
+      & > * {
+        position: relative;
+        margin-left: -$overlap;
+        margin-top: $overlap / 2;
+      }
+    }
+  }
+}
+</style>

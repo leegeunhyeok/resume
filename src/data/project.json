@@ -15,21 +15,16 @@
     {
       "name": "test",
       "data": "2020.01.01",
+      "image": "download.jpg",
       "description": "Hello",
-      "tag": [],
-      "content": [
-        {
-          "type": "text",
-          "data": "This is text"
-        }
-      ]
+      "tag": []
     },
     {
       "name": "node-schook-kr",
       "data": "2020.01.01",
+      "image": "download.jpg",
       "description": "Hello 2",
-      "tag": ["js"],
-      "content": []
+      "tag": ["js", "ts", "node"]
     }
   ]
 }
