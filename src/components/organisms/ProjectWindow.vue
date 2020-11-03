@@ -88,8 +88,6 @@ export default defineComponent({
       ),
     );
 
-    console.log(filteredContent);
-
     const setTagFilter = (tag: string) => (currentTag.value = tag === 'empty' ? null : tag);
 
     return {
