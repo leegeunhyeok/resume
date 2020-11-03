@@ -10,20 +10,22 @@
       />
     </template>
     <template v-slot:default>
-      <div class="project__items" v-for="(data, i) in filteredContent" :key="i">
-        <DetailedImage
-          :source="contentFrom(data.image)"
-          :detail="{ title: data.name, description: data.description }"
-        />
-        <div class="project__items__tag">
-          <Tag
-            v-for="(tag, i) in data.tag"
-            :color="tag"
-            :key="i"
-            :style="{ zIndex: data.tag.length - i }"
+      <transition-group name="list">
+        <div class="project__items" v-for="(data, i) in filteredContent" :key="i">
+          <DetailedImage
+            :source="contentFrom(data.image)"
+            :detail="{ title: data.name, description: data.description }"
           />
+          <div class="project__items__tag">
+            <Tag
+              v-for="(tag, i) in data.tag"
+              :color="tag"
+              :key="i"
+              :style="{ zIndex: data.tag.length - i }"
+            />
+          </div>
         </div>
-      </div>
+      </transition-group>
     </template>
   </Window>
 </template>
@@ -127,5 +129,15 @@ $overlap: 7px;
       }
     }
   }
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
 }
 </style>
