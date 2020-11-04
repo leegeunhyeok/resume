@@ -8,6 +8,62 @@
       {
         "tag": "ts",
         "label": "TypeScript"
+      },
+      {
+        "tag": "python",
+        "label": "Python"
+      },
+      {
+        "tag": "java",
+        "label": "Java"
+      },
+      {
+        "tag": "c",
+        "label": "C"
+      },
+      {
+        "tag": "cpp",
+        "label": "C++"
+      },
+      {
+        "tag": "shell",
+        "label": "Shell"
+      }
+    ],
+    "web": [
+      {
+        "tag": "vue",
+        "label": "Vue"
+      },
+      {
+        "tag": "react",
+        "label": "React"
+      },
+      {
+        "tag": "angular",
+        "label": "Angular"
+      },
+      {
+        "tag": "pwa",
+        "label": "PWA"
+      }
+    ],
+    "other": [
+      {
+        "tag": "node",
+        "label": "Node"
+      },
+      {
+        "tag": "git",
+        "label": "Git"
+      },
+      {
+        "tag": "docker",
+        "label": "Docker"
+      },
+      {
+        "tag": "vim",
+        "label": "Vim"
       }
     ]
   },
