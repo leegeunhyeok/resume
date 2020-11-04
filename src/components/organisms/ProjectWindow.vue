@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, computed } from 'vue';
-import { Content as ContentData } from '@/types';
+import { TagData, ProjectData } from '@/types';
 import { contentFrom } from '@/common/util';
 
 import Tag from '@/components/atoms/Tag.vue';
@@ -41,25 +41,12 @@ import DetailedImage from '@/components/molecules/DetailedImage.vue';
 import Window from '@/components/organisms/Window.vue';
 import ItemGroup from '@/components/organisms/ItemGroup.vue';
 
-interface Tag {
-  tag: string;
-  label: string;
-}
-
-interface Project {
-  name: string;
-  date: string;
-  description: string;
-  tag: string[];
-  content: ContentData[];
-}
-
 interface ProjectWindowProps {
-  tags: { [key: string]: Tag };
-  content: Project[];
+  tags: { [key: string]: TagData };
+  content: ProjectData[];
 }
 
-const allTag: Tag = {
+const allTag: TagData = {
   tag: 'empty',
   label: 'All',
 };

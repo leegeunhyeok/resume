@@ -6,10 +6,23 @@ export interface BoxProps {
   xl?: number;
 }
 
-export type ContentType = 'text' | 'image';
-export interface Content {
-  type: ContentType;
-  data: string;
+export interface TagData {
+  tag: string;
+  label: string;
+}
+
+export interface ProjectData {
+  name: string;
+  date: string;
+  image: string;
+  description: string;
+  tag: string[];
+}
+
+export interface ActivityData {
+  title: string;
+  date: string;
+  tag: string;
 }
 
 export interface Item {
