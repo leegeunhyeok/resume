@@ -1,5 +1,5 @@
 <template>
-  <Desktop :appData="Template.appData" :dock="Template.dock" />
+  <Desktop :appData="Template.appData" :email="Template.email" :dock="Template.dock" />
 </template>
 
 <script lang="ts">
@@ -10,6 +10,7 @@ import { GetterTypes } from '@/store/getter';
 import Desktop from '@/components/templates/Desktop.vue';
 
 // Data
+import _Base from '@/data/_base.json';
 import ProjectData from '@/data/project.json';
 import ActivityData from '@/data/activity.json';
 
@@ -18,6 +19,7 @@ const Template = {
     projects: ProjectData,
     activity: ActivityData,
   },
+  email: _Base.email,
   dock: {
     name: 'Geunhyeok LEE',
     hobby: ['프로그래밍', '운동'],
