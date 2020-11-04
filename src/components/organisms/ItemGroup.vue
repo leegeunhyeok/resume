@@ -14,6 +14,7 @@
         :key="i"
         :content="item.label"
         :tag="item.tag"
+        :active="activeTag === item.tag"
         @click="$emit('select', item.tag)"
       />
     </div>
@@ -33,9 +34,11 @@ export default defineComponent({
   props: {
     group: String,
     items: Array as PropType<ItemData[]>,
+    activeTag: String,
   },
   emits: ['select'],
-  setup() {
+  setup(prop) {
+    console.log(prop.items, prop.activeTag);
     return { firstCharToUppercase };
   },
 });

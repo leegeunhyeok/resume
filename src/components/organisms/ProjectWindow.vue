@@ -5,12 +5,13 @@
         v-for="(list, i) in groupList"
         :group="list.group"
         :items="list.items"
+        :activeTag="activeTag || ''"
         :key="i"
         @select="setTagFilter($event)"
       />
     </template>
     <template v-slot:default>
-      <transition-group name="list">
+      <transition-group name="list" mode="in-out">
         <div class="project__items" v-for="(data, i) in filteredContent" :key="i">
           <DetailedImage
             :source="contentFrom(data.image)"
@@ -58,12 +59,10 @@ interface ProjectWindowProps {
   content: Project[];
 }
 
-const General: Tag[] = [
-  {
-    tag: 'empty',
-    label: 'All',
-  },
-];
+const allTag: Tag = {
+  tag: 'empty',
+  label: 'All',
+};
 
 export default defineComponent({
   name: 'ProjectWindow',
@@ -76,9 +75,9 @@ export default defineComponent({
   },
   emits: ['close'],
   setup(props) {
-    const currentTag = ref<string | null>(null);
+    const currentTag = ref<string>(allTag.tag);
     const groupList = computed(() =>
-      Object.entries({ general: General, ...props.data.tags }).map(([group, items]) => ({
+      Object.entries({ general: [allTag], ...props.data.tags }).map(([group, items]) => ({
         group,
         items,
       })),
@@ -86,17 +85,18 @@ export default defineComponent({
 
     const filteredContent = computed(() =>
       props.data.content.filter(content =>
-        currentTag.value ? content.tag.find(t => t === currentTag.value) : true,
+        currentTag.value !== allTag.tag ? content.tag.find(t => t === currentTag.value) : true,
       ),
     );
 
-    const setTagFilter = (tag: string) => (currentTag.value = tag === 'empty' ? null : tag);
+    const setTagFilter = (tag: string) => (currentTag.value = tag);
 
     return {
       groupList,
       filteredContent,
       setTagFilter,
       contentFrom,
+      activeTag: computed(() => currentTag.value),
     };
   },
 });
@@ -127,6 +127,10 @@ $overlap: 7px;
         margin-left: -$overlap;
         margin-top: $overlap / 2;
       }
+    }
+
+    &--empty {
+      text-align: center;
     }
   }
 }

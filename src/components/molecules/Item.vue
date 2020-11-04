@@ -1,5 +1,5 @@
 <template>
-  <div class="item" @touchstart.passive="() => null">
+  <div class="item" :class="active ? 'active' : null" @touchstart.passive="() => null">
     <Tag class="item__tag" :color="tag" v-if="tag" />
     <Text color="primary" :content="content" />
   </div>
@@ -16,6 +16,7 @@ export default defineComponent({
   props: {
     content: String,
     tag: String,
+    active: Boolean,
   },
 });
 </script>
@@ -33,7 +34,8 @@ export default defineComponent({
     padding: 0.5rem;
 
     &:hover,
-    &:active {
+    &:active,
+    &.active {
       background-color: rgba(t('mask'), 0.1);
     }
 
