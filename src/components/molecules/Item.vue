@@ -1,5 +1,5 @@
 <template>
-  <div class="item">
+  <div class="item" @touchstart.passive="() => null">
     <Tag class="item__tag" :color="tag" v-if="tag" />
     <Text color="primary" :content="content" />
   </div>

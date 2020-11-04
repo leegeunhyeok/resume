@@ -3,7 +3,11 @@
     <div class="dock__panel">
       <!-- Left -->
       <div>
-        <span class="power-menu" @click="showDockMenu = !showDockMenu" />
+        <span
+          class="power-menu"
+          @click="showDockMenu = !showDockMenu"
+          @touchstart.passive="() => null"
+        />
       </div>
       <!-- Right -->
       <div>

@@ -2,7 +2,7 @@
   <div class="window">
     <div class="window__header">
       <div class="window__header__actions">
-        <span class="red" @click="$emit('close')" />
+        <span class="red" @click="$emit('close')" @touchstart.passive="() => null" />
         <span class="yellow" />
         <span class="green" />
       </div>

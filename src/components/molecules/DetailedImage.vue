@@ -1,5 +1,5 @@
 <template>
-  <div class="detailed-image">
+  <div class="detailed-image" @touchstart.passive="() => null">
     <Image class="detailed-image__img" :source="source" />
     <div class="detailed-image__detail" v-if="detail">
       <h2>{{ detail.title }}</h2>
@@ -37,6 +37,7 @@ export default defineComponent({
   position: relative;
   border-radius: $radius;
   overflow: hidden;
+  clip-path: content-box;
 
   &__img {
     width: 100%;

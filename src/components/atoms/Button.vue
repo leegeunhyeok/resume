@@ -1,5 +1,12 @@
 <template>
-  <button :class="className" @click="$emit('click')" :disabled="disabled">{{ text }}</button>
+  <button
+    :class="className"
+    :disabled="disabled"
+    @click="$emit('click')"
+    @touchstart.passive="() => null"
+  >
+    {{ text }}
+  </button>
 </template>
 
 <script lang="ts">

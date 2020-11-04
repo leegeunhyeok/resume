@@ -68,11 +68,16 @@ body,
 
 body.loaded {
   background: url('~@/assets/wallpaper.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
 * {
   box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: 0;
 }
 
 // Common transition

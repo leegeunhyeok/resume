@@ -26,21 +26,24 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common';
 
-$icon-size: 7rem;
-
 .icon {
   cursor: pointer;
   border-radius: $radius;
   overflow: hidden;
-  margin: 1.5rem 2rem;
+  margin: 0.8rem 1.2rem;
 
   @include size(sm) {
     margin: 1rem;
   }
 
   & > img {
-    width: $icon-size;
-    height: $icon-size;
+    width: 6rem;
+    height: 6rem;
+
+    @include size(sm) {
+      width: 7rem;
+      height: 7rem;
+    }
   }
 
   & > p {
