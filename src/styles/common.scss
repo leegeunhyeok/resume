@@ -12,7 +12,14 @@ $blue: #0061d0;
 $gray: #dbdbdc;
 
 $colors: (
-  js: #f4df4f,
+  // basics
+    red: $red,
+  green: $green,
+  yellow: $yellow,
+  blue: $blue,
+  gray: $gray,
+  // ------
+    js: #f4df4f,
   ts: #4179c1,
   python: #3f7287,
   java: #a7742f,
@@ -26,7 +33,7 @@ $colors: (
   node: #94ca4a,
   git: #df5b40,
   docker: #5caeeb,
-  vim: #4b9c54,
+  vim: #4b9c54
 );
 
 $theme: (
