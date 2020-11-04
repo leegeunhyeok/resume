@@ -11,10 +11,12 @@ import Desktop from '@/components/templates/Desktop.vue';
 
 // Data
 import ProjectData from '@/data/project.json';
+import ActivityData from '@/data/activity.json';
 
 const Template = {
   appData: {
     projects: ProjectData,
+    activity: ActivityData,
   },
   dock: {
     name: 'Geunhyeok LEE',

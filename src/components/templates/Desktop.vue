@@ -17,6 +17,12 @@
       @close="currentApp = null"
       v-show="currentApp === 'projects'"
     />
+    <ActivityWindow
+      :data="appData['activity']"
+      :key="dummy"
+      @close="currentApp = null"
+      v-show="currentApp === 'activity'"
+    />
     <!-- Dock (Footer) -->
     <Dock :name="dock.name" :hobby="dock.hobby" :photo="dock.photo" />
   </div>
@@ -30,6 +36,7 @@ import Dock from '@/components/organisms/Dock.vue';
 
 // Application windows
 import ProjectWindow from '@/components/organisms/ProjectWindow.vue';
+import ActivityWindow from '@/components/organisms/ActivityWindow.vue';
 
 const apps = {
   projects: require('@/assets/app/folder.png'),
@@ -45,7 +52,7 @@ const apps = {
 
 export default defineComponent({
   name: 'Desktop',
-  components: { Icon, ProjectWindow, Dock },
+  components: { Icon, ProjectWindow, ActivityWindow, Dock },
   props: {
     appData: {
       type: Object as PropType<{ [key in keyof typeof apps]: unknown }>,
