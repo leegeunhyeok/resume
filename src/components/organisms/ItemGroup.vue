@@ -37,8 +37,7 @@ export default defineComponent({
     activeTag: String,
   },
   emits: ['select'],
-  setup(prop) {
-    console.log(prop.items, prop.activeTag);
+  setup() {
     return { firstCharToUppercase };
   },
 });
