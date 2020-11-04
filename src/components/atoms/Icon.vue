@@ -34,7 +34,7 @@ export default defineComponent({
   cursor: pointer;
   border-radius: $radius;
   overflow: hidden;
-  margin: 0.8rem 1.2rem;
+  margin: 0.8rem 8%;
 
   @include size(sm) {
     margin: 1rem;
