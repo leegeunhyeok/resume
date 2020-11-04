@@ -13,6 +13,7 @@
     <!-- Application windows -->
     <ProjectWindow
       :data="appData['projects']"
+      :key="dummy"
       @close="currentApp = null"
       v-show="currentApp === 'projects'"
     />
@@ -58,13 +59,19 @@ export default defineComponent({
     // Showing window (= app name)
     const currentApp = ref<keyof typeof apps | null>(null);
 
+    // For rerender window component
+    const dummy = ref<number>(0);
+
     /**
      * Show target application window
      * @param {string} appKey Application key
      */
-    const executeApp = (appKey: keyof typeof apps): void => void (currentApp.value = appKey);
+    const executeApp = (appKey: keyof typeof apps): void => {
+      dummy.value++;
+      currentApp.value = appKey;
+    };
 
-    return { apps, currentApp, executeApp };
+    return { apps, currentApp, executeApp, dummy };
   },
 });
 </script>
