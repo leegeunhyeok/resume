@@ -56,10 +56,11 @@ $content-padding: 1rem;
 
 @include theme {
   .window {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
-    position: relative;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);
     border-radius: $radius;
     height: calc(100% - #{$dock-height});
@@ -68,7 +69,7 @@ $content-padding: 1rem;
     overflow: hidden;
 
     @include size(sm) {
-      display: flex;
+      flex-direction: row;
       height: 60vh;
       width: 80%;
       @include window-position;
@@ -131,20 +132,20 @@ $content-padding: 1rem;
       backdrop-filter: blur($blur);
       padding-left: 1rem;
       padding-right: 1rem;
-      max-height: 200px;
+      max-height: 9rem;
       @include window-content;
       @include size(sm) {
         max-height: none;
         max-width: $side-sm-width;
       }
-      @include size(md) {
-        max-width: $side-md-width;
-      }
+      overflow-x: auto;
+      white-space: nowrap;
     }
 
     &__content {
       @include window-content;
       width: 100%;
+      height: 100%;
       background-color: t(primary);
       padding-left: $content-padding;
       padding-right: $content-padding;

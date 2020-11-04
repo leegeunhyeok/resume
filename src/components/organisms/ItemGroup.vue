@@ -41,14 +41,32 @@ export default defineComponent({
 @import '@/styles/common';
 
 .list-group {
-  margin-bottom: 1rem;
+  position: relative;
+  margin-right: 1rem;
+  display: inline-block;
+
+  @include size(sm) {
+    display: block;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
 
   &__label {
     padding-left: 0.25rem;
+    @include size(sm) {
+      padding-left: 0.25rem;
+    }
   }
 
   &__list {
     margin-top: 0.4rem;
+
+    & .item {
+      display: inline-flex !important;
+      @include size(sm) {
+        display: flex !important;
+      }
+    }
   }
 }
 </style>
