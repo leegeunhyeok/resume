@@ -1,12 +1,13 @@
 <template>
   <div class="icon">
     <img :src="icon" :alt="name" />
-    <p>{{ name }}</p>
+    <p>{{ firstCharToUppercase(name) }}</p>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { firstCharToUppercase } from '@/common/util';
 
 export default defineComponent({
   name: 'Icon',
@@ -19,6 +20,9 @@ export default defineComponent({
       type: String,
       required: true,
     },
+  },
+  setup() {
+    return { firstCharToUppercase };
   },
 });
 </script>

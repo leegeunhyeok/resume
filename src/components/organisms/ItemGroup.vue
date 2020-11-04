@@ -5,7 +5,7 @@
       color="secondary"
       size="small"
       bold
-      :content="group"
+      :content="firstCharToUppercase(group)"
       v-if="group"
     />
     <div class="list-group__list">
@@ -23,6 +23,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { Item as ItemData } from '@/types';
+import { firstCharToUppercase } from '@/common/util';
 import Text from '@/components/atoms/Text.vue';
 import Item from '@/components/molecules/Item.vue';
 
@@ -34,6 +35,9 @@ export default defineComponent({
     items: Array as PropType<ItemData[]>,
   },
   emits: ['select'],
+  setup() {
+    return { firstCharToUppercase };
+  },
 });
 </script>
 

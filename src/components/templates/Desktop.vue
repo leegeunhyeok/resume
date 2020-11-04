@@ -4,7 +4,7 @@
       <!-- Max icons: 8 -->
       <Icon
         v-for="(app, i) in Object.entries(apps).slice(0, 8)"
-        :name="toAppName(app[0])"
+        :name="app[0]"
         :icon="app[1]"
         :key="i"
         @click="executeApp(app[0])"
@@ -59,19 +59,12 @@ export default defineComponent({
     const currentApp = ref<keyof typeof apps | null>(null);
 
     /**
-     * Change first char to uppercase and replace _ to spaces
-     * @param {string} name Origin key
-     */
-    const toAppName = (name: string) =>
-      name.charAt(0).toUpperCase() + name.replace('_', ' ').slice(1);
-
-    /**
      * Show target application window
      * @param {string} appKey Application key
      */
     const executeApp = (appKey: keyof typeof apps): void => void (currentApp.value = appKey);
 
-    return { apps, currentApp, toAppName, executeApp };
+    return { apps, currentApp, executeApp };
   },
 });
 </script>
