@@ -1,5 +1,5 @@
 <template>
-  <Window title="Project" @close="$emit('close')">
+  <Window @close="$emit('close')">
     <template v-slot:side>
       <ItemGroup
         v-for="(list, i) in groupList"

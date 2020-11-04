@@ -6,10 +6,6 @@
         <span class="yellow" />
         <span class="green" />
       </div>
-      <div class="window__header__title" :class="$slots.side || 'no-side'">
-        <div class="padding" />
-        <Text :content="title" size="large" />
-      </div>
     </div>
     <div class="window__side" v-if="$slots.side">
       <slot name="side" />
@@ -22,14 +18,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Text from '@/components/atoms/Text.vue';
 
 export default defineComponent({
   name: 'Window',
-  components: { Text },
-  props: {
-    title: String,
-  },
   emits: ['close'],
 });
 </script>
@@ -132,21 +123,6 @@ $content-padding: 1rem;
           }
         }
       }
-
-      &__title {
-        line-height: $header_height;
-
-        @include size(sm) {
-          padding-left: calc(#{$side-sm-width} + #{$content-padding});
-        }
-        @include size(md) {
-          padding-left: calc(#{$side-md-width} + #{$content-padding});
-        }
-
-        &.no-side {
-          padding-left: 8rem !important;
-        }
-      }
     }
 
     &__side {
@@ -167,11 +143,12 @@ $content-padding: 1rem;
     }
 
     &__content {
+      @include window-content;
       width: 100%;
       background-color: t(primary);
       padding-left: $content-padding;
       padding-right: $content-padding;
-      @include window-content;
+      padding-top: 1rem;
     }
   }
 }
