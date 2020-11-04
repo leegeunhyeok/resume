@@ -1,0 +1,34 @@
+{
+  "tags": {
+    "Type": [
+      {
+        "tag": "red",
+        "label": "Career"
+      },
+      {
+        "tag": "blue",
+        "label": "Certification"
+      },
+      {
+        "tag": "yellow",
+        "label": "Education"
+      },
+      {
+        "tag": "green",
+        "label": "Publishing"
+      }
+    ]
+  },
+  "content": [
+    {
+      "title": "Sample",
+      "date": "2020.01.01",
+      "tag": "yellow"
+    },
+    {
+      "title": "Sample 2",
+      "date": "2020.01.02",
+      "tag": "green"
+    }
+  ]
+}
