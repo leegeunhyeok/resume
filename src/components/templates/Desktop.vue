@@ -57,12 +57,16 @@ export default defineComponent({
     appData: {
       type: Object as PropType<{ [key in keyof typeof apps]: unknown }>,
     },
+    email: {
+      type: String,
+      required: true,
+    },
     dock: {
       type: Object as PropType<DockMenu>,
       required: true,
     },
   },
-  setup() {
+  setup(props) {
     // Showing window (= app name)
     const currentApp = ref<keyof typeof apps | null>(null);
 
@@ -74,8 +78,13 @@ export default defineComponent({
      * @param {string} appKey Application key
      */
     const executeApp = (appKey: keyof typeof apps): void => {
-      dummy.value++;
-      currentApp.value = appKey;
+      if (appKey === 'email') {
+        window.open(`mailto:${props.email}`, '_blank');
+        return;
+      } else {
+        dummy.value++;
+        currentApp.value = appKey;
+      }
     };
 
     return { apps, currentApp, executeApp, dummy };
