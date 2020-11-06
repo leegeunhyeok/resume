@@ -21,8 +21,8 @@ const Template = {
   },
   email: _Base.email,
   dock: {
-    name: 'Geunhyeok LEE',
-    hobby: ['프로그래밍', '운동'],
+    name: _Base.name,
+    hobby: _Base.hobby,
     photo: {
       source: require('@/assets/avatar.png'),
       title: "It's me",
