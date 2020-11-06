@@ -1,6 +1,6 @@
 <template>
   <router-view v-slot="{ Component }">
-    <transition :name="transition" mode="out-in">
+    <transition :name="transition">
       <component :is="Component" />
     </transition>
   </router-view>
@@ -66,7 +66,7 @@ body,
   @include page;
 }
 
-body.loaded {
+body {
   background: url('~@/assets/wallpaper.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -80,10 +80,10 @@ body.loaded {
   outline: 0;
 }
 
-// Common transition
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.8s;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
 }
 
 .fade-enter-from,

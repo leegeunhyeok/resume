@@ -44,7 +44,6 @@ export default defineComponent({
     setTimeout(() => {
       progress.value = 100;
       loading.value = false;
-      document.body.classList.add('loaded');
       commit(MutationTypes.APP_LOADED, undefined);
     }, 1000);
 

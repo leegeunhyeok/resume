@@ -100,6 +100,9 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 
   &__apps {
     display: flex;
