@@ -9,8 +9,8 @@
 <script lang="ts">
 import { computed, defineComponent } from 'vue';
 import store, { Store, provideStore } from '@/store';
-import { MutationTypes } from './store/mutation';
-import { GetterTypes } from './store/getter';
+import { MutationTypes } from '@/store/mutation';
+import { GetterTypes } from '@/store/getter';
 
 const updateTimeLoop = (store: Store) => {
   const baseTick = 1000;
