@@ -11,6 +11,7 @@ const defaultOption = {
 };
 
 function AssetListExportPlugin(options) {
+  console.log('custom ---');
   this.options = {
     ...defaultOption,
     ...options,
@@ -33,6 +34,7 @@ AssetListExportPlugin.prototype.apply = function(compiler) {
       filename,
       `window.__assets=${JSON.stringify(assets, null, pretty ? 2 : 0)}`,
       err => {
+        console.log('custom 2');
         if (err) {
           throw new Error(err);
         } else {
