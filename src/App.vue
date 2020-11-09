@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { defineComponent, computed, watch } from 'vue';
 import store, { Store, provideStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
 import { GetterTypes } from '@/store/getter';
@@ -35,6 +35,13 @@ export default defineComponent({
     provideStore(store);
     updateTimeLoop(store);
     const transition = computed(() => (store.getters[GetterTypes.READY] ? 'fade' : null));
+    const isDark = computed(() => store.state.isDark);
+
+    watch(isDark, value => {
+      document.body.removeAttribute('class');
+      document.body.classList.add(value ? 'dark' : 'light');
+    });
+
     return { transition };
   },
 });

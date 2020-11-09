@@ -4,11 +4,13 @@ import { State } from '@/store/state';
 export enum MutationTypes {
   APP_LOADED = 'APP_LOADED',
   SET_TIME = 'SET_TIME',
+  SET_DARKMODE = 'SET_DARKMODE',
 }
 
 export type Mutations<S = State> = {
   [MutationTypes.APP_LOADED](state: S): void;
   [MutationTypes.SET_TIME](state: S, payload: Date): void;
+  [MutationTypes.SET_DARKMODE](state: S, payload: boolean): void;
 };
 
 export const mutations: MutationTree<State> & Mutations = {
@@ -17,5 +19,8 @@ export const mutations: MutationTree<State> & Mutations = {
   },
   [MutationTypes.SET_TIME](state, date) {
     state.date = date;
+  },
+  [MutationTypes.SET_DARKMODE](state, darkmode) {
+    state.isDark = darkmode;
   },
 };

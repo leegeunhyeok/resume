@@ -48,7 +48,7 @@
             <Text size="small" :content="hobby[0]" class="red" v-if="hobby[0]" />
             <Text size="small" :content="hobby[1]" class="green" v-if="hobby[1]" />
           </div>
-          <div class="dock__menu__item half darkmode" />
+          <div class="dock__menu__item half darkmode" @click="toggleDarkmode" />
         </div>
       </div>
     </transition>
@@ -60,6 +60,7 @@ import { defineComponent, PropType, ref, computed } from 'vue';
 import { VERSION, RELEASE_DATE } from '@/common';
 import { useStore } from '@/store';
 import { GetterTypes } from '@/store/getter';
+import { MutationTypes } from '@/store/mutation';
 import Text from '@/components/atoms/Text.vue';
 
 const getDayString = (day: number) => {
@@ -105,7 +106,11 @@ export default defineComponent({
       const weekDay = getDayString(currentTime.getDay());
       return { date, weekDay };
     });
-    return { time, showDockMenu, currentDateAndWeekDay, VERSION, RELEASE_DATE };
+
+    const themeIsDark = computed(() => store.state.isDark);
+    const toggleDarkmode = () => store.commit(MutationTypes.SET_DARKMODE, !themeIsDark.value);
+
+    return { time, showDockMenu, currentDateAndWeekDay, toggleDarkmode, VERSION, RELEASE_DATE };
   },
 });
 </script>
