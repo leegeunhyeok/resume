@@ -19,8 +19,6 @@
 <script lang="ts">
 import { defineComponent, PropType, onMounted, onBeforeUnmount, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useStore } from '@/store';
-import { MutationTypes } from '@/store/mutation';
 import { scrollTo } from '@/common/util';
 
 import Button from '@/components/atoms/Button.vue';
@@ -43,9 +41,7 @@ export default defineComponent({
     texts: Array as PropType<string[]>,
   },
   setup() {
-    const { commit } = useStore();
     const router = useRouter();
-    const progress = ref(0);
     const loading = ref(true);
     const zoom = ref(maxScale);
     const opacity = ref(1);
@@ -65,18 +61,11 @@ export default defineComponent({
       opacity.value = 1 - Math.min(window.scrollY / (window.innerHeight / 2), 1);
     };
 
-    // Sample
-    setTimeout(() => {
-      progress.value = 100;
-      document.body.classList.add('loaded');
-      commit(MutationTypes.APP_LOADED, undefined);
-    }, 0);
-
     // Life cycle hooks
     onMounted(() => window.addEventListener('scroll', scrollHandler));
     onBeforeUnmount(() => window.addEventListener('scroll', scrollHandler));
 
-    return { loading, progress, zoom, opacity, toHome };
+    return { loading, zoom, opacity, toHome };
   },
 });
 </script>

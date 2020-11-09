@@ -9,6 +9,30 @@ export const numberPadding = (target: number, length: number) => {
   }
 };
 
+export const imagePreload = (imageSources: string[], onProgress?: Function): Promise<void> => {
+  const total = imageSources.length;
+  let count = 0;
+
+  return Promise.all(
+    imageSources.map(source => {
+      return new Promise(resolve => {
+        const end = () => {
+          const percent = (++count / total) * 100;
+          typeof onProgress === 'function' && onProgress(percent);
+          console.log(`Preloading.. ${percent.toFixed(2)}% (${count}/${imageSources.length})`);
+          resolve();
+        };
+
+        const img = new Image();
+        img.src = source;
+        img.onload = end;
+        img.onerror = end;
+      });
+    }),
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+  ).then(() => {});
+};
+
 export const scrollTo = (to: number, done: Function) => {
   const element = document.documentElement;
   const perTick = Math.max((to - element.scrollTop) / 10, 5);

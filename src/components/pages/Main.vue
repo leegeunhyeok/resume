@@ -20,8 +20,12 @@ import { defineComponent, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
+import { imagePreload } from '@/common/util';
+
 import Progress from '@/components/atoms/Progress.vue';
 import Intro from '@/components/templates/Intro.vue';
+
+declare const __assets: string[];
 
 // Template
 const Template = {
@@ -40,14 +44,13 @@ export default defineComponent({
     const loading = ref(true);
 
     const toHome = () => router.push({ path: '/home' });
-    // Loading Sample
-    setTimeout(() => {
-      progress.value = 100;
-      loading.value = false;
-      commit(MutationTypes.APP_LOADED, undefined);
-    }, 1000);
 
-    return { Template, loading, progress, toHome };
+    imagePreload(__assets, (percent: number) => (progress.value = percent)).then(() => {
+      commit(MutationTypes.APP_LOADED, undefined);
+      setTimeout(() => (loading.value = false), 500);
+    });
+
+    return { Template, progress, loading, toHome };
   },
 });
 </script>
