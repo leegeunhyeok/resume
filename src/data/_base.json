@@ -1,4 +1,8 @@
 {
+  "app": {
+    "name": "GDev",
+    "themeColor": "#ffffff"
+  },
   "title": "Dev | Geundung",
   "ga": "UA-156696575-2",
   "name": "Geunhyeok LEE",

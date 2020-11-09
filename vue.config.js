@@ -21,4 +21,10 @@ module.exports = {
       return args;
     });
   },
+  pwa: {
+    name: _Base.app.name,
+    themeColor: _Base.app.themeColor,
+    msTileColor: _Base.app.themeColor,
+    appleMobileWebAppCapable: 'yes',
+  },
 };
