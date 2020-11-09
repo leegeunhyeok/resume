@@ -1,6 +1,6 @@
 <template>
   <router-view v-slot="{ Component }">
-    <transition :name="transition">
+    <transition :name="transitionName">
       <component :is="Component" />
     </transition>
   </router-view>
@@ -11,7 +11,18 @@ import { defineComponent, computed, watch } from 'vue';
 import store, { Store, provideStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
 import { GetterTypes } from '@/store/getter';
-import { isDarkmode, watchThemeChange } from './common/util';
+import { isDarkmode, watchThemeChange } from '@/common/util';
+import { Template } from '@/types';
+
+import _Base from '@/data/_base.json';
+
+const TemplateData: Template = {
+  name: _Base.name,
+  email: _Base.email,
+  photo: require('@/assets/' + _Base.photo),
+  introText: _Base.introText,
+  hobby: _Base.hobby,
+};
 
 const updateTimeLoop = (store: Store) => {
   const baseTick = 1000;
@@ -35,7 +46,7 @@ export default defineComponent({
   setup() {
     provideStore(store);
     updateTimeLoop(store);
-    const transition = computed(() => (store.getters[GetterTypes.READY] ? 'fade' : null));
+    const transitionName = computed(() => (store.getters[GetterTypes.READY] ? 'fade' : null));
     const isDark = computed(() => store.state.isDark);
 
     const updateTheme = (isDark: boolean) => {
@@ -43,11 +54,15 @@ export default defineComponent({
       document.body.classList.add(isDark ? 'dark' : 'light');
     };
 
+    // Darkmode configuration & watch OS theme changing
     watch(isDark, value => updateTheme(value));
     isDarkmode() && updateTheme(true);
     watchThemeChange(updateTheme);
 
-    return { transition };
+    // Init template data
+    store.commit(MutationTypes.SET_TEMPLATE_DATA, TemplateData);
+
+    return { transitionName };
   },
 });
 </script>

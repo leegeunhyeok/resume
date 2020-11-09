@@ -14,7 +14,7 @@
       <transition-group name="list" mode="in-out">
         <div class="project__items" v-for="(data, i) in filteredContent" :key="i">
           <DetailedImage
-            :source="contentFrom(data.image)"
+            :source="assetFrom(data.image)"
             :detail="{ title: data.name, description: data.description }"
           />
           <div class="project__items__tag">
@@ -34,7 +34,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref, computed } from 'vue';
 import { TagData, ProjectData } from '@/types';
-import { contentFrom } from '@/common/util';
+import { assetFrom } from '@/common/util';
 
 import Tag from '@/components/atoms/Tag.vue';
 import DetailedImage from '@/components/molecules/DetailedImage.vue';
@@ -82,7 +82,7 @@ export default defineComponent({
       groupList,
       filteredContent,
       setTagFilter,
-      contentFrom,
+      assetFrom,
       activeTag: computed(() => currentTag.value),
     };
   },

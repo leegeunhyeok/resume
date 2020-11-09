@@ -4,13 +4,7 @@
       <div class="main__loading" v-if="loading">
         <Progress :value="progress" />
       </div>
-      <Intro
-        :name="Template.name"
-        :photo="Template.photo"
-        :texts="Template.introText"
-        @next="toHome"
-        v-else
-      />
+      <Intro :template="template" @next="toHome" v-else />
     </transition>
   </div>
 </template>
@@ -21,18 +15,12 @@ import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
 import { imagePreload } from '@/common/util';
+import { useTemplate } from '@/compositions';
 
 import Progress from '@/components/atoms/Progress.vue';
 import Intro from '@/components/templates/Intro.vue';
 
 declare const __assets: string[];
-
-// Template
-const Template = {
-  name: 'Geunhyeok LEE',
-  photo: require('@/assets/avatar.png'),
-  introText: ['For better', 'Web experience.'],
-};
 
 export default defineComponent({
   name: 'Main',
@@ -50,7 +38,7 @@ export default defineComponent({
       setTimeout(() => (loading.value = false), 500);
     });
 
-    return { Template, progress, loading, toHome };
+    return { progress, loading, toHome, template: useTemplate() };
   },
 });
 </script>

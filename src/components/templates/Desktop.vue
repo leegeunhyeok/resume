@@ -24,13 +24,14 @@
       v-show="currentApp === 'activity'"
     />
     <!-- Dock (Footer) -->
-    <Dock :name="dock.name" :hobby="dock.hobby" :photo="dock.photo" />
+    <Dock :name="template.name" :hobby="template.hobby" :photo="template.photo" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, ref } from 'vue';
-import { DockMenu } from '@/types';
+import { Template } from '@/types';
+
 import Icon from '@/components/atoms/Icon.vue';
 import Dock from '@/components/organisms/Dock.vue';
 
@@ -57,12 +58,8 @@ export default defineComponent({
     appData: {
       type: Object as PropType<{ [key in keyof typeof apps]: unknown }>,
     },
-    email: {
-      type: String,
-      required: true,
-    },
-    dock: {
-      type: Object as PropType<DockMenu>,
+    template: {
+      type: Object as PropType<Template>,
       required: true,
     },
   },
@@ -79,7 +76,7 @@ export default defineComponent({
      */
     const executeApp = (appKey: keyof typeof apps): void => {
       if (appKey === 'email') {
-        window.open(`mailto:${props.email}`, '_blank');
+        window.open(`mailto:${props.template.email}`, '_blank');
         return;
       } else {
         dummy.value++;

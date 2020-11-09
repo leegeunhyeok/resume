@@ -50,7 +50,7 @@ export const scrollTo = (to: number, done: Function) => {
 export const firstCharToUppercase = (value: string) =>
   value.charAt(0).toUpperCase() + value.replace('_', ' ').slice(1);
 
-export const contentFrom = (path: string) => require('@/assets/contents/' + path);
+export const assetFrom = (path: string) => require('@/assets/' + path);
 
 export const isDarkmode = () =>
   !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;

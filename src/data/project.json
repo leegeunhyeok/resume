@@ -71,14 +71,14 @@
     {
       "name": "test",
       "date": "2020.01.01",
-      "image": "download.jpg",
+      "image": "contents/download.jpg",
       "description": "Hello",
       "tag": []
     },
     {
       "name": "node-schook-kr",
       "date": "2020.01.01",
-      "image": "download.jpg",
+      "image": "contents/download.jpg",
       "description": "Hello 2",
       "tag": ["js", "ts", "node"]
     }

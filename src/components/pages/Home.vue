@@ -1,5 +1,5 @@
 <template>
-  <Desktop :appData="Template.appData" :email="Template.email" :dock="Template.dock" />
+  <Desktop :appData="appData" :template="template" />
 </template>
 
 <script lang="ts">
@@ -7,27 +7,17 @@ import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from '@/store';
 import { GetterTypes } from '@/store/getter';
+import { useTemplate } from '@/compositions';
+
 import Desktop from '@/components/templates/Desktop.vue';
 
 // Data
-import _Base from '@/data/_base.json';
 import ProjectData from '@/data/project.json';
 import ActivityData from '@/data/activity.json';
 
-const Template = {
-  appData: {
-    projects: ProjectData,
-    activity: ActivityData,
-  },
-  email: _Base.email,
-  dock: {
-    name: _Base.name,
-    hobby: _Base.hobby,
-    photo: {
-      source: require('@/assets/avatar.png'),
-      title: "It's me",
-    },
-  },
+const appData = {
+  projects: ProjectData,
+  activity: ActivityData,
 };
 
 export default defineComponent({
@@ -37,7 +27,8 @@ export default defineComponent({
     const router = useRouter();
     const { getters } = useStore();
     getters[GetterTypes.READY] || router.push({ path: '/' });
-    return { Template };
+
+    return { appData, template: useTemplate() };
   },
 });
 </script>

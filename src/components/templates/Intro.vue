@@ -3,13 +3,20 @@
     <div class="intro__content">
       <div class="intro__content__wallpaper" :style="{ transform: `scale(${zoom})` }" />
       <div class="intro__content__wrap hello" :style="{ opacity }">
-        <Text v-for="(text, i) in texts" :content="text" font="normal" size="large" bold :key="i" />
+        <Text
+          v-for="(text, i) in template.introText"
+          :content="text"
+          font="normal"
+          size="large"
+          bold
+          :key="i"
+        />
       </div>
       <div class="intro__content__wrap login">
         <div class="profile">
-          <img :src="photo" />
+          <img :src="template.photo" />
         </div>
-        <Text size="large" bold :content="name" />
+        <Text size="large" bold :content="template.name" />
         <Button text="Login" size="large" color="glass" @click="toHome" />
       </div>
     </div>
@@ -17,12 +24,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, onMounted, onBeforeUnmount, ref } from 'vue';
+import { PropType, defineComponent, onMounted, onBeforeUnmount, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { scrollTo } from '@/common/util';
 
 import Button from '@/components/atoms/Button.vue';
 import Text from '@/components/atoms/Text.vue';
+import { Template } from '@/types';
 
 const maxScale = 2;
 
@@ -30,15 +38,10 @@ export default defineComponent({
   name: 'Intro',
   components: { Button, Text },
   props: {
-    name: {
-      type: String,
-      isRequired: true,
+    template: {
+      type: Object as PropType<Template>,
+      required: true,
     },
-    photo: {
-      type: String,
-      isRequired: true,
-    },
-    texts: Array as PropType<string[]>,
   },
   setup() {
     const router = useRouter();
@@ -65,7 +68,12 @@ export default defineComponent({
     onMounted(() => window.addEventListener('scroll', scrollHandler));
     onBeforeUnmount(() => window.addEventListener('scroll', scrollHandler));
 
-    return { loading, zoom, opacity, toHome };
+    return {
+      loading,
+      zoom,
+      opacity,
+      toHome,
+    };
   },
 });
 </script>

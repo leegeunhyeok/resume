@@ -29,7 +29,6 @@
 <script lang="ts">
 import { defineComponent, PropType, ref, computed } from 'vue';
 import { TagData, ActivityData } from '@/types';
-import { contentFrom } from '@/common/util';
 
 import Tag from '@/components/atoms/Tag.vue';
 import Text from '@/components/atoms/Text.vue';
@@ -79,7 +78,6 @@ export default defineComponent({
       groupList,
       filteredContent,
       setTagFilter,
-      contentFrom,
       activeTag: computed(() => currentTag.value),
     };
   },

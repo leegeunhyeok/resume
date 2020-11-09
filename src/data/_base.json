@@ -7,5 +7,7 @@
   "ga": "UA-156696575-2",
   "name": "Geunhyeok LEE",
   "email": "dev.ghlee@gmail.com",
+  "photo": "avatar.png",
+  "introText": ["For better", "Web experience."],
   "hobby": ["프로그래밍", "운동"]
 }
