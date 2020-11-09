@@ -48,10 +48,7 @@
             <Text size="small" :content="hobby[0]" class="red" v-if="hobby[0]" />
             <Text size="small" :content="hobby[1]" class="green" v-if="hobby[1]" />
           </div>
-          <div class="dock__menu__item half photo" v-if="photo.source">
-            <img :src="photo.source" alt="photo" />
-            <Text size="large" :content="photo.title" />
-          </div>
+          <div class="dock__menu__item half darkmode" />
         </div>
       </div>
     </transition>
@@ -63,7 +60,6 @@ import { defineComponent, PropType, ref, computed } from 'vue';
 import { VERSION, RELEASE_DATE } from '@/common';
 import { useStore } from '@/store';
 import { GetterTypes } from '@/store/getter';
-import { DockPhoto } from '@/types';
 import Text from '@/components/atoms/Text.vue';
 
 const getDayString = (day: number) => {
@@ -92,10 +88,6 @@ export default defineComponent({
     name: {
       type: String,
       required: true,
-    },
-    photo: {
-      type: Object as PropType<DockPhoto>,
-      default: {},
     },
     hobby: {
       type: Array as PropType<string[]>,
@@ -301,23 +293,23 @@ $menu-item-size: 16rem;
           }
         }
 
-        &.photo {
-          padding: $menu-padding;
-          color: #000;
+        &.darkmode {
+          cursor: pointer;
+          background-color: t(pure);
           font-size: 1.4rem;
           line-height: $dock-height * 2.6;
           font-weight: 900;
+          background-size: $menu-item-size / 4;
+          background-position: center;
+          background-repeat: no-repeat;
+          transition: background-image 0.3s;
 
-          & > * {
-            position: absolute;
+          @at-root body.light .darkmode {
+            background-image: url('~@/assets/dark.svg');
           }
 
-          & > img {
-            top: 0;
-            left: 0;
-            max-width: 100%;
-            max-height: 100%;
-            text-align: center;
+          @at-root body.dark .darkmode {
+            background-image: url('~@/assets/light.svg');
           }
         }
       }
