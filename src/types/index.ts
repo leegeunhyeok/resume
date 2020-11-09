@@ -30,13 +30,15 @@ export interface Item {
   tag: string;
 }
 
-export interface DockPhoto {
-  source: string;
-  title: string;
-}
-
 export interface DockMenu {
   name: string;
   hobby: string[];
-  photo: DockPhoto;
+}
+
+export interface Template {
+  name: string;
+  email: string;
+  photo: string;
+  introText: string[];
+  hobby: string[];
 }
