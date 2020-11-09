@@ -51,3 +51,12 @@ export const firstCharToUppercase = (value: string) =>
   value.charAt(0).toUpperCase() + value.replace('_', ' ').slice(1);
 
 export const contentFrom = (path: string) => require('@/assets/contents/' + path);
+
+export const isDarkmode = () =>
+  !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+export const watchThemeChange = (handler: Function) => {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    handler(!!e.matches);
+  });
+};

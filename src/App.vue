@@ -11,6 +11,7 @@ import { defineComponent, computed, watch } from 'vue';
 import store, { Store, provideStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
 import { GetterTypes } from '@/store/getter';
+import { isDarkmode, watchThemeChange } from './common/util';
 
 const updateTimeLoop = (store: Store) => {
   const baseTick = 1000;
@@ -37,10 +38,14 @@ export default defineComponent({
     const transition = computed(() => (store.getters[GetterTypes.READY] ? 'fade' : null));
     const isDark = computed(() => store.state.isDark);
 
-    watch(isDark, value => {
+    const updateTheme = (isDark: boolean) => {
       document.body.removeAttribute('class');
-      document.body.classList.add(value ? 'dark' : 'light');
-    });
+      document.body.classList.add(isDark ? 'dark' : 'light');
+    };
+
+    watch(isDark, value => updateTheme(value));
+    isDarkmode() && updateTheme(true);
+    watchThemeChange(updateTheme);
 
     return { transition };
   },
