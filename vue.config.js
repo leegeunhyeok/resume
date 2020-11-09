@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const fs = require('fs');
 const _Base = require('./src/data/_base.json');
-const AssetListExportPlugin = require('./webpack/assets-export-plugin');
-const assetsListName = 'preload-assets.json';
+const InjectAssetsListWebpackPlugin = require('inject-assets-list-webpack-plugin');
 
 module.exports = {
   productionSourceMap: false,
@@ -10,24 +8,17 @@ module.exports = {
   chainWebpack: config => {
     config
       .plugin('assets')
-      .before('html')
+      .after('html')
       .use(
-        new AssetListExportPlugin({
-          filename: assetsListName,
-          pretty: true,
+        new InjectAssetsListWebpackPlugin({
+          allowPattern: /(png|jpg)/,
         }),
-      )
-      .end()
-      .plugin('html')
-      .tap(args => {
-        args[0].title = _Base.title;
-        args[0].ga = _Base.ga;
-        try {
-          args[0].assets = fs.readFileSync(assetsListName, { encoding: 'utf-8' });
-        } catch {
-          console.error('ERR');
-        }
-        return args;
-      });
+      );
+
+    config.plugin('html').tap(args => {
+      args[0].title = _Base.title;
+      args[0].ga = _Base.ga;
+      return args;
+    });
   },
 };
