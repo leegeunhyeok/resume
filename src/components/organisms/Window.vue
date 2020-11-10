@@ -31,8 +31,7 @@ export default defineComponent({
 $header_height: 4rem;
 $header_icon_size: 1rem;
 
-$side-sm-width: 200px;
-$side-md-width: 250px;
+$side-sm-width: 230px;
 $content-padding: 1rem;
 
 @mixin window-position {
@@ -133,12 +132,14 @@ $content-padding: 1rem;
       padding-left: 1rem;
       padding-right: 1rem;
       max-height: 9rem;
+      overflow-x: auto;
+      overflow-y: hidden;
       @include window-content;
       @include size(sm) {
         max-height: none;
         max-width: $side-sm-width;
+        overflow-y: auto !important;
       }
-      overflow-x: auto;
       white-space: nowrap;
     }
 
