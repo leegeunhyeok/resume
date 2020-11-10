@@ -1,9 +1,12 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <transition :name="transitionName">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+  <div class="application">
+    <div class="application__background" />
+    <router-view v-slot="{ Component }">
+      <transition :name="transitionName" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
 </template>
 
 <script lang="ts">
@@ -93,12 +96,6 @@ body,
   @include page;
 }
 
-body {
-  background: url('~@/assets/wallpaper.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 * {
   box-sizing: border-box;
   -webkit-touch-callout: none;
@@ -107,10 +104,22 @@ body {
   outline: 0;
 }
 
+.application {
+  @include page;
+
+  &__background {
+    @include page;
+    position: fixed;
+    z-index: -1;
+    background: url('~@/assets/wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.8s ease;
-  overflow: hidden;
+  transition: opacity 0.5s ease;
 }
 
 .fade-enter-from,
