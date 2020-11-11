@@ -42,9 +42,9 @@ import Icon from '@/components/atoms/Icon.vue';
 import Dock from '@/components/organisms/Dock.vue';
 
 // Application windows
-import ProjectWindow from '@/components/organisms/ProjectWindow.vue';
-import ActivityWindow from '@/components/organisms/ActivityWindow.vue';
-import AboutWindow from '@/components/organisms/AboutWindow.vue';
+import ProjectWindow from '@/components/applications/ProjectWindow.vue';
+import ActivityWindow from '@/components/applications/ActivityWindow.vue';
+import AboutWindow from '@/components/applications/AboutWindow.vue';
 
 const apps = {
   projects: require('@/assets/app/folder.png'),
