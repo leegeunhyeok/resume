@@ -9,10 +9,10 @@
           <Text :content="template.name" size="large" bold />
         </div>
         <div class="about__profile__intro">
-          <Text :content="'This is sample text.'" thin />
+          <Text :content="template.introduce" thin />
         </div>
         <div class="about__profile__skill">
-          <Text content="Skills" size="large" bold />
+          <Text content="Skills" size="large" />
           <Item
             :content="skill.label"
             :tag="skill.color"
@@ -94,9 +94,7 @@ export default defineComponent({
         @include move-up(0.6s);
         width: 100%;
         max-width: 500px;
-        margin: auto;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
+        margin: 3rem auto;
         text-align: center;
 
         & > div {

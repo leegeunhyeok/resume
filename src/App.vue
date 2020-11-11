@@ -23,6 +23,7 @@ const TemplateData: Template = {
   name: _Base.profile.name,
   email: _Base.profile.email,
   photo: require('@/assets/' + _Base.profile.photo),
+  introduce: _Base.profile.introduce,
   skill: _Base.profile.skill,
   hobby: _Base.profile.hobby,
   introText: _Base.introText,

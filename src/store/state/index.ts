@@ -15,6 +15,7 @@ export const state: State = {
     name: '',
     email: '',
     photo: '',
+    introduce: '',
     skill: [],
     hobby: [],
     introText: [],

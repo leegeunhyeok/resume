@@ -39,6 +39,7 @@ export interface Template {
   name: string;
   email: string;
   photo: string;
+  introduce: string;
   skill: SkillData[];
   hobby: string[];
   introText: string[];
