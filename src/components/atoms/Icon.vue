@@ -34,20 +34,15 @@ export default defineComponent({
   cursor: pointer;
   border-radius: $radius;
   overflow: hidden;
-  margin: 0.8rem 8%;
+  margin: 1rem 1.5rem;
 
   @include size(sm) {
     margin: 1rem;
   }
 
   & > img {
-    width: 6rem;
-    height: 6rem;
-
-    @include size(sm) {
-      width: 7rem;
-      height: 7rem;
-    }
+    width: 7rem;
+    height: 7rem;
   }
 
   & > p {
