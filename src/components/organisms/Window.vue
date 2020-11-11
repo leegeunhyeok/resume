@@ -10,7 +10,10 @@
     <div class="window__side" v-if="$slots.side">
       <slot name="side" />
     </div>
-    <div class="window__content" :class="$slots.side && 'has-side'">
+    <div
+      class="window__content"
+      :class="[$slots.side && 'has-side', padding ? null : 'no-padding']"
+    >
       <slot />
     </div>
   </div>
@@ -22,6 +25,12 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'Window',
   emits: ['close'],
+  props: {
+    padding: {
+      type: Boolean,
+      default: true,
+    },
+  },
 });
 </script>
 
@@ -151,6 +160,10 @@ $content-padding: 1rem;
       padding-left: $content-padding;
       padding-right: $content-padding;
       padding-top: 1rem;
+
+      &.no-padding {
+        padding: 0;
+      }
     }
   }
 }
