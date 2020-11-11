@@ -25,20 +25,21 @@ export interface ActivityData {
   tag: string;
 }
 
+export interface SkillData {
+  color: string;
+  label: string;
+}
+
 export interface Item {
   label: string;
   tag: string;
-}
-
-export interface DockMenu {
-  name: string;
-  hobby: string[];
 }
 
 export interface Template {
   name: string;
   email: string;
   photo: string;
-  introText: string[];
+  skill: SkillData[];
   hobby: string[];
+  introText: string[];
 }

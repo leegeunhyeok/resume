@@ -5,7 +5,7 @@
         v-for="(list, i) in groupList"
         :group="list.group"
         :items="list.items"
-        :activeTag="activeTag || ''"
+        :activeTag="currentTag || ''"
         :key="i"
         @select="setTagFilter($event)"
       />
@@ -83,7 +83,7 @@ export default defineComponent({
       filteredContent,
       setTagFilter,
       assetFrom,
-      activeTag: computed(() => currentTag.value),
+      currentTag,
     };
   },
 });

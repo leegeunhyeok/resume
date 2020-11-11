@@ -20,11 +20,12 @@ import { Template } from '@/types';
 import _Base from '@/data/_base.json';
 
 const TemplateData: Template = {
-  name: _Base.name,
-  email: _Base.email,
-  photo: require('@/assets/' + _Base.photo),
+  name: _Base.profile.name,
+  email: _Base.profile.email,
+  photo: require('@/assets/' + _Base.profile.photo),
+  skill: _Base.profile.skill,
+  hobby: _Base.profile.hobby,
   introText: _Base.introText,
-  hobby: _Base.hobby,
 };
 
 const updateTimeLoop = (store: Store) => {

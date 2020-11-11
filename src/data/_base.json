@@ -5,9 +5,37 @@
   },
   "title": "Dev | Geundung",
   "ga": "UA-156696575-2",
-  "name": "Geunhyeok LEE",
-  "email": "dev.ghlee@gmail.com",
-  "photo": "avatar.png",
   "introText": ["For better", "Web experience."],
-  "hobby": ["프로그래밍", "운동"]
+  "profile": {
+    "name": "Geunhyeok LEE",
+    "email": "dev.ghlee@gmail.com",
+    "photo": "avatar.png",
+    "skill": [
+      {
+        "label": "JavaScript",
+        "color": "js"
+      },
+      {
+        "label": "TypeScript",
+        "color": "ts"
+      },
+      {
+        "label": "Node.js",
+        "color": "node"
+      },
+      {
+        "label": "JavaScript",
+        "color": "js"
+      },
+      {
+        "label": "TypeScript",
+        "color": "ts"
+      },
+      {
+        "label": "Node.js",
+        "color": "node"
+      }
+    ],
+    "hobby": ["프로그래밍", "운동"]
+  }
 }
