@@ -3,7 +3,9 @@
     <template v-slot:default>
       <div class="termial" ref="terminal">
         <p>Last login: {{ new Date().toUTCString() }} on console</p>
-        <div ref="input">$ <input type="text" v-model="command" @keydown.enter="submit" /></div>
+        <div ref="input">
+          $ <input type="text" spellcheck="false" v-model="command" @keydown.enter="submit" />
+        </div>
       </div>
     </template>
   </Window>
@@ -70,12 +72,15 @@ export default defineComponent({
         p.style.margin = '0';
         terminal.value.insertBefore(p, input.value);
 
-        getCommandResponse(
-          currentCommand,
-          state._version,
-          state.template.name,
-          state.template.email,
-        ).forEach(response => {
+        [
+          ...getCommandResponse(
+            currentCommand,
+            state._version,
+            state.template.name,
+            state.template.email,
+          ),
+          '',
+        ].forEach(response => {
           if (response === '@exit') {
             context.emit('close');
             return;
@@ -127,7 +132,7 @@ $terminal-background: #282828;
       outline: none;
       border: 0;
       background-color: lighten($terminal-background, 10%);
-      padding: 2px 4px;
+      padding: 4px 8px;
       color: #fff;
       border-radius: 5px;
     }

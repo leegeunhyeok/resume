@@ -1,8 +1,9 @@
-import pkg from '@/../package.json';
+import { VERSION, RELEASE_DATE } from '@/common';
 import { Template } from '@/types';
 
 export interface State {
   _version: string;
+  _releaseDate: string;
   loaded: boolean;
   date: Date;
   isDark: boolean;
@@ -10,7 +11,8 @@ export interface State {
 }
 
 export const state: State = {
-  _version: pkg.version,
+  _version: VERSION,
+  _releaseDate: RELEASE_DATE,
   loaded: false,
   date: new Date(),
   isDark: false,
