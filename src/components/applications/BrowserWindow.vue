@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { openPage } from '@/common/util';
 
 import Window from '@/components/organisms/Window.vue';
 
@@ -29,7 +30,7 @@ export default defineComponent({
     const submit = () => {
       const currentKeyword = keyword.value.trim();
       if (currentKeyword) {
-        window.open(`https://www.google.com/search?q=${currentKeyword}`, '_blank');
+        openPage(`https://www.google.com/search?q=${currentKeyword}`);
       }
     };
 
@@ -42,10 +43,8 @@ export default defineComponent({
 @import '@/styles/common';
 
 .browser {
+  @include page;
   background-color: #fff;
-  font-family: Consolas, monaco, monospace;
-  width: 100%;
-  height: 100%;
   padding: 1rem;
   padding-top: 12rem;
   text-align: center;

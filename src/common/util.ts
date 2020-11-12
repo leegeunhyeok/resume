@@ -60,3 +60,11 @@ export const watchThemeChange = (handler: Function) => {
     handler(!!e.matches);
   });
 };
+
+export const openPage = (target: string, newTab = true) => {
+  if (newTab) {
+    window.open(target, '_blank');
+  } else {
+    location.href = target;
+  }
+};
