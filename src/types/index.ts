@@ -28,7 +28,7 @@ export interface ActivityData {
 export interface SocialData {
   icon: string;
   label?: string;
-  value: string;
+  url: string;
 }
 
 export interface SkillData {
