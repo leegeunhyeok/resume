@@ -25,6 +25,12 @@ export interface ActivityData {
   tag: string;
 }
 
+export interface SocialData {
+  icon: string;
+  label?: string;
+  value: string;
+}
+
 export interface SkillData {
   color: string;
   label: string;
@@ -40,6 +46,7 @@ export interface Template {
   email: string;
   photo: string;
   introduce: string;
+  social: SocialData[];
   skill: SkillData[];
   hobby: string[];
   introText: string[];

@@ -11,6 +11,32 @@
     "email": "dev.ghlee@gmail.com",
     "photo": "avatar.png",
     "introduce": "Makes web better",
+    "social": [
+      {
+        "icon": "github",
+        "label": "leegeunhyeok",
+        "value": "https://github.com/leegeunhyeok"
+      },
+      {
+        "icon": "web",
+        "value": "http://geundung.dev"
+      },
+      {
+        "icon": "instagram",
+        "label": "__dev.ghlee",
+        "value": "https://www.instagram.com/__dev.ghlee"
+      },
+      {
+        "icon": "facebook",
+        "label": "leegeunhyeok",
+        "value": "https://www.facebook.com/leegeunhyeok"
+      },
+      {
+        "icon": "linkedin",
+        "label": "Visit",
+        "value": "https://www.linkedin.com/in/geunhyeok-lee-89b779185"
+      }
+    ],
     "skill": [
       {
         "label": "JavaScript",
