@@ -19,7 +19,9 @@ export const imagePreload = (imageSources: string[], onProgress?: Function): Pro
         const end = () => {
           const percent = (++count / total) * 100;
           typeof onProgress === 'function' && onProgress(percent);
-          console.log(`Preloading.. ${percent.toFixed(2)}% (${count}/${imageSources.length})`);
+          console.log(
+            `Preloading.. ${percent.toFixed(2)}% (${count}/${imageSources.length}): ${source}`,
+          );
           resolve();
         };
 
