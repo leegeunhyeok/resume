@@ -29,6 +29,7 @@
       @close="currentApp = null"
       v-show="currentApp === 'about_me'"
     />
+    <BrowserWindow :key="dummy" @close="currentApp = null" v-show="currentApp === 'browser'" />
     <TerminalWindow :key="dummy" @close="currentApp = null" v-show="currentApp === 'terminal'" />
     <!-- Dock (Footer) -->
     <Dock :name="template.name" :hobby="template.hobby" :photo="template.photo" />
@@ -47,6 +48,7 @@ import ProjectWindow from '@/components/applications/ProjectWindow.vue';
 import ActivityWindow from '@/components/applications/ActivityWindow.vue';
 import AboutWindow from '@/components/applications/AboutWindow.vue';
 import TerminalWindow from '@/components/applications/TerminalWindow.vue';
+import BrowserWindow from '@/components/applications/BrowserWindow.vue';
 
 const apps = {
   projects: require('@/assets/app/folder.png'),
@@ -62,7 +64,15 @@ const apps = {
 
 export default defineComponent({
   name: 'Desktop',
-  components: { Icon, ProjectWindow, ActivityWindow, AboutWindow, TerminalWindow, Dock },
+  components: {
+    Icon,
+    ProjectWindow,
+    ActivityWindow,
+    AboutWindow,
+    TerminalWindow,
+    BrowserWindow,
+    Dock,
+  },
   props: {
     appData: {
       type: Object as PropType<{ [key in keyof typeof apps]: unknown }>,
