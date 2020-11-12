@@ -25,6 +25,7 @@ const TemplateData: Template = {
   photo: require('@/assets/' + _Base.profile.photo),
   introduce: _Base.profile.introduce,
   skill: _Base.profile.skill,
+  social: _Base.profile.social,
   hobby: _Base.profile.hobby,
   introText: _Base.introText,
 };
@@ -116,6 +117,20 @@ body,
     background: url('~@/assets/wallpaper.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+  }
+}
+
+@include theme {
+  .fa-icon {
+    display: inline-block;
+    color: t(text);
+    width: 24px;
+    height: 24px;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
