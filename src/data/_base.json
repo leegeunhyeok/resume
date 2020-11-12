@@ -18,10 +18,6 @@
         "url": "https://github.com/leegeunhyeok"
       },
       {
-        "icon": "web",
-        "url": "http://geundung.dev"
-      },
-      {
         "icon": "instagram",
         "label": "__dev.ghlee",
         "url": "https://www.instagram.com/__dev.ghlee"
@@ -33,7 +29,12 @@
       },
       {
         "icon": "linkedin",
+        "label": "Visit",
         "url": "https://www.linkedin.com/in/geunhyeok-lee-89b779185"
+      },
+      {
+        "icon": "web",
+        "url": "https://geundung.dev"
       }
     ],
     "skill": [

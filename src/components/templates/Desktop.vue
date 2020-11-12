@@ -29,8 +29,14 @@
       @close="currentApp = null"
       v-show="currentApp === 'about_me'"
     />
-    <BrowserWindow :key="dummy" @close="currentApp = null" v-show="currentApp === 'browser'" />
     <TerminalWindow :key="dummy" @close="currentApp = null" v-show="currentApp === 'terminal'" />
+    <BrowserWindow :key="dummy" @close="currentApp = null" v-show="currentApp === 'browser'" />
+    <ContactWindow
+      :template="template"
+      :key="dummy"
+      @close="currentApp = null"
+      v-show="currentApp === 'contact'"
+    />
     <!-- Dock (Footer) -->
     <Dock :name="template.name" :hobby="template.hobby" :photo="template.photo" />
   </div>
@@ -49,6 +55,7 @@ import ActivityWindow from '@/components/applications/ActivityWindow.vue';
 import AboutWindow from '@/components/applications/AboutWindow.vue';
 import TerminalWindow from '@/components/applications/TerminalWindow.vue';
 import BrowserWindow from '@/components/applications/BrowserWindow.vue';
+import ContactWindow from '@/components/applications/ContactWindow.vue';
 
 const apps = {
   projects: require('@/assets/app/folder.png'),
@@ -71,6 +78,7 @@ export default defineComponent({
     AboutWindow,
     TerminalWindow,
     BrowserWindow,
+    ContactWindow,
     Dock,
   },
   props: {
