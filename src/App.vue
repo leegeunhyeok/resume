@@ -75,17 +75,14 @@ export default defineComponent({
 
 <style lang="scss">
 @import '@/styles/common';
-@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css');
-@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css');
 
 html {
-  font-family: 'NanumSquare', sans-serif;
+  font-family: 'NanumSquare', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  user-select: none;
   font-size: 12px;
 
   @include size(sm) {
@@ -104,8 +101,11 @@ body,
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
-  user-select: none;
   outline: 0;
+}
+
+img {
+  user-select: none;
 }
 
 .application {

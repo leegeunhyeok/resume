@@ -7,7 +7,14 @@
         </div>
         <div class="browser__input">
           <span />
-          <input type="text" spellcheck="false" v-model="keyword" @keydown.enter="submit" />
+          <input
+            type="text"
+            autocapitalize="off"
+            autocomplete="off"
+            autocorrent="off"
+            spellcheck="false"
+            @keydown.enter="submit"
+          />
         </div>
       </div>
     </template>
