@@ -92,7 +92,7 @@ export default defineComponent({
       &:hover,
       &:active,
       &:focus {
-        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0 5px rgba(30, 30, 30, 0.1);
       }
     }
   }
