@@ -17,6 +17,7 @@ export interface ProjectData {
   image: string;
   description: string;
   tag: string[];
+  url?: string;
 }
 
 export interface ActivityData {

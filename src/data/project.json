@@ -73,7 +73,8 @@
       "date": "2020.01.01",
       "image": "contents/download.jpg",
       "description": "Hello",
-      "tag": []
+      "tag": [],
+      "url": "https://google.com"
     },
     {
       "name": "node-schook-kr",

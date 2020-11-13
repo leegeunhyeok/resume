@@ -1,5 +1,10 @@
 <template>
-  <div class="detailed-image" @touchstart.passive="() => null">
+  <div
+    class="detailed-image"
+    :class="url && 'has-url'"
+    @touchstart.passive="() => null"
+    @click="more"
+  >
     <Image class="detailed-image__img" :source="source" />
     <div class="detailed-image__detail" v-if="detail">
       <h2>{{ detail.title }}</h2>
@@ -10,6 +15,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
+import { openPage } from '@/common/util';
 
 import Image from '@/components/atoms/Image.vue';
 
@@ -26,6 +32,10 @@ export default defineComponent({
     detail: {
       type: Object as PropType<ImageDetail>,
     },
+    url: String,
+  },
+  setup(props) {
+    return { more: () => props.url && openPage(props.url) };
   },
 });
 </script>
@@ -39,14 +49,42 @@ export default defineComponent({
   overflow: hidden;
   clip-path: content-box;
 
-  &__img {
-    width: 100%;
-    transition: transform 0.3s;
-  }
-
   &:hover > &__img,
   &:active > &__img {
     transform: scale(1.05);
+  }
+
+  &.has-url {
+    cursor: pointer;
+
+    &::before {
+      content: '(View More)';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: bold;
+      z-index: 5;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover,
+    &:active {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+    transition: transform 0.3s;
   }
 
   &__detail {

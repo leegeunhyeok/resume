@@ -16,6 +16,7 @@
           <DetailedImage
             :source="assetFrom(data.image)"
             :detail="{ title: data.name, description: data.description }"
+            :url="data.url"
           />
           <div class="project__items__tag">
             <Tag
