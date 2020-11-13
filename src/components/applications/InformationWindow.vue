@@ -5,8 +5,8 @@
         <div class="information__vue">
           <img src="@/assets/vue.png" />
         </div>
-        <Text :content="'Based on Vue ' + VUE_VERSION" color="secondary" thin />
-        <Text content="with ❤️" thin />
+        <Text :content="'Based on Vue ' + VUE_VERSION" color="secondary" size="large" thin />
+        <Text content="with ❤️" size="large" thin />
         <!-- !! DO NOT CHANGE UNDER CONTENTS !! -->
         <div class="information__dev" @click="goToRepository" @touchstart.passive="() => null">
           <Text content="This Résume template developed by" color="secondary" size="small" />
