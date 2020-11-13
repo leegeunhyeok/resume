@@ -21,7 +21,8 @@ export interface ProjectData {
 
 export interface ActivityData {
   title: string;
-  date: string;
+  from: string;
+  to?: string;
   tag: string;
 }
 

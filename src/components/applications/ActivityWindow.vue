@@ -18,7 +18,8 @@
           </div>
           <div class="activity__items__information">
             <Text :content="data.title" size="large" bold />
-            <Text :content="data.date" color="secondary" size="small" thin />
+            <Text :content="data.from" color="secondary" size="small" thin />
+            <Text :content="'~' + (data.to || '')" color="secondary" size="small" thin />
           </div>
         </div>
       </transition-group>
@@ -69,7 +70,7 @@ export default defineComponent({
         .filter(content =>
           currentTag.value !== allTag.tag ? content.tag === currentTag.value : true,
         )
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+        .sort((a, b) => new Date(b.from).getTime() - new Date(a.from).getTime()),
     );
 
     const setTagFilter = (tag: string) => (currentTag.value = tag);
@@ -109,6 +110,10 @@ export default defineComponent({
       & > * {
         display: inline-block;
         margin-right: 0.5rem !important;
+
+        &.small {
+          margin: 0 !important;
+        }
       }
     }
   }

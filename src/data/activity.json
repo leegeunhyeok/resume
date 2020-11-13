@@ -22,12 +22,13 @@
   "content": [
     {
       "title": "Sample",
-      "date": "2020.01.01",
+      "from": "2020.01.01",
       "tag": "yellow"
     },
     {
       "title": "Sample 2",
-      "date": "2020.01.02",
+      "from": "2000.01.01",
+      "to": "2020.01.01",
       "tag": "green"
     }
   ]
