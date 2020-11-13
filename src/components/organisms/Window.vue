@@ -70,7 +70,7 @@ $content-padding: 1rem;
     display: flex;
     flex-direction: column;
     box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56);
-    border-radius: $radius;
+    border-radius: 0;
     height: calc(100% - #{$dock-height});
     width: 100%;
     z-index: elevation(low);
@@ -80,6 +80,7 @@ $content-padding: 1rem;
       flex-direction: row;
       height: 60vh;
       width: 80%;
+      border-radius: $radius;
       @include window-position;
     }
 
