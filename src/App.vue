@@ -103,6 +103,7 @@ body,
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
   user-select: none;
   outline: 0;
 }
