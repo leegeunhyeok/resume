@@ -14,9 +14,9 @@
         <div class="about__profile__skill">
           <Text content="Skills" size="large" />
           <Item
-            :content="skill.label"
-            :tag="skill.color"
             v-for="(skill, i) in template.skill"
+            :content="skill.label"
+            :color="skill.color"
             :key="i"
           />
         </div>
