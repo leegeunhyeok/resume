@@ -1,5 +1,5 @@
 <template>
-  <span class="tag" :class="color" />
+  <span class="tag" :class="color" :style="{ color }" />
 </template>
 
 <script lang="ts">

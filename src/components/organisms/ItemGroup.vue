@@ -14,6 +14,7 @@
         :key="i"
         :content="item.label"
         :tag="item.tag"
+        :color="item.color"
         :active="activeTag === item.tag"
         @click="$emit('select', item.tag)"
       />

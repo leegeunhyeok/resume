@@ -1,6 +1,6 @@
 <template>
   <div class="item" :class="active ? 'active' : null" @touchstart.passive="() => null">
-    <Tag class="item__tag" :color="tag" v-if="tag" />
+    <Tag class="item__tag" :color="color" v-if="color" />
     <Text color="primary" :content="content" />
   </div>
 </template>
@@ -16,6 +16,7 @@ export default defineComponent({
   props: {
     content: String,
     tag: String,
+    color: String,
     active: Boolean,
   },
 });

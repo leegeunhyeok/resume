@@ -3,66 +3,81 @@
     "language": [
       {
         "tag": "js",
+        "color": "js",
         "label": "JavaScript"
       },
       {
         "tag": "ts",
+        "color": "ts",
         "label": "TypeScript"
       },
       {
         "tag": "python",
+        "color": "ts",
         "label": "Python"
       },
       {
         "tag": "java",
+        "color": "ts",
         "label": "Java"
       },
       {
         "tag": "c",
+        "color": "ts",
         "label": "C"
       },
       {
         "tag": "cpp",
+        "color": "ts",
         "label": "C++"
       },
       {
         "tag": "shell",
+        "color": "ts",
         "label": "Shell"
       }
     ],
     "web": [
       {
         "tag": "vue",
+        "color": "ts",
         "label": "Vue"
       },
       {
         "tag": "react",
+        "color": "ts",
         "label": "React"
       },
       {
         "tag": "angular",
+        "color": "ts",
         "label": "Angular"
       },
       {
         "tag": "pwa",
+        "color": "ts",
         "label": "PWA"
       }
     ],
     "other": [
       {
         "tag": "node",
+        "color": "ts",
         "label": "Node"
       },
       {
         "tag": "git",
+        "color": "ts",
         "label": "Git"
       },
       {
         "tag": "docker",
+        "color": "ts",
         "label": "Docker"
       },
       {
         "tag": "vim",
+        "color": "ts",
         "label": "Vim"
       }
     ]
