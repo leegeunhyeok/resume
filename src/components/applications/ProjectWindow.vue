@@ -21,7 +21,7 @@
           <div class="project__items__tag">
             <Tag
               v-for="(tag, i) in data.tag"
-              :color="tag"
+              :color="getTagColor(tag)"
               :key="i"
               :style="{ zIndex: data.tag.length - i }"
             />
@@ -79,10 +79,18 @@ export default defineComponent({
 
     const setTagFilter = (tag: string) => (currentTag.value = tag);
 
+    const getTagColor = (tagName: string) => {
+      const tag = Object.values(props.data.tags)
+        .flat()
+        .find(({ tag }) => tag === tagName);
+      return tag ? tag.color : '';
+    };
+
     return {
       groupList,
       filteredContent,
       setTagFilter,
+      getTagColor,
       assetFrom,
       currentTag,
     };

@@ -8,6 +8,7 @@ export interface BoxProps {
 
 export interface TagData {
   tag: string;
+  color?: string;
   label: string;
 }
 
