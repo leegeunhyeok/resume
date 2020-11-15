@@ -14,6 +14,7 @@ Geunhyeok's resume template. [show](https://this.geundung.dev)
 
 ## 👀 Preview
 
+<img src="./preview.gif">
 <img src="./preview.jpg">
 
 - macOS 11 Big Sur style 🍎
