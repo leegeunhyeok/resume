@@ -34,11 +34,7 @@ export default defineComponent({
   cursor: pointer;
   border-radius: $radius;
   overflow: hidden;
-  margin: 1rem 1.5rem;
-
-  @include size(sm) {
-    margin: 1rem;
-  }
+  padding: 0.5rem 1rem;
 
   & > img {
     width: 7rem;
