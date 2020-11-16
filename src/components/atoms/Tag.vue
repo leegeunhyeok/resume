@@ -29,7 +29,7 @@ export default defineComponent({
 
   @each $name, $color in $colors {
     &.#{$name} {
-      background-color: $color;
+      background-color: $color !important;
     }
   }
 }

@@ -79,21 +79,6 @@ button {
   }
 
   // color
-  &.red {
-    color: #fff;
-    background: $red;
-    background: linear-gradient(180deg, lighten($red, 0.2), $red);
-  }
-  &.green {
-    color: #fff;
-    background: $green;
-    background: linear-gradient(180deg, lighten($green, 0.2), $green);
-  }
-  &.blue {
-    color: #fff;
-    background: $blue;
-    background: linear-gradient(180deg, lighten($blue, 0.2), $blue);
-  }
   &.glass {
     color: #fff;
     background: rgba($gray, 0.5);

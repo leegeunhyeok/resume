@@ -14,7 +14,7 @@
       <transition-group name="list" mode="in-out">
         <div class="activity__items" v-for="(data, i) in filteredContent" :key="i">
           <div class="activity__items__tag">
-            <Tag :color="data.tag" />
+            <Tag :color="data.color" />
           </div>
           <div class="activity__items__information">
             <Text :content="data.title" size="large" bold />
@@ -66,11 +66,23 @@ export default defineComponent({
       })),
     );
 
-    const filteredContent = computed(() =>
+    const getTagColor = (tagName: string) => {
+      const tag = Object.values(props.data.tags)
+        .flat()
+        .find(({ tag }) => tag === tagName);
+      console.log(tagName, props.data.tags, tag);
+      return tag ? tag.color : '';
+    };
+
+    const filteredContent = computed<(ActivityData & { color: string })[]>(() =>
       props.data.content
         .filter(content =>
           currentTag.value !== allTag.tag ? content.tag === currentTag.value : true,
         )
+        .map(data => ({
+          ...data,
+          color: getTagColor(data.tag),
+        }))
         .sort((a, b) => new Date(b.from).getTime() - new Date(a.from).getTime()),
     );
 

@@ -1,20 +1,24 @@
 {
   "tags": {
-    "Type": [
+    "type": [
       {
-        "tag": "red",
+        "tag": "career",
+        "color": "red",
         "label": "Career"
       },
       {
-        "tag": "blue",
+        "tag": "cert",
+        "color": "blue",
         "label": "Certification"
       },
       {
-        "tag": "yellow",
+        "tag": "edu",
+        "color": "yellow",
         "label": "Education"
       },
       {
-        "tag": "green",
+        "tag": "pub",
+        "color": "green",
         "label": "Publishing"
       }
     ]
@@ -23,13 +27,13 @@
     {
       "title": "Sample",
       "from": "2020.01.01",
-      "tag": "yellow"
+      "tag": "edu"
     },
     {
       "title": "Sample 2",
       "from": "2000.01.01",
       "to": "2020.01.01",
-      "tag": "green"
+      "tag": "pub"
     }
   ]
 }
