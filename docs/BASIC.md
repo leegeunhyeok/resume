@@ -110,6 +110,8 @@ interface SocialData {
 
 ## SkillData
 
+- [Colors](#colors)
+
 ```typescript
 interface SkillData {
   color: string;
@@ -118,6 +120,8 @@ interface SkillData {
 ```
 
 ## TagData
+
+- [Colors](#colors)
 
 ```typescript
 interface TagData {
