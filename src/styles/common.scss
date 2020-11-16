@@ -3,12 +3,11 @@
 $radius: 12px;
 $blur: 16px;
 $dock-height: 4.5rem;
-$accent: #0061d0;
 
+// For window top header button
 $red: #ff5f57;
 $green: #28c63f;
 $yellow: #f5bd4f;
-$blue: #0061d0;
 $gray: #dbdbdc;
 
 $colors: (
@@ -21,10 +20,25 @@ $colors: (
   // ------
     js: #f4df4f,
   ts: #4179c1,
+  html: #e34c26,
+  css: #563d7c,
+  scss: #c6538c,
   python: #3f7287,
   java: #a7742f,
+  kotlin: #f18e33,
   c: #555555,
   cpp: #e1597e,
+  cs: #178600,
+  objectivec: #438eff,
+  swift: #ffac45,
+  rust: #dea584,
+  go: #00add8,
+  dart: #00b4ab,
+  php: #4f5d95,
+  scala: #c22d40,
+  perl: #0298c3,
+  haskell: #5e5086,
+  r: #198ce7,
   shell: #9ddd66,
   vue: #64b587,
   react: #81d8f7,
