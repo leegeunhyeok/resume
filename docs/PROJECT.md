@@ -1,7 +1,7 @@
 # 💻 Project
 
 - `data/project.json`
-  - [TagData](/docs/BASIC/#tagdata)
+  - [TagData](/docs/BASIC.md/#tagdata)
   - [ProjectData](#projectdata)
 
 ```typescript

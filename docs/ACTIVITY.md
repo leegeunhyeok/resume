@@ -1,7 +1,7 @@
 # 👋 Activity
 
 - `data/activity.json`
-  - [TagData](#tagdata)
+  - [TagData](/docs/BASIC.md/#tagdata)
   - [ActivityData](#activitydata)
 
 ```typescript
