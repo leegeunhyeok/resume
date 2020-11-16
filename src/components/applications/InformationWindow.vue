@@ -2,11 +2,13 @@
   <Window @close="$emit('close')" :padding="false">
     <template v-slot:default>
       <div class="information">
-        <div class="information__vue">
-          <img src="@/assets/vue.png" />
+        <div class="information__wrap">
+          <div class="information__wrap__vue">
+            <img src="@/assets/vue.png" />
+          </div>
+          <Text :content="'Based on Vue ' + VUE_VERSION" color="secondary" size="large" thin />
+          <Text content="with ❤️" size="large" thin />
         </div>
-        <Text :content="'Based on Vue ' + VUE_VERSION" color="secondary" size="large" thin />
-        <Text content="with ❤️" size="large" thin />
         <!-- !! DO NOT CHANGE UNDER CONTENTS !! -->
         <div class="information__dev" @click="goToRepository" @touchstart.passive="() => null">
           <Text content="This Résume template developed by" color="secondary" size="small" />
@@ -42,22 +44,25 @@ export default defineComponent({
 
 .information {
   @include page;
-  padding-top: 30vh;
   text-align: center;
 
-  @include size(sm) {
-    padding-top: 7rem;
-  }
+  &__wrap {
+    @include page;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 1rem;
 
-  &__vue {
-    width: 60%;
-    max-width: 150px;
-    margin: auto;
-    margin-bottom: 0.5rem;
-    animation: breath 1s alternate infinite;
+    &__vue {
+      width: 60%;
+      max-width: 150px;
+      margin-bottom: 1rem;
+      animation: breath 1s alternate infinite;
 
-    & > img {
-      width: 100%;
+      & > img {
+        width: 100%;
+      }
     }
   }
 
