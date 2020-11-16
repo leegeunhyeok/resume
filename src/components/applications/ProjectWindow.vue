@@ -12,21 +12,7 @@
     </template>
     <template v-slot:default>
       <transition-group name="list" mode="in-out">
-        <div class="project__items" v-for="(data, i) in filteredContent" :key="i">
-          <DetailedImage
-            :source="assetFrom(data.image)"
-            :detail="{ title: data.name, description: data.description }"
-            :url="data.url"
-          />
-          <div class="project__items__tag">
-            <Tag
-              v-for="(tag, i) in data.tag"
-              :color="getTagColor(tag)"
-              :key="i"
-              :style="{ zIndex: data.tag.length - i }"
-            />
-          </div>
-        </div>
+        <ProjectItem v-for="(data, i) in filteredContent" :data="data" :key="i" />
       </transition-group>
     </template>
   </Window>
@@ -37,8 +23,7 @@ import { defineComponent, PropType, ref, computed } from 'vue';
 import { TagData, ProjectData } from '@/types';
 import { assetFrom } from '@/common/util';
 
-import Tag from '@/components/atoms/Tag.vue';
-import DetailedImage from '@/components/molecules/DetailedImage.vue';
+import ProjectItem from '@/components/molecules/ProjectItem.vue';
 import Window from '@/components/organisms/Window.vue';
 import ItemGroup from '@/components/organisms/ItemGroup.vue';
 
@@ -50,11 +35,12 @@ interface ProjectWindowProps {
 const allTag: TagData = {
   tag: 'empty',
   label: 'All',
+  color: '',
 };
 
 export default defineComponent({
   name: 'ProjectWindow',
-  components: { Tag, DetailedImage, Window, ItemGroup },
+  components: { ProjectItem, Window, ItemGroup },
   props: {
     data: {
       type: Object as PropType<ProjectWindowProps>,
@@ -71,14 +57,6 @@ export default defineComponent({
       })),
     );
 
-    const filteredContent = computed(() =>
-      props.data.content.filter(content =>
-        currentTag.value !== allTag.tag ? content.tag.find(t => t === currentTag.value) : true,
-      ),
-    );
-
-    const setTagFilter = (tag: string) => (currentTag.value = tag);
-
     const getTagColor = (tagName: string) => {
       const tag = Object.values(props.data.tags)
         .flat()
@@ -86,11 +64,23 @@ export default defineComponent({
       return tag ? tag.color : '';
     };
 
+    const filteredContent = computed<(ProjectData & { tagColor: string[] })[]>(() =>
+      props.data.content
+        .filter(content =>
+          currentTag.value !== allTag.tag ? content.tag.find(t => t === currentTag.value) : true,
+        )
+        .map(data => ({
+          ...data,
+          tagColor: data.tag.map(getTagColor),
+        })),
+    );
+
+    const setTagFilter = (tag: string) => (currentTag.value = tag);
+
     return {
       groupList,
       filteredContent,
       setTagFilter,
-      getTagColor,
       assetFrom,
       currentTag,
     };
@@ -101,29 +91,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common';
 
-$overlap: 7px;
-
 .project {
   &__items {
     position: relative;
     margin-bottom: 1rem;
-
-    &__tag {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background-color: rgba(0, 0, 0, 0.4);
-      border-radius: $radius / 2;
-      z-index: 1;
-      padding: 0 4px;
-      padding-left: $overlap * 1.5;
-
-      & > * {
-        position: relative;
-        margin-left: -$overlap;
-        margin-top: $overlap / 2;
-      }
-    }
 
     &--empty {
       text-align: center;

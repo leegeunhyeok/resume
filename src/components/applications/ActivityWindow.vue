@@ -44,6 +44,7 @@ interface ActivityWindowProps {
 const allTag: TagData = {
   tag: 'empty',
   label: 'All',
+  color: '',
 };
 
 export default defineComponent({

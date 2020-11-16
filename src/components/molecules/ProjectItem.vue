@@ -1,41 +1,45 @@
 <template>
   <div
-    class="detailed-image"
+    class="project-item"
     :class="url && 'has-url'"
     @touchstart.passive="() => null"
     @click="more"
   >
-    <Image class="detailed-image__img" :source="source" />
-    <div class="detailed-image__detail" v-if="detail">
-      <h2>{{ detail.title }}</h2>
-      <p>{{ detail.description }}</p>
+    <Image class="project-item__img" :source="assetFrom(data.image)" />
+    <div class="project-item__detail">
+      <h2>{{ data.name }}</h2>
+      <p>{{ data.description }}</p>
+    </div>
+    <div class="project-item__tag">
+      <Tag
+        v-for="(color, i) in data.tagColor"
+        :color="color"
+        :key="i"
+        :style="{ zIndex: data.tag.length - i }"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { openPage } from '@/common/util';
+import { assetFrom, openPage } from '@/common/util';
+import { ProjectData } from '@/types';
 
+import Tag from '@/components/atoms/Tag.vue';
 import Image from '@/components/atoms/Image.vue';
 
-interface ImageDetail {
-  title?: string;
-  description?: string;
-}
-
 export default defineComponent({
-  name: 'DetailedImage',
-  components: { Image },
+  name: 'ProjectItem',
+  components: { Image, Tag },
   props: {
-    source: String,
-    detail: {
-      type: Object as PropType<ImageDetail>,
+    data: {
+      type: Object as PropType<ProjectData & { tagColor: string[] }>,
+      required: true,
     },
-    url: String,
   },
   setup(props) {
-    return { more: () => props.url && openPage(props.url) };
+    return { more: () => props.data.url && openPage(props.data.url), assetFrom };
   },
 });
 </script>
@@ -43,11 +47,15 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/styles/common';
 
-.detailed-image {
+$overlap: 7px;
+
+.project-item {
   position: relative;
   border-radius: $radius;
   overflow: hidden;
   clip-path: content-box;
+  position: relative;
+  margin-bottom: 1rem;
 
   &:hover > &__img,
   &:active > &__img {
@@ -100,6 +108,23 @@ export default defineComponent({
 
     & > p {
       margin: 0;
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: $radius / 2;
+    z-index: 1;
+    padding: 0 4px;
+    padding-left: $overlap * 1.5;
+
+    & > * {
+      position: relative;
+      margin-left: -$overlap;
+      margin-top: $overlap / 2;
     }
   }
 }
