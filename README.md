@@ -41,11 +41,11 @@ Using [Vue 3](https://github.com/vuejs/vue-next) with [TS](https://github.com/mi
 
 and also included vuex, vue-router
 
-## 📖 Template Docs
+## 📖 Template documentation
 
-- [🐥 Basic](./docs/BASIC.md)
-- [💻 Project](./docs/PROJECT.md)
-- [👋 Activity](./docs/ACTIVITY.md)
+- [Basic](./docs/BASIC.md)
+- [Project](./docs/PROJECT.md)
+- [Activity](./docs/ACTIVITY.md)
 
 ---
 
