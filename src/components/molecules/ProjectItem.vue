@@ -1,7 +1,7 @@
 <template>
   <div
     class="project-item"
-    :class="url && 'has-url'"
+    :class="data.url && 'has-url'"
     @touchstart.passive="() => null"
     @click="more"
   >
@@ -9,6 +9,9 @@
     <div class="project-item__detail">
       <h2>{{ data.name }}</h2>
       <p>{{ data.description }}</p>
+    </div>
+    <div class="project-item__star" v-if="star !== -1">
+      {{ star }}
     </div>
     <div class="project-item__tag">
       <Tag
@@ -22,8 +25,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { assetFrom, openPage } from '@/common/util';
+import { defineComponent, PropType, ref } from 'vue';
+import { getRepositoryStar, assetFrom, openPage } from '@/common/util';
 import { ProjectData } from '@/types';
 
 import Tag from '@/components/atoms/Tag.vue';
@@ -39,7 +42,17 @@ export default defineComponent({
     },
   },
   setup(props) {
-    return { more: () => props.data.url && openPage(props.data.url), assetFrom };
+    const star = ref(-1);
+    const getStar = (repositoryUrl: string) => {
+      const [user, repository] = repositoryUrl.replace('https://github.com/', '').split('/');
+      getRepositoryStar(user, repository)
+        .then(res => (star.value = res))
+        .catch(console.error);
+    };
+
+    props.data.url && props.data.url.startsWith('https://github.com') && getStar(props.data.url);
+
+    return { star, more: () => props.data.url && openPage(props.data.url), assetFrom };
   },
 });
 </script>
@@ -48,6 +61,15 @@ export default defineComponent({
 @import '@/styles/common';
 
 $overlap: 7px;
+
+@mixin over-label {
+  position: absolute;
+  top: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: $radius / 2;
+  z-index: 1;
+  padding: 0 4px;
+}
 
 .project-item {
   position: relative;
@@ -111,14 +133,21 @@ $overlap: 7px;
     }
   }
 
+  &__star {
+    @include over-label;
+    left: 0.5rem;
+    background-image: url('~@/assets/star.svg');
+    background-size: 24px;
+    background-position: 2px;
+    background-repeat: no-repeat;
+    padding: 5px;
+    padding-left: 28px;
+    color: #fff;
+  }
+
   &__tag {
-    position: absolute;
-    top: 0.5rem;
+    @include over-label;
     right: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: $radius / 2;
-    z-index: 1;
-    padding: 0 4px;
     padding-left: $overlap * 1.5;
 
     & > * {
