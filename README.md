@@ -22,6 +22,7 @@ Geunhyeok's resume template. [Demo](https://this.geundung.dev)
 - [x] Support darkmode 🌚
 - [x] Auto load stars from Github repository ⭐️
 - [x] Own contents customizing 🎉
+- [ ] HTML meta & og tag as template 👀
 - [x] PWA Support 🔥
 - [ ] User friendly documentation 🥰
 - [ ] Show alert when usign legacy browser (`< IE11`)
