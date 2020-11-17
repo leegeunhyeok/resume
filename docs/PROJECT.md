@@ -1,7 +1,7 @@
 # 💻 Project
 
 - `data/project.json`
-  - [TagData](/docs/BASIC.md/#tagdata)
+  - [TagData](/docs/BASE.md/#tagdata)
   - [ProjectData](#projectdata)
 
 ```typescript
@@ -12,6 +12,13 @@ interface ProjectTemplate {
   content: ProjectData[];
 }
 ```
+
+| Property    | Description           |               Example               |
+| :---------- | :-------------------- | :---------------------------------: |
+| `tags`      | Project tag data      |                  -                  |
+| `tags.*`    | Tag group name        |             `Language`              |
+| `tags.*[]`  | Tag datas             | [TagData](/docs/BASE.md/#tagdata)[] |
+| `content[]` | Project contents data |    [ProjectData](#projectdata)[]    |
 
 Example
 
@@ -75,3 +82,12 @@ interface ProjectData {
   url?: string;
 }
 ```
+
+| Property      | Description                                      |          Example          |
+| :------------ | :----------------------------------------------- | :-----------------------: |
+| `name`        | Project name                                     |         `Resume`          |
+| `date`        | Project date                                     |       `2020.01.01`        |
+| `image`       | Image path in `src/assets`                       |    `contents/toy.jpg`     |
+| `description` | Project description                              | `This is resume template` |
+| `tag`         | Project [TagData](/docs/BASE.md/#tagdata)'s keys |      `["js", "ts"]`       |
+| `url`         | Project URL                                      |   `https://github.com`    |
