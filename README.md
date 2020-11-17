@@ -8,14 +8,14 @@ WIP...
   <br>
   <img src="./src/assets/pwa-support.png" width="150">
 
-Geunhyeok's resume template. [show](https://this.geundung.dev)
+Geunhyeok's resume template. [Demo](https://this.geundung.dev)
+
+---
+
+<img src="./preview.jpg" width="600">
+<img src="./preview.gif" width="600">
 
 </div>
-
-## 👀 Preview
-
-<img src="./preview.jpg">
-<img src="./preview.gif">
 
 - [x] macOS 11 Big Sur style 🍎
 - [x] Fully responsive design 📱
@@ -24,6 +24,7 @@ Geunhyeok's resume template. [show](https://this.geundung.dev)
 - [x] Own contents customizing 🎉
 - [x] PWA Support 🔥
 - [ ] User friendly documentation 🥰
+- [ ] Show alert when usign legacy browser (`< IE11`)
 - [ ] Support `SSR` or `static` page via [Nuxt.js](https://github.com/nuxt/nuxt.js). (Waiting for Vue 3 support)
 
 ## 🌍 Browser support
