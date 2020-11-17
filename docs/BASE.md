@@ -1,4 +1,4 @@
-# 🐥 Basic
+# 👋 Base
 
 - `data/_base.json`
 
@@ -108,6 +108,17 @@ interface SocialData {
 }
 ```
 
+|    Icon     |                                                                   Preview                                                                   |
+| :---------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
+| `instagram` | <img alt="instagram" src="https://user-images.githubusercontent.com/26512984/99387834-f9640380-2917-11eb-9e8d-543933de2223.jpg" width="32"> |
+| `facebook`  | <img alt="facebook" src="https://user-images.githubusercontent.com/26512984/99387817-f701a980-2917-11eb-91c0-aae8f165260b.jpg" width="32">  |
+|  `twitter`  |  <img alt="twitter" src="https://user-images.githubusercontent.com/26512984/99387844-fa953080-2917-11eb-9f4f-3f3f2f4bc79c.jpg" width="32">  |
+|   `line`    |   <img alt="line" src="https://user-images.githubusercontent.com/26512984/99387841-f9fc9a00-2917-11eb-8b3c-fe4ddf535c26.jpg" width="32">    |
+| `linkedin`  | <img alt="linkedin" src="https://user-images.githubusercontent.com/26512984/99387843-fa953080-2917-11eb-81d8-f27a54fa1732.jpg" width="32">  |
+|  `github`   |  <img alt="github" src="https://user-images.githubusercontent.com/26512984/99387826-f832d680-2917-11eb-80b1-3535587cdd01.jpg" width="32">   |
+|  `gitlab`   |  <img alt="gitlab" src="https://user-images.githubusercontent.com/26512984/99387830-f8cb6d00-2917-11eb-998e-dbcb0bc2d7e1.jpg" width="32">   |
+|    `web`    |    <img alt="web" src="https://user-images.githubusercontent.com/26512984/99387846-fb2dc700-2917-11eb-9448-54dfb1fd9bbd.jpg" width="32">    |
+
 ## SkillData
 
 - [Colors](#colors)
@@ -118,6 +129,11 @@ interface SkillData {
   label: string;
 }
 ```
+
+| Property | Description                       |   Example    |
+| :------: | :-------------------------------- | :----------: |
+| `color`  | Skill's dot color [more](#colors) |     `ts`     |
+| `label`  | Skill label                       | `TypeScript` |
 
 ## TagData
 
@@ -130,6 +146,12 @@ interface TagData {
   label: string;
 }
 ```
+
+| Property | Description                     |   Example    |
+| :------: | :------------------------------ | :----------: |
+|  `tag`   | `key` for identify              |   `my_tag`   |
+| `color`  | Tag's dot color [more](#colors) |     `ts`     |
+| `label`  | Tag label                       | `TypeScript` |
 
 ---
 

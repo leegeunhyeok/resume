@@ -5,11 +5,11 @@
   - [ActivityData](#activitydata)
 
 ```typescript
-interface {
+interface ActivityTemplate {
   tags: {
-    [key: string]: TagData[]
-  },
-  content: ActivityData[]
+    [key: string]: TagData[];
+  };
+  content: ActivityData[];
 }
 ```
 

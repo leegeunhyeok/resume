@@ -44,7 +44,7 @@ and also included vuex, vue-router
 
 ## 📖 Template documentation
 
-- [Basic](./docs/BASIC.md)
+- [Base](./docs/Base.md)
 - [Project](./docs/PROJECT.md)
 - [Activity](./docs/ACTIVITY.md)
 

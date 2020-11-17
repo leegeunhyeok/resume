@@ -5,11 +5,11 @@
   - [ProjectData](#projectdata)
 
 ```typescript
-interface {
+interface ProjectTemplate {
   tags: {
-    [key: string]: TagData[]
-  },
-  content: ProjectData[]
+    [key: string]: TagData[];
+  };
+  content: ProjectData[];
 }
 ```
 
