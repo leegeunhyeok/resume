@@ -53,27 +53,27 @@ and also included vuex, vue-router
 
 Base configuration: [src/data/\_base.json](src/data/_base.json)
 
-| Property               | Description                                      |               Example               |
-| :--------------------- | :----------------------------------------------- | :---------------------------------: |
-| `app`                  | PWA Configuration                                |                  -                  |
-| `app.name`             | PWA Name                                         |               `GDev`                |
-| `app.themeColor`       | PWA Theme color (CSS Color)                      |              `#ffffff`              |
-| `title`                | Web title (in head)                              |      `Résume | Geunhyeok` LEE`      |
-| `ga`                   | Google analytics tracking ID                     |          `UA-000000000-0`           |
-| `introText`            | Intro text & og description                      | `["For better", "Web experience."]` |
-| `profile`              | Your profile informations                        |                  -                  |
-| `profile.name`         | Name                                             |           `Geunhyeok LEE`           |
-| `profile.email`        | Email                                            |        `dev.ghlee@gmail.com`        |
-| `profile.photo`        | Profile photo at `src/assets`                    |            `avatar.png`             |
-| `profile.introduce`    | Introduce your self                              |         `Makes web better`          |
-| `profile.social`       | Social informations in Contact ([more](#social)) |                  -                  |
-| `profile.social.icon`  | Social Icon (Check SocialIcon)                   |              `github`               |
-| `profile.social.label` | Lable text to be displayed                       |              `Github`               |
-| `profile.social.url`   | Page URL to go                                   |  `https://github.com/leegeunhyeok`  |
-| `profile.skill`        | Your own skills list ([more](#skill))            |                  -                  |
-| `profile.label`        | Lable text to be displayed                       |            `TypeScript`             |
-| `profile.color`        | Skill's dot color ([more](#colors))              |                `ts`                 |
-| `profile.hobby`        | Your hobby (Max: 2)                              |      `["프로그래밍", "운동"]`       |
+| Property                 | Description                                          |               Example               |
+| :----------------------- | :--------------------------------------------------- | :---------------------------------: |
+| `app`                    | PWA Configuration                                    |                  -                  |
+| `app.name`               | PWA Name                                             |               `GDev`                |
+| `app.themeColor`         | PWA Theme color (CSS Color)                          |              `#ffffff`              |
+| `title`                  | Web title (in head)                                  |      `Résume | Geunhyeok LEE`       |
+| `ga`                     | Google analytics tracking ID                         |          `UA-000000000-0`           |
+| `introText[]`            | Intro text (Each line), og description               | `["For better", "Web experience."]` |
+| `profile`                | Your profile informations                            |                  -                  |
+| `profile.name`           | Name                                                 |           `Geunhyeok LEE`           |
+| `profile.email`          | Email                                                |        `dev.ghlee@gmail.com`        |
+| `profile.photo`          | Profile photo at `src/assets`                        |            `avatar.png`             |
+| `profile.introduce`      | Introduce your self                                  |         `Makes web better`          |
+| `profile.social[]`       | Social informations in Contact app ([more](#social)) |                  -                  |
+| `profile.social[].icon`  | Social Icon (Check SocialIcon)                       |              `github`               |
+| `profile.social[].label` | Social text to be displayed                          |              `Github`               |
+| `profile.social[].url`   | Page URL to go                                       |  `https://github.com/leegeunhyeok`  |
+| `profile.skill[]`        | Your own skills list ([more](#skill))                |                  -                  |
+| `profile.skill[].label`  | Skill text to be displayed                           |            `TypeScript`             |
+| `profile.skill[].color`  | Skill's dot color ([more](#colors))                  |                `ts`                 |
+| `profile.hobby[]`        | Your hobby (Max: 2)                                  |      `["프로그래밍", "운동"]`       |
 
 Example
 
@@ -83,7 +83,7 @@ Example
     "name": "GDev",
     "themeColor": "#ffffff"
   },
-  "title": "Dev | Geundung",
+  "title": "Résume | Geunhyeok LEE",
   "ga": "UA-000000000-0",
   "introText": ["For better", "Web experience."],
   "profile": {
@@ -104,11 +104,11 @@ Example
     ],
     "skill": [
       {
-        "label": "JavaScript",
-        "color": "js"
+        "label": "Vue.js",
+        "color": "vue"
       },
       {
-        "label": "TypeScript",
+        "label": "Other",
         "color": "ts"
       }
     ],
@@ -116,6 +116,8 @@ Example
   }
 }
 ```
+
+👉 [Preview](#base-preview)
 
 #### Social
 
@@ -161,12 +163,12 @@ Example
 
 Template file: [src/data/project.json](src/data/project.json)
 
-| Property    | Description           |             Example             |
-| :---------- | :-------------------- | :-----------------------------: |
-| `tags`      | Project tag data      |                -                |
-| `tags.*`    | Tag group name        |           `Language`            |
-| `tags.*[]`  | Tag datas             | [TagData](/docs/BASE.md/#tag)[] |
-| `content[]` | Project contents data | [Project Data](#project-data)[] |
+| Property    | Description                                    |             Example             |
+| :---------- | :--------------------------------------------- | :-----------------------------: |
+| `tags`      | Project tag data                               |                -                |
+| `tags.*`    | Tag group name (This will auto capitalization) |           `Language`            |
+| `tags.*[]`  | Tag datas                                      |          [Tag](#tag)[]          |
+| `content[]` | Project contents data                          | [Project Data](#project-data)[] |
 
 #### Project Data
 
@@ -186,48 +188,60 @@ Example
   "tags": {
     "language": [
       {
-        "tag": "ts",
+        "id": "ts",
         "color": "ts",
         "label": "TypeScript"
       },
       {
-        "tag": "python",
-        "color": "ts",
+        "id": "py",
+        "color": "python",
         "label": "Python"
-      }
-    ],
-    "other": [
-      {
-        "tag": "git",
-        "color": "ts",
-        "label": "Git"
       },
       {
-        "tag": "docker",
-        "color": "dodgerblue",
-        "label": "Docker"
+        "id": "other",
+        "color": "#ffa500",
+        "label": "Other"
+      }
+    ],
+    "web": [
+      {
+        "id": "vue",
+        "color": "vue",
+        "label": "Vue"
+      },
+      {
+        "id": "react",
+        "color": "react",
+        "label": "React"
+      },
+      {
+        "id": "angular",
+        "color": "angular",
+        "label": "Angular"
       }
     ]
   },
   "content": [
     {
-      "name": "Resume",
-      "date": "2020.01.01",
-      "image": "contents/resume.jpg",
-      "description": "Resume template",
-      "tag": ["ts"],
-      "url": "https://github.com/leegeunhyeok/resume"
+      "name": "CyBot",
+      "date": "2020.02.04",
+      "image": "contents/cover.jpg",
+      "description": "Cyworld data crawler!",
+      "tag": ["py"],
+      "url": "https://github.com/leegeunhyeok/cyworld-bot"
     },
     {
-      "name": "Toy Project",
+      "name": "Web Project",
       "date": "2020.01.01",
-      "image": "contents/toy.jpg",
-      "description": "This is toy project",
-      "tag": ["python", "docker", "git"]
+      "image": "contents/cover.jpg",
+      "description": "Example project!",
+      "tag": ["vue", "react", "angular"]
     }
   ]
 }
 ```
+
+👉 [Preview](#project-preview)
 
 ---
 
@@ -237,12 +251,12 @@ Example
 
 Template file: [src/data/activity.json](src/data/activity.json)
 
-| Property    | Description            |              Example              |
-| :---------- | :--------------------- | :-------------------------------: |
-| `tags`      | Activity tag data      |                 -                 |
-| `tags.*`    | Tag group name         |            `Language`             |
-| `tags.*[]`  | Tags data              |    [Tag](/docs/BASE.md/#tag)[]    |
-| `content[]` | Activity contents data | [Activity Data](#activity-data)[] |
+| Property    | Description                                    |              Example              |
+| :---------- | :--------------------------------------------- | :-------------------------------: |
+| `tags`      | Activity tag data                              |                 -                 |
+| `tags.*`    | Tag group name (This will auto capitalization) |            `language`             |
+| `tags.*[]`  | Tags data                                      |           [Tag](#tag)[]           |
+| `content[]` | Activity contents data                         | [Activity Data](#activity-data)[] |
 
 #### Activity Data
 
@@ -260,36 +274,41 @@ Example
   "tags": {
     "type": [
       {
-        "tag": "career",
-        "color": "blue",
+        "id": "career",
+        "color": "#ff6347",
         "label": "Career"
       },
       {
-        "tag": "cert",
-        "color": "js",
+        "id": "cert",
+        "color": "ts",
         "label": "Certification"
+      }
+    ],
+    "other": [
+      {
+        "id": "ex",
+        "color": "yellow",
+        "label": "Example"
       }
     ]
   },
   "content": [
     {
-      "title": "First company",
-      "from": "2020.01.01",
+      "title": "First Company",
+      "from": "2019.01.01",
       "to": "2020.01.01",
       "tag": "career"
     },
     {
-      "title": "First Certificaiton",
-      "from": "2000.01.01",
+      "title": "Example Certification",
+      "from": "2000.12.31",
       "tag": "cert"
     }
   ]
 }
 ```
 
-Preview
-
-WIP
+👉 [Preview](#activity-preview)
 
 ---
 
@@ -336,9 +355,34 @@ WIP
 |    `vue`     |    <img alt="vue" src="https://user-images.githubusercontent.com/26512984/99268208-2f49af00-2868-11eb-812e-285ecfef0512.jpg" width="32">     |
 |   `yellow`   |   <img alt="yellow" src="https://user-images.githubusercontent.com/26512984/99268209-2fe24580-2868-11eb-9cf3-0ffed7010334.jpg" width="32">   |
 
-Preview
+---
 
-WIP
+## Base Preview
+
+- Intro
+
+<img alt="intro 1" src="preview/intro_1.jpg" width="700">
+<img alt="intro 2" src="preview/intro_2.jpg" width="700">
+
+- Dock menu
+
+<img alt="dockmenu" src="preview/dockmenu.jpg" width="700">
+
+- About me
+
+<img alt="about me" src="preview/aboutme.jpg" width="700">
+
+- Contact
+
+<img alt="contact" src="preview/contact.jpg" width="700">
+
+## Project Preview
+
+<img alt="project" src="preview/project.jpg" width="700">
+
+## Activity Preview
+
+<img alt="activity" src="preview/activity.jpg" width="700">
 
 ---
 
