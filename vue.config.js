@@ -18,6 +18,7 @@ module.exports = {
     config.plugin('html').tap(args => {
       args[0].title = _Base.title;
       args[0].ga = _Base.ga;
+      args[0].description = _Base.introText.join(' ');
       return args;
     });
   },
