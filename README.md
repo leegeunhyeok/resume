@@ -172,14 +172,14 @@ Template file: [src/data/project.json](src/data/project.json)
 
 #### Project Data
 
-| Property      | Description                               | Required |          Example          |
-| :------------ | :---------------------------------------- | :------: | :-----------------------: |
-| `name`        | Project name                              |   `o`    |         `Resume`          |
-| `date`        | Project date                              |   `o`    |       `2020.01.01`        |
-| `image`       | Image path in `src/assets`                |   `o`    |    `contents/toy.jpg`     |
-| `description` | Project description                       |   `o`    | `This is resume template` |
-| `tag`         | Project [Tag](/docs/BASE.md/#tag) ID list |   `o`    |  `[]` or `["js", "ts"]`   |
-| `url`         | Project URL                               |   `x`    |   `https://github.com`    |
+| Property      | Description                                                   | Required |          Example          |
+| :------------ | :------------------------------------------------------------ | :------: | :-----------------------: |
+| `name`        | Project name                                                  |   `o`    |         `Resume`          |
+| `date`        | Project date                                                  |   `o`    |       `2020.01.01`        |
+| `image`       | Image path in `src/assets`                                    |   `o`    |    `contents/toy.jpg`     |
+| `description` | Project description                                           |   `o`    | `This is resume template` |
+| `tag`         | Project [Tag](/docs/BASE.md/#tag) ID list                     |   `o`    |  `[]` or `["js", "ts"]`   |
+| `url`         | Project URL (Auto fetch stars when url is github repository!) |   `x`    |   `https://github.com`    |
 
 Example
 
