@@ -58,7 +58,7 @@ Base configuration: [src/data/\_base.json](src/data/_base.json)
 | `app`                  | PWA Configuration                                |                  -                  |
 | `app.name`             | PWA Name                                         |               `GDev`                |
 | `app.themeColor`       | PWA Theme color (CSS Color)                      |              `#ffffff`              |
-| `title`                | Web title (in head)                              |      `Résume | Geunhyeok LEE`       |
+| `title`                | Web title (in head)                              |      `Résume | Geunhyeok` LEE`      |
 | `ga`                   | Google analytics tracking ID                     |          `UA-000000000-0`           |
 | `introText`            | Intro text & og description                      | `["For better", "Web experience."]` |
 | `profile`              | Your profile informations                        |                  -                  |
@@ -147,15 +147,17 @@ Example
 
 #### Tag
 
-| Property | Description                       | Require |   Example    |
-| :------: | :-------------------------------- | :-----: | :----------: |
-|   `id`   | Tag ID                            |   `o`   |   `my_tag`   |
-| `color`  | Tag's dot color ([more](#colors)) |   `o`   |     `ts`     |
-| `label`  | Tag label                         |   `o`   | `TypeScript` |
+| Property | Description                       | Required |   Example    |
+| :------: | :-------------------------------- | :------: | :----------: |
+|   `id`   | Tag ID                            |   `o`    |   `my_tag`   |
+| `color`  | Tag's dot color ([more](#colors)) |   `o`    |     `ts`     |
+| `label`  | Tag label                         |   `o`    | `TypeScript` |
 
 ---
 
 ### Project App
+
+<img alt="project app" src="https://user-images.githubusercontent.com/26512984/99526621-d7818400-29de-11eb-9c62-17bb9ec1057b.png">
 
 Template file: [src/data/project.json](src/data/project.json)
 
@@ -230,6 +232,8 @@ Example
 ---
 
 ### Activity App
+
+<img alt="activity app" src="https://user-images.githubusercontent.com/26512984/99526617-d6505700-29de-11eb-8650-7629d16deff7.png">
 
 Template file: [src/data/activity.json](src/data/activity.json)
 
