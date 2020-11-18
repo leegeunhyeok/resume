@@ -2,81 +2,81 @@
   "tags": {
     "language": [
       {
-        "tag": "js",
+        "id": "js",
         "color": "js",
         "label": "JavaScript"
       },
       {
-        "tag": "ts",
+        "id": "ts",
         "color": "ts",
         "label": "TypeScript"
       },
       {
-        "tag": "python",
+        "id": "python",
         "color": "ts",
         "label": "Python"
       },
       {
-        "tag": "java",
+        "id": "java",
         "color": "ts",
         "label": "Java"
       },
       {
-        "tag": "c",
+        "id": "c",
         "color": "ts",
         "label": "C"
       },
       {
-        "tag": "cpp",
+        "id": "cpp",
         "color": "ts",
         "label": "C++"
       },
       {
-        "tag": "shell",
+        "id": "shell",
         "color": "ts",
         "label": "Shell"
       }
     ],
     "web": [
       {
-        "tag": "vue",
+        "id": "vue",
         "color": "ts",
         "label": "Vue"
       },
       {
-        "tag": "react",
+        "id": "react",
         "color": "ts",
         "label": "React"
       },
       {
-        "tag": "angular",
+        "id": "angular",
         "color": "ts",
         "label": "Angular"
       },
       {
-        "tag": "pwa",
+        "id": "pwa",
         "color": "ts",
         "label": "PWA"
       }
     ],
     "other": [
       {
-        "tag": "node",
+        "id": "node",
         "color": "ts",
         "label": "Node"
       },
       {
-        "tag": "git",
+        "id": "git",
         "color": "ts",
         "label": "Git"
       },
       {
-        "tag": "docker",
+        "id": "docker",
         "color": "dodgerblue",
         "label": "Docker"
       },
       {
-        "tag": "vim",
+        "id": "vim",
         "color": "ts",
         "label": "Vim"
       }

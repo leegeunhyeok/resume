@@ -7,7 +7,7 @@ export interface BoxProps {
 }
 
 export interface TagData {
-  tag: string;
+  id: string;
   color: string;
   label: string;
 }
@@ -29,7 +29,7 @@ export interface ActivityData {
 }
 
 export interface SocialData {
-  icon: string;
+  icon?: string;
   label?: string;
   url: string;
 }

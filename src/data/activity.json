@@ -2,22 +2,22 @@
   "tags": {
     "type": [
       {
-        "tag": "career",
+        "id": "career",
         "color": "red",
         "label": "Career"
       },
       {
-        "tag": "cert",
+        "id": "cert",
         "color": "blue",
         "label": "Certification"
       },
       {
-        "tag": "edu",
+        "id": "edu",
         "color": "yellow",
         "label": "Education"
       },
       {
-        "tag": "pub",
+        "id": "pub",
         "color": "green",
         "label": "Publishing"
       }

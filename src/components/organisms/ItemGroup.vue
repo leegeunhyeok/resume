@@ -13,10 +13,10 @@
         v-for="(item, i) in items"
         :key="i"
         :content="item.label"
-        :tag="item.tag"
+        :tag="item.id"
         :color="item.color"
-        :active="activeTag === item.tag"
-        @click="$emit('select', item.tag)"
+        :active="activeTag === item.id"
+        @click="$emit('select', item.id)"
       />
     </div>
   </div>

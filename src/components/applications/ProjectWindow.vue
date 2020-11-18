@@ -5,7 +5,7 @@
         v-for="(list, i) in groupList"
         :group="list.group"
         :items="list.items"
-        :activeTag="currentTag || ''"
+        :activeTag="currentTagId || ''"
         :key="i"
         @select="setTagFilter($event)"
       />
@@ -33,7 +33,7 @@ interface ProjectWindowProps {
 }
 
 const allTag: TagData = {
-  tag: 'empty',
+  id: 'empty',
   label: 'All',
   color: '',
 };
@@ -49,7 +49,7 @@ export default defineComponent({
   },
   emits: ['close'],
   setup(props) {
-    const currentTag = ref<string>(allTag.tag);
+    const currentTagId = ref<string>(allTag.id);
     const groupList = computed(() =>
       Object.entries({ general: [allTag], ...props.data.tags }).map(([group, items]) => ({
         group,
@@ -57,17 +57,17 @@ export default defineComponent({
       })),
     );
 
-    const getTagColor = (tagName: string) => {
+    const getTagColor = (tagId: string) => {
       const tag = Object.values(props.data.tags)
         .flat()
-        .find(({ tag }) => tag === tagName);
+        .find(({ id }) => id === tagId);
       return tag ? tag.color : '';
     };
 
     const filteredContent = computed<(ProjectData & { tagColor: string[] })[]>(() =>
       props.data.content
         .filter(content =>
-          currentTag.value !== allTag.tag ? content.tag.find(t => t === currentTag.value) : true,
+          currentTagId.value !== allTag.id ? content.tag.find(t => t === currentTagId.value) : true,
         )
         .map(data => ({
           ...data,
@@ -75,14 +75,14 @@ export default defineComponent({
         })),
     );
 
-    const setTagFilter = (tag: string) => (currentTag.value = tag);
+    const setTagFilter = (tag: string) => (currentTagId.value = tag);
 
     return {
       groupList,
       filteredContent,
       setTagFilter,
       assetFrom,
-      currentTag,
+      currentTagId,
     };
   },
 });

@@ -42,7 +42,7 @@ interface ActivityWindowProps {
 }
 
 const allTag: TagData = {
-  tag: 'empty',
+  id: 'empty',
   label: 'All',
   color: '',
 };
@@ -58,7 +58,7 @@ export default defineComponent({
   },
   emits: ['close'],
   setup(props) {
-    const currentTag = ref<string>(allTag.tag);
+    const currentTag = ref<string>(allTag.id);
     const groupList = computed(() =>
       Object.entries({ general: [allTag], ...props.data.tags }).map(([group, items]) => ({
         group,
@@ -66,18 +66,17 @@ export default defineComponent({
       })),
     );
 
-    const getTagColor = (tagName: string) => {
+    const getTagColor = (tagId: string) => {
       const tag = Object.values(props.data.tags)
         .flat()
-        .find(({ tag }) => tag === tagName);
-      console.log(tagName, props.data.tags, tag);
+        .find(({ id }) => id === tagId);
       return tag ? tag.color : '';
     };
 
     const filteredContent = computed<(ActivityData & { color: string })[]>(() =>
       props.data.content
         .filter(content =>
-          currentTag.value !== allTag.tag ? content.tag === currentTag.value : true,
+          currentTag.value !== allTag.id ? content.tag === currentTag.value : true,
         )
         .map(data => ({
           ...data,
