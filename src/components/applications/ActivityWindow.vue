@@ -19,7 +19,13 @@
           <div class="activity__items__information">
             <Text :content="data.title" size="large" bold />
             <Text :content="data.from" color="secondary" size="small" thin />
-            <Text :content="'~' + (data.to || '')" color="secondary" size="small" thin />
+            <Text
+              :content="'~' + (data.to || '')"
+              color="secondary"
+              size="small"
+              thin
+              v-if="data.to"
+            />
           </div>
         </div>
       </transition-group>
