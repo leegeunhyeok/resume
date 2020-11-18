@@ -163,23 +163,23 @@ Example
 
 Template file: [src/data/project.json](src/data/project.json)
 
-| Property    | Description                                    |             Example             |
-| :---------- | :--------------------------------------------- | :-----------------------------: |
-| `tags`      | Project tag data                               |                -                |
-| `tags.*`    | Tag group name (This will auto capitalization) |           `Language`            |
-| `tags.*[]`  | Tag datas                                      |          [Tag](#tag)[]          |
-| `content[]` | Project contents data                          | [Project Data](#project-data)[] |
+| Property    | Description                          |             Example             |
+| :---------- | :----------------------------------- | :-----------------------------: |
+| `tags`      | Project tag data                     |                -                |
+| `tags.*`    | Tag group name (Auto capitalization) |           `language`            |
+| `tags.*[]`  | Tag datas                            |          [Tag](#tag)[]          |
+| `content[]` | Project contents data                | [Project Data](#project-data)[] |
 
 #### Project Data
 
-| Property      | Description                                                   | Required |          Example          |
-| :------------ | :------------------------------------------------------------ | :------: | :-----------------------: |
-| `name`        | Project name                                                  |   `o`    |         `Resume`          |
-| `date`        | Project date                                                  |   `o`    |       `2020.01.01`        |
-| `image`       | Image path in `src/assets`                                    |   `o`    |    `contents/toy.jpg`     |
-| `description` | Project description                                           |   `o`    | `This is resume template` |
-| `tag`         | Project [Tag](/docs/BASE.md/#tag) ID list                     |   `o`    |  `[]` or `["js", "ts"]`   |
-| `url`         | Project URL (Auto fetch stars when url is github repository!) |   `x`    |   `https://github.com`    |
+| Property      | Description                                                            | Required |          Example          |
+| :------------ | :--------------------------------------------------------------------- | :------: | :-----------------------: |
+| `name`        | Project name                                                           |   `o`    |         `Resume`          |
+| `date`        | Project date                                                           |   `o`    |       `2020.01.01`        |
+| `image`       | Image path in `src/assets`                                             |   `o`    |    `contents/toy.jpg`     |
+| `description` | Project description                                                    |   `o`    | `This is resume template` |
+| `tag`         | Project [Tag](#tag) ID list                                            |   `o`    |  `[]` or `["js", "ts"]`   |
+| `url`         | Project URL (Fetch stars automatically when url is github repository!) |   `x`    |   `https://github.com`    |
 
 Example
 
@@ -251,21 +251,21 @@ Example
 
 Template file: [src/data/activity.json](src/data/activity.json)
 
-| Property    | Description                                    |              Example              |
-| :---------- | :--------------------------------------------- | :-------------------------------: |
-| `tags`      | Activity tag data                              |                 -                 |
-| `tags.*`    | Tag group name (This will auto capitalization) |            `language`             |
-| `tags.*[]`  | Tags data                                      |           [Tag](#tag)[]           |
-| `content[]` | Activity contents data                         | [Activity Data](#activity-data)[] |
+| Property    | Description                          |              Example              |
+| :---------- | :----------------------------------- | :-------------------------------: |
+| `tags`      | Activity tag data                    |                 -                 |
+| `tags.*`    | Tag group name (Auto capitalization) |              `type`               |
+| `tags.*[]`  | Tags data                            |           [Tag](#tag)[]           |
+| `content[]` | Activity contents data               | [Activity Data](#activity-data)[] |
 
 #### Activity Data
 
-| Property | Description                           | Required |   Example    |
-| :------- | :------------------------------------ | :------: | :----------: |
-| `title`  | Activity title                        |   `o`    |  `Company`   |
-| `from`   | Date from                             |   `o`    | `2020.01.01` |
-| `to`     | Date to                               |   `x`    | `2020.11.11` |
-| `tag`    | Activity [Tag](/docs/BASE.md/#tag) ID |   `o`    |   `career`   |
+| Property | Description             | Required |   Example    |
+| :------- | :---------------------- | :------: | :----------: |
+| `title`  | Activity title          |   `o`    |  `Company`   |
+| `from`   | Date from               |   `o`    | `2020.01.01` |
+| `to`     | Date to                 |   `x`    | `2020.11.11` |
+| `tag`    | Activity [Tag](#tag) ID |   `o`    |   `career`   |
 
 Example
 
