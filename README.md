@@ -57,15 +57,15 @@ Base configuration: [src/data/\_base.json](src/data/_base.json)
 | Property                 | Description                                          |               Example               |
 | :----------------------- | :--------------------------------------------------- | :---------------------------------: |
 | `app`                    | PWA Configuration                                    |                  -                  |
-| `app.name`               | PWA Name                                             |               `GDev`                |
+| `app.name`               | PWA Name                                             |              `Résume`               |
 | `app.themeColor`         | PWA Theme color (CSS Color)                          |              `#ffffff`              |
 | `title`                  | Web title (in head)                                  |      `Résume | Geunhyeok LEE`       |
-| `ga`                     | Google analytics tracking ID                         |          `UA-000000000-0`           |
+| `ga`                     | Google analytics tracking ID (Optional)              |          `UA-000000000-0`           |
 | `introText[]`            | Intro text (Each line), og description               | `["For better", "Web experience."]` |
 | `profile`                | Your profile informations                            |                  -                  |
 | `profile.name`           | Name                                                 |           `Geunhyeok LEE`           |
 | `profile.email`          | Email                                                |        `dev.ghlee@gmail.com`        |
-| `profile.photo`          | Profile photo at `src/assets`                        |            `avatar.png`             |
+| `profile.photo`          | Profile photo filename at `src/assets`               |            `avatar.png`             |
 | `profile.introduce`      | Introduce your self                                  |         `Makes web better`          |
 | `profile.social[]`       | Social informations in Contact app ([more](#social)) |                  -                  |
 | `profile.social[].icon`  | Social Icon (Check SocialIcon)                       |              `github`               |
