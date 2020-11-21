@@ -93,20 +93,6 @@ img {
   }
 }
 
-@include theme {
-  .fa-icon {
-    display: inline-block;
-    color: t(text);
-    width: 24px;
-    height: 24px;
-
-    & > svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;

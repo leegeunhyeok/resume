@@ -1,0 +1,18 @@
+$icon-size: 1.5rem;
+
+$icons: (email, instagram, facebook, twitter, line, linkedin, github, gitlab, web);
+
+.fa-icon {
+  display: inline-block;
+  width: $icon-size;
+  height: $icon-size;
+  background-size: $icon-size;
+  background-repeat: no-repeat;
+  background-position: 0;
+}
+
+@each $icon in $icons {
+  .fa-icon.#{$icon} {
+    background-image: url('~@/assets/fontawesome/#{$icon}.svg');
+  }
+}

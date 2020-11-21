@@ -432,6 +432,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - macOS 11 style icons by [octaviotti](https://www.deviantart.com/octaviotti).
 - Wallpaper image by [ultralinx](https://theultralinx.com/2018/11/gradient-wave-wallpaper-by-ultralinx).
 - Weather sun icon from [myiconfinder](http://www.myiconfinder.com/icon/sun-heat-hot-weather-summer-sunshine/22781).
+- `src/assets/fontawesome/*` icons by [Font Awesome](https://fontawesome.com).
 
 ## ⭐️ License
 

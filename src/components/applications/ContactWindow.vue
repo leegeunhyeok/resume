@@ -6,9 +6,7 @@
           <Text content="Contact Me" size="large" bold />
         </div>
         <div class="contact__item">
-          <span class="fa-icon">
-            <fa :icon="['far', 'envelope']" />
-          </span>
+          <span class="fa-icon email" />
           <Text :content="template.email" />
         </div>
         <div
@@ -18,9 +16,7 @@
           @click="openPage(social.url)"
           @touchstart.passive="() => null"
         >
-          <span class="fa-icon" v-if="getIcon(social.icon)">
-            <fa :icon="getIcon(social.icon)" />
-          </span>
+          <span class="fa-icon" :class="social.icon" v-if="social.icon" />
           <Text :content="social.label || social.url" />
         </div>
       </div>
@@ -36,18 +32,6 @@ import { Template } from '@/types';
 import Text from '@/components/atoms/Text.vue';
 import Window from '@/components/organisms/Window.vue';
 
-type Icon = [string, string];
-const Icons: { [key: string]: Icon } = {
-  instagram: ['fab', 'instagram'],
-  facebook: ['fab', 'facebook'],
-  twitter: ['fab', 'twitter'],
-  line: ['fab', 'line'],
-  linkedin: ['fab', 'linkedin'],
-  github: ['fab', 'github'],
-  gitlab: ['fab', 'gitlab'],
-  web: ['fas', 'globe-americas'],
-};
-
 export default defineComponent({
   name: 'ContactWindow',
   components: { Text, Window },
@@ -55,12 +39,7 @@ export default defineComponent({
     template: Object as PropType<Template>,
   },
   emits: ['close'],
-  setup() {
-    return {
-      getIcon: (key: string) => (key in Icons ? Icons[key] : null),
-      openPage,
-    };
-  },
+  setup: () => ({ openPage }),
 });
 </script>
 
@@ -92,6 +71,8 @@ export default defineComponent({
   }
 
   &__item {
+    display: flex;
+    align-items: center;
     padding: 0.5rem 0;
 
     &.hoverable {
@@ -106,8 +87,6 @@ export default defineComponent({
 
     & > span {
       margin-right: 1rem;
-      width: 15px;
-      height: 15px;
     }
 
     & > p {
