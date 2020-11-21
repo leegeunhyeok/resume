@@ -18,7 +18,7 @@ const generateGAScript = trackingId => `
   </script>
 `;
 
-const publicPath = process.env.NODE_ENV === 'development' ? '/' : '/dist';
+const publicPath = process.env.NODE_ENV === 'development' ? '/' : _Base.publicPath || '/dist';
 
 module.exports = {
   productionSourceMap: false,

@@ -50,36 +50,43 @@ and also included vuex, vue-router
 - [Activity](#activity-app) (Template: [src/data/activity.json](src/data/activity.json))
 - [Other](#other)
 
+## 🚀 Deploy
+
+- 👉 [Github Page](docs/DEPLOY_GITHUB_PAGE.md)
+- 👍 Manually
+
 ### Base
 
 Base configuration: [src/data/\_base.json](src/data/_base.json)
 
-| Property                 | Description                                          |               Example               |
-| :----------------------- | :--------------------------------------------------- | :---------------------------------: |
-| `app`                    | PWA Configuration                                    |                  -                  |
-| `app.name`               | PWA Name                                             |              `Résume`               |
-| `app.themeColor`         | PWA Theme color (CSS Color)                          |              `#ffffff`              |
-| `title`                  | Web title (in head)                                  |      `Résume | Geunhyeok LEE`       |
-| `ga`                     | Google analytics tracking ID (Optional)              |          `UA-000000000-0`           |
-| `introText[]`            | Intro text (Each line), og description               | `["For better", "Web experience."]` |
-| `profile`                | Your profile informations                            |                  -                  |
-| `profile.name`           | Name                                                 |           `Geunhyeok LEE`           |
-| `profile.email`          | Email                                                |        `dev.ghlee@gmail.com`        |
-| `profile.photo`          | Profile photo filename at `src/assets`               |            `avatar.png`             |
-| `profile.introduce`      | Introduce your self                                  |         `Makes web better`          |
-| `profile.social[]`       | Social informations in Contact app ([more](#social)) |                  -                  |
-| `profile.social[].icon`  | Social Icon (Check SocialIcon)                       |              `github`               |
-| `profile.social[].label` | Social text to be displayed                          |              `Github`               |
-| `profile.social[].url`   | Page URL to go                                       |  `https://github.com/leegeunhyeok`  |
-| `profile.skill[]`        | Your own skills list ([more](#skill))                |                  -                  |
-| `profile.skill[].label`  | Skill text to be displayed                           |            `TypeScript`             |
-| `profile.skill[].color`  | Skill's dot color ([more](#colors))                  |                `ts`                 |
-| `profile.hobby[]`        | Your hobby (Max: 2)                                  |      `["프로그래밍", "운동"]`       |
+| Property                 | Description                                                     |               Example               |
+| :----------------------- | :-------------------------------------------------------------- | :---------------------------------: |
+| `publicPath`             | Webpack [publicPath](https://webpack.js.org/guides/public-path) |                 `/`                 |
+| `app`                    | PWA Configuration                                               |                  -                  |
+| `app.name`               | PWA Name                                                        |              `Résume`               |
+| `app.themeColor`         | PWA Theme color (CSS Color)                                     |              `#ffffff`              |
+| `title`                  | Web title (in head)                                             |      `Résume | Geunhyeok LEE`       |
+| `ga`                     | Google analytics tracking ID (Optional)                         |          `UA-000000000-0`           |
+| `introText[]`            | Intro text (Each line), og description                          | `["For better", "Web experience."]` |
+| `profile`                | Your profile informations                                       |                  -                  |
+| `profile.name`           | Name                                                            |           `Geunhyeok LEE`           |
+| `profile.email`          | Email                                                           |        `dev.ghlee@gmail.com`        |
+| `profile.photo`          | Profile photo filename at `src/assets`                          |            `avatar.png`             |
+| `profile.introduce`      | Introduce your self                                             |         `Makes web better`          |
+| `profile.social[]`       | Social informations in Contact app ([more](#social))            |                  -                  |
+| `profile.social[].icon`  | Social Icon (Check SocialIcon)                                  |              `github`               |
+| `profile.social[].label` | Social text to be displayed                                     |              `Github`               |
+| `profile.social[].url`   | Page URL to go                                                  |  `https://github.com/leegeunhyeok`  |
+| `profile.skill[]`        | Your own skills list ([more](#skill))                           |                  -                  |
+| `profile.skill[].label`  | Skill text to be displayed                                      |            `TypeScript`             |
+| `profile.skill[].color`  | Skill's dot color ([more](#colors))                             |                `ts`                 |
+| `profile.hobby[]`        | Your hobby (Max: 2)                                             |      `["프로그래밍", "운동"]`       |
 
 Example
 
 ```json
 {
+  "publicPath": "/",
   "app": {
     "name": "Résume",
     "themeColor": "#ffffff"

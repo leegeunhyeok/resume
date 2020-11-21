@@ -1,6 +1,7 @@
 {
+  "publicPath": "/",
   "app": {
-    "name": "GDev",
+    "name": "Résume",
     "themeColor": "#ffffff"
   },
   "title": "Résume | Geunhyeok LEE",
