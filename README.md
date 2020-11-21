@@ -401,25 +401,33 @@ Example
 
 ## 🛠 Project setup
 
-```
+```bash
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 
-```
+```bash
 npm run serve
 ```
 
 ### Compiles and minifies for production
 
-```
+```bash
 npm run build
+
+# Build & Generate bundle analyzer
+# => dist/report.html
+npm run build:report
 ```
+
+- Report
+
+<img alt="report" src="preview/report.jpg" width="700">
 
 ### Lints and fixes files
 
-```
+```bash
 npm run lint
 ```
 
