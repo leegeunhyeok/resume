@@ -27,7 +27,6 @@ module.exports = {
     devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
     devServer: {
       port: '8080',
-      public: 'ghlee-mbp.local',
     },
   },
   chainWebpack: config => {
