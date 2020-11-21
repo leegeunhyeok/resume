@@ -173,15 +173,15 @@ Template file: [src/data/project.json](src/data/project.json)
 
 #### Project Data
 
-| Property      | Description                                                            | Required |          Example          |
-| :------------ | :--------------------------------------------------------------------- | :------: | :-----------------------: |
-| `name`        | Project name                                                           |   `o`    |         `Resume`          |
-| `date`        | Project date                                                           |   `o`    |       `2020.01.01`        |
-| `image`       | Project image filename (Base path: `src/assets`)                       |   `o`    |    `contents/toy.jpg`     |
-| `description` | Project description                                                    |   `o`    | `This is resume template` |
-| `textColor`   | Project name, description text color ([more](#colors))                 |   `x`    |           `red`           |
-| `tag`         | Project [Tag](#tag) ID list                                            |   `o`    |  `[]` or `["js", "ts"]`   |
-| `url`         | Project URL (Fetch stars automatically when url is github repository!) |   `x`    |   `https://github.com`    |
+| Property      | Description                                                                                                                                 | Required |          Example          |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------ | :------: | :-----------------------: |
+| `name`        | Project name                                                                                                                                |   `o`    |         `Resume`          |
+| `date`        | Project date (Auto sorting - [more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#Parameters)) |   `o`    |       `2020.01.01`        |
+| `image`       | Project image filename (Base path: `src/assets`)                                                                                            |   `o`    |    `contents/toy.jpg`     |
+| `description` | Project description                                                                                                                         |   `o`    | `This is resume template` |
+| `textColor`   | Project name, description text color ([more](#colors))                                                                                      |   `x`    |           `red`           |
+| `tag`         | Project [Tag](#tag) ID list                                                                                                                 |   `o`    |  `[]` or `["js", "ts"]`   |
+| `url`         | Project URL (Fetch stars automatically when url is github repository!)                                                                      |   `x`    |   `https://github.com`    |
 
 Example
 
@@ -262,12 +262,12 @@ Template file: [src/data/activity.json](src/data/activity.json)
 
 #### Activity Data
 
-| Property | Description             | Required |   Example    |
-| :------- | :---------------------- | :------: | :----------: |
-| `title`  | Activity title          |   `o`    |  `Company`   |
-| `from`   | Date from               |   `o`    | `2020.01.01` |
-| `to`     | Date to                 |   `x`    | `2020.11.11` |
-| `tag`    | Activity [Tag](#tag) ID |   `o`    |   `career`   |
+| Property | Description                                                                                                                              | Required |   Example    |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------------- | :------: | :----------: |
+| `title`  | Activity title                                                                                                                           |   `o`    |  `Company`   |
+| `from`   | Date from (Auto sorting - [more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#Parameters)) |   `o`    | `2020.01.01` |
+| `to`     | Date to ([more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/Date#Parameters))                  |   `x`    | `2020.11.11` |
+| `tag`    | Activity [Tag](#tag) ID                                                                                                                  |   `o`    |   `career`   |
 
 Example
 
