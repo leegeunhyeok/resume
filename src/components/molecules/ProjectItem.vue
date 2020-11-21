@@ -6,7 +6,7 @@
     @click="more"
   >
     <Image class="project-item__img" :source="assetFrom(data.image)" />
-    <div class="project-item__detail">
+    <div class="project-item__detail" :class="'text-' + textColor" :style="{ color: textColor }">
       <h2>{{ data.name }}</h2>
       <p>{{ data.description }}</p>
     </div>
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from 'vue';
+import { defineComponent, PropType, ref, computed } from 'vue';
 import { getRepositoryStar, assetFrom, openPage } from '@/common/util';
 import { ProjectData } from '@/types';
 
@@ -43,6 +43,8 @@ export default defineComponent({
   },
   setup(props) {
     const star = ref(-1);
+    const textColor = computed(() => props.data.textColor || null);
+
     const getStar = (repositoryUrl: string) => {
       const [user, repository] = repositoryUrl.replace('https://github.com/', '').split('/');
       getRepositoryStar(user, repository)
@@ -52,7 +54,12 @@ export default defineComponent({
 
     props.data.url && props.data.url.startsWith('https://github.com') && getStar(props.data.url);
 
-    return { star, more: () => props.data.url && openPage(props.data.url), assetFrom };
+    return {
+      star,
+      textColor,
+      more: () => props.data.url && openPage(props.data.url),
+      assetFrom,
+    };
   },
 });
 </script>

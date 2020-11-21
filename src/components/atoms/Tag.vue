@@ -1,14 +1,19 @@
 <template>
-  <span class="tag" :class="color" :style="{ backgroundColor: color }" />
+  <span class="tag" :class="'background-' + color" :style="{ backgroundColor: color }" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 
 export default defineComponent({
   name: 'Tag',
   props: {
     color: String,
+  },
+  setup(props) {
+    return {
+      tagColor: computed(() => props.color || null),
+    };
   },
 });
 </script>
@@ -22,15 +27,9 @@ export default defineComponent({
   height: 1rem;
   border-radius: 50%;
 
-  &.empty {
+  &.background-empty {
     background-color: transparent;
     border: 1px solid #eee;
-  }
-
-  @each $name, $color in $colors {
-    &.#{$name} {
-      background-color: $color !important;
-    }
   }
 }
 </style>

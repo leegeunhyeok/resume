@@ -50,6 +50,16 @@ $colors: (
   vim: #4b9c54
 );
 
+@each $name, $color in $colors {
+  &.background-#{$name} {
+    background-color: $color !important;
+  }
+
+  &.text-#{$name} {
+    color: $color !important;
+  }
+}
+
 $theme: (
   light: (
     pure: #ffffff,

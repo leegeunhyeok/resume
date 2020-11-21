@@ -17,6 +17,7 @@ export interface ProjectData {
   date: string;
   image: string;
   description: string;
+  textColor?: string;
   tag: string[];
   url?: string;
 }

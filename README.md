@@ -179,6 +179,7 @@ Template file: [src/data/project.json](src/data/project.json)
 | `date`        | Project date                                                           |   `o`    |       `2020.01.01`        |
 | `image`       | Image path in `src/assets`                                             |   `o`    |    `contents/toy.jpg`     |
 | `description` | Project description                                                    |   `o`    | `This is resume template` |
+| `textColor`   | Project name, description text color ([more](#colors))                 |   `x`    |           `red`           |
 | `tag`         | Project [Tag](#tag) ID list                                            |   `o`    |  `[]` or `["js", "ts"]`   |
 | `url`         | Project URL (Fetch stars automatically when url is github repository!) |   `x`    |   `https://github.com`    |
 
