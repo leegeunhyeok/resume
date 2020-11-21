@@ -22,18 +22,7 @@
 
     <title><%= htmlWebpackPlugin.options.title %></title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=<%= htmlWebpackPlugin.options.ga %>"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', '<%= htmlWebpackPlugin.options.ga %>');
-    </script>
+    <%= htmlWebpackPlugin.options.gaScript %>
   </head>
   <body class="light">
     <noscript>

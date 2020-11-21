@@ -22,9 +22,9 @@ Geunhyeok's resume template. [Demo](https://this.geundung.dev)
 - [x] Support darkmode 🌚
 - [x] Auto load stars from Github repository ⭐️
 - [x] Own contents customizing 🎉
-- [ ] HTML meta & og tag as template 👀
+- [x] HTML meta & og tag as template 👀
 - [x] PWA Support 🔥
-- [ ] User friendly documentation 🥰
+- [x] User friendly documentation 🥰
 - [ ] Show alert when usign legacy browser (`< IE11`)
 - [ ] Support `SSR` or `static` page via [Nuxt.js](https://github.com/nuxt/nuxt.js). (Waiting for Vue 3 support)
 
@@ -48,6 +48,7 @@ and also included vuex, vue-router
 - [Base](#base) (Template: [src/data/\_base.json](src/data/_base.json))
 - [Project](#project-app) (Template: [src/data/project.json](src/data/project.json))
 - [Activity](#activity-app) (Template: [src/data/activity.json](src/data/activity.json))
+- [Other](#other)
 
 ### Base
 
@@ -354,6 +355,12 @@ Example
 |    `vim`     |    <img alt="vim" src="https://user-images.githubusercontent.com/26512984/99268205-2eb11880-2868-11eb-9be6-6e24d0a873d5.jpg" width="32">     |
 |    `vue`     |    <img alt="vue" src="https://user-images.githubusercontent.com/26512984/99268208-2f49af00-2868-11eb-812e-285ecfef0512.jpg" width="32">     |
 |   `yellow`   |   <img alt="yellow" src="https://user-images.githubusercontent.com/26512984/99268209-2fe24580-2868-11eb-9cf3-0ffed7010334.jpg" width="32">   |
+
+### Other
+
+#### Open Graph image
+
+Check it: `src/assets/contents/cover.jpg`
 
 ---
 
