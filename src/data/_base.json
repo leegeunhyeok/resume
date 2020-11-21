@@ -4,7 +4,7 @@
     "themeColor": "#ffffff"
   },
   "title": "Résume | Geunhyeok LEE",
-  "ga": "UA-156696575-2",
+  "ga": "UA-000000000-0",
   "introText": ["For better", "Web experience."],
   "profile": {
     "name": "Geunhyeok LEE",
@@ -18,49 +18,18 @@
         "url": "https://github.com/leegeunhyeok"
       },
       {
-        "icon": "instagram",
-        "label": "__dev.ghlee",
-        "url": "https://www.instagram.com/__dev.ghlee"
-      },
-      {
-        "icon": "facebook",
-        "label": "leegeunhyeok",
-        "url": "https://www.facebook.com/leegeunhyeok"
-      },
-      {
-        "icon": "linkedin",
-        "label": "Visit",
-        "url": "https://www.linkedin.com/in/geunhyeok-lee-89b779185"
-      },
-      {
         "icon": "web",
         "url": "https://geundung.dev"
       }
     ],
     "skill": [
       {
-        "label": "JavaScript",
-        "color": "js"
+        "label": "Vue.js",
+        "color": "vue"
       },
       {
-        "label": "TypeScript",
+        "label": "Other",
         "color": "ts"
-      },
-      {
-        "label": "Node.js",
-        "color": "node"
-      },
-      {
-        "label": "JavaScript",
-        "color": "js"
-      },
-      {
-        "label": "TypeScript",
-        "color": "ts"
-      },
-      {
-        "label": "Node.js",
-        "color": "node"
       }
     ],
     "hobby": ["프로그래밍", "운동"]

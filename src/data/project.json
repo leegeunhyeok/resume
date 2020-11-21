@@ -2,101 +2,54 @@
   "tags": {
     "language": [
       {
-        "id": "js",
-        "color": "js",
-        "label": "JavaScript"
-      },
-      {
         "id": "ts",
         "color": "ts",
         "label": "TypeScript"
       },
       {
-        "id": "python",
-        "color": "ts",
+        "id": "py",
+        "color": "python",
         "label": "Python"
       },
       {
-        "id": "java",
-        "color": "ts",
-        "label": "Java"
-      },
-      {
-        "id": "c",
-        "color": "ts",
-        "label": "C"
-      },
-      {
-        "id": "cpp",
-        "color": "ts",
-        "label": "C++"
-      },
-      {
-        "id": "shell",
-        "color": "ts",
-        "label": "Shell"
+        "id": "other",
+        "color": "#ffa500",
+        "label": "Other"
       }
     ],
     "web": [
       {
         "id": "vue",
-        "color": "ts",
+        "color": "vue",
         "label": "Vue"
       },
       {
         "id": "react",
-        "color": "ts",
+        "color": "react",
         "label": "React"
       },
       {
         "id": "angular",
-        "color": "ts",
+        "color": "angular",
         "label": "Angular"
-      },
-      {
-        "id": "pwa",
-        "color": "ts",
-        "label": "PWA"
-      }
-    ],
-    "other": [
-      {
-        "id": "node",
-        "color": "ts",
-        "label": "Node"
-      },
-      {
-        "id": "git",
-        "color": "ts",
-        "label": "Git"
-      },
-      {
-        "id": "docker",
-        "color": "dodgerblue",
-        "label": "Docker"
-      },
-      {
-        "id": "vim",
-        "color": "ts",
-        "label": "Vim"
       }
     ]
   },
   "content": [
     {
-      "name": "test",
-      "date": "2020.01.01",
-      "image": "contents/download.jpg",
-      "description": "Hello",
-      "tag": ["docker"],
-      "url": "https://github.com/leegeunhyeok/school-kr"
+      "name": "CyBot",
+      "date": "2020.02.04",
+      "image": "contents/sample.jpg",
+      "description": "Cyworld data crawler!",
+      "tag": ["py"],
+      "url": "https://github.com/leegeunhyeok/cyworld-bot"
     },
     {
-      "name": "node-schook-kr",
+      "name": "Web Project",
       "date": "2020.01.01",
-      "image": "contents/download.jpg",
-      "description": "Hello 2",
-      "tag": ["js", "ts", "node"]
+      "image": "contents/sample.jpg",
+      "description": "Example project!",
+      "tag": ["vue", "react", "angular"]
     }
   ]
 }

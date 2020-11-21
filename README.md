@@ -81,7 +81,7 @@ Example
 ```json
 {
   "app": {
-    "name": "GDev",
+    "name": "Résume",
     "themeColor": "#ffffff"
   },
   "title": "Résume | Geunhyeok LEE",
@@ -177,7 +177,7 @@ Template file: [src/data/project.json](src/data/project.json)
 | :------------ | :--------------------------------------------------------------------- | :------: | :-----------------------: |
 | `name`        | Project name                                                           |   `o`    |         `Resume`          |
 | `date`        | Project date                                                           |   `o`    |       `2020.01.01`        |
-| `image`       | Image path in `src/assets`                                             |   `o`    |    `contents/toy.jpg`     |
+| `image`       | Project image filename (Base path: `src/assets`)                       |   `o`    |    `contents/toy.jpg`     |
 | `description` | Project description                                                    |   `o`    | `This is resume template` |
 | `textColor`   | Project name, description text color ([more](#colors))                 |   `x`    |           `red`           |
 | `tag`         | Project [Tag](#tag) ID list                                            |   `o`    |  `[]` or `["js", "ts"]`   |
@@ -227,7 +227,7 @@ Example
     {
       "name": "CyBot",
       "date": "2020.02.04",
-      "image": "contents/cover.jpg",
+      "image": "contents/sample.jpg",
       "description": "Cyworld data crawler!",
       "tag": ["py"],
       "url": "https://github.com/leegeunhyeok/cyworld-bot"
@@ -235,7 +235,7 @@ Example
     {
       "name": "Web Project",
       "date": "2020.01.01",
-      "image": "contents/cover.jpg",
+      "image": "contents/sample.jpg",
       "description": "Example project!",
       "tag": ["vue", "react", "angular"]
     }
@@ -361,7 +361,7 @@ Example
 
 #### Open Graph image
 
-Check it: `src/assets/contents/cover.jpg`
+Check it: `public/cover.jpg`
 
 ---
 

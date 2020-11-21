@@ -3,37 +3,34 @@
     "type": [
       {
         "id": "career",
-        "color": "red",
+        "color": "#ff6347",
         "label": "Career"
       },
       {
         "id": "cert",
-        "color": "blue",
+        "color": "ts",
         "label": "Certification"
-      },
+      }
+    ],
+    "other": [
       {
-        "id": "edu",
+        "id": "ex",
         "color": "yellow",
-        "label": "Education"
-      },
-      {
-        "id": "pub",
-        "color": "green",
-        "label": "Publishing"
+        "label": "Example"
       }
     ]
   },
   "content": [
     {
-      "title": "Sample",
-      "from": "2020.01.01",
-      "tag": "edu"
+      "title": "First Company",
+      "from": "2019.01.01",
+      "to": "2020.01.01",
+      "tag": "career"
     },
     {
-      "title": "Sample 2",
-      "from": "2000.01.01",
-      "to": "2020.01.01",
-      "tag": "pub"
+      "title": "Example Certification",
+      "from": "2000.12.31",
+      "tag": "cert"
     }
   ]
 }
