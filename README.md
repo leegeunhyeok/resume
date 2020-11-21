@@ -361,7 +361,12 @@ Example
 
 #### Open Graph image
 
-Check it: `public/cover.jpg`
+- `public/cover.jpg`
+
+#### PWA Resources
+
+- Icons: `public/img/icons/*`
+- Splash: `public/img/splash/*`
 
 ---
 
