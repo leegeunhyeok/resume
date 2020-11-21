@@ -20,6 +20,11 @@ const generateGAScript = trackingId => `
 module.exports = {
   productionSourceMap: false,
   publicPath: process.env.NODE_ENV === 'development' ? '/' : '/dist',
+  configureWebpack: {
+    devServer: {
+      port: '8080',
+    },
+  },
   chainWebpack: config => {
     config
       .plugin('assets')
