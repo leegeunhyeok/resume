@@ -72,7 +72,8 @@ export default defineComponent({
         .map(data => ({
           ...data,
           tagColor: data.tag.map(getTagColor),
-        })),
+        }))
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
     );
 
     const setTagFilter = (tag: string) => (currentTagId.value = tag);
