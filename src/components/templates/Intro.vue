@@ -53,7 +53,9 @@ export default defineComponent({
     const toHome = () => {
       if (scrolling.value) return;
       scrolling.value = true;
-      scrollTo(document.body.scrollHeight - document.body.clientHeight, () => {
+
+      // 70px for mobild safari (menubar)
+      scrollTo(document.body.scrollHeight - document.body.clientHeight - 70, () => {
         router.push({ path: '/home' });
       });
     };

@@ -58,11 +58,7 @@ export const scrollTo = (to: number, done: Function) => {
 
   setTimeout(() => {
     element.scrollTop = element.scrollTop + perTick;
-    if (element.scrollTop >= to) {
-      done();
-    } else {
-      scrollTo(to, done);
-    }
+    element.scrollTop >= to ? setTimeout(done, 100) : scrollTo(to, done);
   }, 10);
 };
 

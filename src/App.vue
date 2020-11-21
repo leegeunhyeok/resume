@@ -76,34 +76,6 @@ export default defineComponent({
 <style lang="scss">
 @import '@/styles/common';
 
-html {
-  font-family: 'NanumSquare', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 12px;
-
-  @include size(sm) {
-    font-size: 14px;
-  }
-}
-
-html,
-body,
-#app {
-  @include page;
-}
-
-* {
-  box-sizing: border-box;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: none;
-  outline: 0;
-}
-
 img {
   user-select: none;
 }
