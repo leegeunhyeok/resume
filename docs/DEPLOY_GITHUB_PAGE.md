@@ -24,6 +24,9 @@
 ## 4. Build
 
 ```bash
+# Install dependencies
+npm install
+
 # Build
 npm run build
 ```
