@@ -35,7 +35,7 @@ module.exports = {
       .after('html')
       .use(
         new InjectAssetsListWebpackPlugin({
-          allowPattern: /(png|jpg)/,
+          allowPattern: /(png|jpg|svg)/,
         }),
       );
 
