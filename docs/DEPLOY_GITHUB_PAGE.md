@@ -31,7 +31,7 @@ npm install
 npm run build
 ```
 
-and move `dist/index.html` to `./` (Repository root directory)
+❗️ and move `dist/index.html` to `./` (Repository root directory)
 
 ## 5. Commit and Push
 
