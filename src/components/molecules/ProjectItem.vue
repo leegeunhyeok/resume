@@ -10,8 +10,8 @@
       <h2>{{ data.name }}</h2>
       <p>{{ data.description }}</p>
     </div>
-    <div class="project-item__star" v-if="star !== -1">
-      {{ star }}
+    <div class="project-item__star" v-if="data.star !== -1">
+      {{ data.star }}
     </div>
     <div class="project-item__tag">
       <Tag
@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, computed } from 'vue';
-import { getRepositoryStar, assetFrom, openPage } from '@/common/util';
+import { assetFrom, openPage } from '@/common/util';
 import { ProjectData } from '@/types';
 
 import Tag from '@/components/atoms/Tag.vue';
@@ -44,15 +44,6 @@ export default defineComponent({
   setup(props) {
     const star = ref(-1);
     const textColor = computed(() => props.data.textColor || null);
-
-    const getStar = (repositoryUrl: string) => {
-      const [user, repository] = repositoryUrl.replace('https://github.com/', '').split('/');
-      getRepositoryStar(user, repository)
-        .then(res => (star.value = res))
-        .catch(console.error);
-    };
-
-    props.data.url && props.data.url.startsWith('https://github.com') && getStar(props.data.url);
 
     return {
       star,

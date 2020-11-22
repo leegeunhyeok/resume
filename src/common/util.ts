@@ -112,4 +112,5 @@ export const openPage = (target: string, newTab = true) => {
 export const getRepositoryStar = (username: string, repository: string) =>
   axios
     .get(`https://api.github.com/repos/${username}/${repository}`)
-    .then(res => res.data['stargazers_count'] as number);
+    .then(res => res.data['stargazers_count'] as number)
+    .catch(() => -1);
