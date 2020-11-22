@@ -1,8 +1,6 @@
 <div align="center">
 
-# 🍀 Résume
-
-WIP...
+# Résume
 
   <img src="./src/assets/avatar.png" width="250">
   <br>
@@ -448,6 +446,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - Wallpaper image by [ultralinx](https://theultralinx.com/2018/11/gradient-wave-wallpaper-by-ultralinx).
 - Weather sun icon from [myiconfinder](http://www.myiconfinder.com/icon/sun-heat-hot-weather-summer-sunshine/22781).
 - `src/assets/fontawesome/*` icons by [Font Awesome](https://fontawesome.com).
+
+## Change Log
+
+- `1.0.1` (2020.11.22)
+  - Mobile safari scroll issue fixed (at intro page)
+  - Now loading Github repository star only once at intro page
+- `1.0.0` (2020.11.21)
+  - First Release!
 
 ## ⭐️ License
 
