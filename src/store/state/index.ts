@@ -1,5 +1,5 @@
 import { VERSION, RELEASE_DATE } from '@/common';
-import { Template } from '@/types';
+import { BaseTemplate } from '@/types';
 
 export interface State {
   _version: string;
@@ -7,7 +7,7 @@ export interface State {
   loaded: boolean;
   date: Date;
   isDark: boolean;
-  template: Template;
+  template: BaseTemplate;
 }
 
 export const state: State = {

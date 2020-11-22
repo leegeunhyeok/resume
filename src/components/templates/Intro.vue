@@ -30,7 +30,7 @@ import { scrollTo } from '@/common/util';
 
 import Button from '@/components/atoms/Button.vue';
 import Text from '@/components/atoms/Text.vue';
-import { Template } from '@/types';
+import { BaseTemplate } from '@/types';
 
 const maxScale = 2;
 
@@ -39,7 +39,7 @@ export default defineComponent({
   components: { Button, Text },
   props: {
     template: {
-      type: Object as PropType<Template>,
+      type: Object as PropType<BaseTemplate>,
       required: true,
     },
   },

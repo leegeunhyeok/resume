@@ -27,7 +27,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { openPage } from '@/common/util';
-import { Template } from '@/types';
+import { BaseTemplate } from '@/types';
 
 import Text from '@/components/atoms/Text.vue';
 import Window from '@/components/organisms/Window.vue';
@@ -36,7 +36,7 @@ export default defineComponent({
   name: 'ContactWindow',
   components: { Text, Window },
   props: {
-    template: Object as PropType<Template>,
+    template: Object as PropType<BaseTemplate>,
   },
   emits: ['close'],
   setup: () => ({ openPage }),

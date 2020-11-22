@@ -15,11 +15,11 @@ import store, { Store, provideStore } from '@/store';
 import { MutationTypes } from '@/store/mutation';
 import { GetterTypes } from '@/store/getter';
 import { isDarkmode, watchThemeChange } from '@/common/util';
-import { Template } from '@/types';
+import { BaseTemplate } from '@/types';
 
 import _Base from '@/data/_base.json';
 
-const TemplateData: Template = {
+const TemplateData: BaseTemplate = {
   name: _Base.profile.name,
   email: _Base.profile.email,
   photo: require('@/assets/' + _Base.profile.photo),

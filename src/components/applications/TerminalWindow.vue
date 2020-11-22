@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, PropType, ref } from 'vue';
 import { useStore } from '@/store';
-import { Template } from '@/types';
+import { BaseTemplate } from '@/types';
 
 import Window from '@/components/organisms/Window.vue';
 
@@ -53,7 +53,7 @@ export default defineComponent({
   name: 'AboutWindow',
   components: { Window },
   props: {
-    template: Object as PropType<Template>,
+    template: Object as PropType<BaseTemplate>,
   },
   emits: ['close'],
   setup(_, context) {

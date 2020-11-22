@@ -1,6 +1,6 @@
 import { MutationTree } from 'vuex';
 import { State } from '@/store/state';
-import { Template } from '@/types';
+import { BaseTemplate } from '@/types';
 
 export enum MutationTypes {
   APP_LOADED = 'APP_LOADED',
@@ -11,7 +11,7 @@ export enum MutationTypes {
 
 export type Mutations<S = State> = {
   [MutationTypes.APP_LOADED](state: S): void;
-  [MutationTypes.SET_TEMPLATE_DATA](state: S, payload: Template): void;
+  [MutationTypes.SET_TEMPLATE_DATA](state: S, payload: BaseTemplate): void;
   [MutationTypes.SET_TIME](state: S, payload: Date): void;
   [MutationTypes.SET_DARKMODE](state: S, payload: boolean): void;
 };

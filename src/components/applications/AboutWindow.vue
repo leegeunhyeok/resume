@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { Template } from '@/types';
+import { BaseTemplate } from '@/types';
 
 import Text from '@/components/atoms/Text.vue';
 import Item from '@/components/molecules/Item.vue';
@@ -37,7 +37,7 @@ export default defineComponent({
   name: 'AboutWindow',
   components: { Window, Text, Item },
   props: {
-    template: Object as PropType<Template>,
+    template: Object as PropType<BaseTemplate>,
   },
   emits: ['close'],
 });

@@ -12,6 +12,25 @@ export interface TagData {
   label: string;
 }
 
+export interface DesktopAppData {
+  projects: ProjectTemplate;
+  activity: ActivityTemplate;
+}
+
+export interface ProjectTemplate {
+  tags: {
+    [key: string]: TagData[];
+  };
+  content: ProjectData[];
+}
+
+export interface ActivityTemplate {
+  tags: {
+    [key: string]: TagData[];
+  };
+  content: ActivityData[];
+}
+
 export interface ProjectData {
   name: string;
   date: string;
@@ -20,6 +39,7 @@ export interface ProjectData {
   textColor?: string;
   tag: string[];
   url?: string;
+  star: number;
 }
 
 export interface ActivityData {
@@ -45,7 +65,7 @@ export interface Item {
   tag: string;
 }
 
-export interface Template {
+export interface BaseTemplate {
   name: string;
   email: string;
   photo: string;

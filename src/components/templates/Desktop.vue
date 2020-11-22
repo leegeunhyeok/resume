@@ -43,7 +43,6 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref } from 'vue';
-import { Template } from '@/types';
 
 import Icon from '@/components/atoms/Icon.vue';
 import Dock from '@/components/organisms/Dock.vue';
@@ -56,6 +55,9 @@ import TerminalWindow from '@/components/applications/TerminalWindow.vue';
 import BrowserWindow from '@/components/applications/BrowserWindow.vue';
 import ContactWindow from '@/components/applications/ContactWindow.vue';
 import InformationWindow from '@/components/applications/InformationWindow.vue';
+import { BaseTemplate, DesktopAppData } from '@/types';
+import { useStore } from '@/store';
+import { GetterTypes } from '@/store/getter';
 
 const apps = {
   projects: require('@/assets/app/folder.png'),
@@ -84,15 +86,17 @@ export default defineComponent({
   },
   props: {
     appData: {
-      type: Object as PropType<{ [key in keyof typeof apps]: unknown }>,
+      type: Object as PropType<DesktopAppData>,
       required: true,
     },
     template: {
-      type: Object as PropType<Template>,
+      type: Object as PropType<BaseTemplate>,
       required: true,
     },
   },
-  setup(props) {
+  setup() {
+    const store = useStore();
+
     // Showing window (= app name)
     const currentApp = ref<keyof typeof apps | null>(null);
 
@@ -105,7 +109,7 @@ export default defineComponent({
      */
     const executeApp = (appKey: keyof typeof apps): void => {
       if (appKey === 'email') {
-        window.open(`mailto:${props.template.email}`, '_blank');
+        window.open(`mailto:${store.getters[GetterTypes.TEMPLATE].email}`, '_blank');
         return;
       } else {
         dummy.value++;
