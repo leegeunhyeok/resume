@@ -62,12 +62,38 @@ and also included vuex, vue-router
 
 ## 🆕 Update
 
+- ⚠️ WARNING: Backup your data first
+  - `src/data/*`
+  - `src/assets/contents/*`
+
 ```bash
-# Get latest version
-git remote add origin template https://github.com/leegeunhyeok/resume.git
+# 1. Add origin template repository to remote (name: template)
+git remote add template https://github.com/leegeunhyeok/resume.git
+
+# 2. Fetch all
 git fetch --all
 
-# And merge > commit > push!
+# 3. Merge latest template sources
+git merge -X theirs --squash --allow-unrelated-histories template/master
+
+# 4. Rollback your template datas
+git reset -- src/data
+git checkout src/data
+
+# If you want rollback more data, follow this example
+# Result: Rollback README.md
+# git reset -- README.md
+# git checkout READMD.md
+
+# !! Check your template data before commit !!
+# 5-1. (On Success 🎉)  Keep going
+git commit -m "Update to latest version"
+
+
+# 5-2. (Issue occurs ❗) Reset to previous commit (Return to initial state)
+git reset --hard HEAD~
+
+# 6. And rebuild/push
 ```
 
 ### Base
