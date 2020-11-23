@@ -26,6 +26,13 @@ Geunhyeok's resume template. [Demo](https://this.geundung.dev)
 - [ ] Show alert when usign legacy browser (`< IE11`)
 - [ ] Support `SSR` or `static` page via [Nuxt.js](https://github.com/nuxt/nuxt.js). (Waiting for Vue 3 support)
 
+## Contents
+
+1. [Template configuration](#-template-configuration)
+2. [Deploy](#-deploy)
+3. [Update](#-update)
+4. [Development](#-project-setup)
+
 ## 🌍 Browser support
 
 WIP...
@@ -52,6 +59,16 @@ and also included vuex, vue-router
 
 - 👉 [Github Page](docs/DEPLOY_GITHUB_PAGE.md)
 - 👍 Manually
+
+## 🆕 Update
+
+```bash
+# Get latest version
+git remote add origin template https://github.com/leegeunhyeok/resume.git
+git fetch --all
+
+# And merge > commit > push!
+```
 
 ### Base
 
