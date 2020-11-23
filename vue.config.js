@@ -57,6 +57,10 @@ module.exports = {
       favicon16: 'img/icons/favicon-16x16.png',
     },
     manifestOptions: {
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      start_url: '/',
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      theme_color: _Base.app.themeColor,
       icons: [
         {
           src: 'img/icons/apple-touch-icon.png',
