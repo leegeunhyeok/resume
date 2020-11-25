@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
     <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
     <meta property="og:description" content="<%= htmlWebpackPlugin.options.description %>" />
-    <meta property="og:image" content="<%= BASE_URL %>cover.jpg" />
+    <meta property="og:image" content="<%= htmlWebpackPlugin.options.publicPath %>cover.jpg" />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link rel="icon" href="<%= htmlWebpackPlugin.options.publicPath %>favicon.ico" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -19,7 +19,57 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css"
     />
-
+    <!-- iOS/iPadOS splash -->
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_828x1792.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_1242x2688.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_1125x2436.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_1242x2208.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_750x1334.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_2048x2732.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_1668x2224.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_640x1136.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_1668x2388.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      media="screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+      href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/icon_1536x2048.png"
+    />
     <title><%= htmlWebpackPlugin.options.title %></title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <%= htmlWebpackPlugin.options.gaScript %>

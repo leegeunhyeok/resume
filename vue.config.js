@@ -27,6 +27,7 @@ module.exports = {
     devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
     devServer: {
       port: '8080',
+      disableHostCheck: true,
     },
   },
   chainWebpack: config => {
@@ -41,6 +42,7 @@ module.exports = {
 
     config.plugin('html').tap(args => {
       args[0].title = _Base.title;
+      args[0].publicPath = publicPath.replace(/\/+$/, '');
       args[0].gaScript = _Base.ga ? generateGAScript(_Base.ga) : '';
       args[0].description = _Base.introText.join(' ');
       return args;
@@ -52,21 +54,19 @@ module.exports = {
     msTileColor: _Base.app.themeColor,
     backgroundColor: _Base.app.themeColor,
     appleMobileWebAppCapable: 'yes',
-    icons: {
-      favicon32: 'img/icons/favicon-32x32.png',
-      favicon16: 'img/icons/favicon-16x16.png',
+    iconPath: {
+      favicon32: path.join(publicPath, 'img/icons/favicon-32x32.png'),
+      favicon16: path.join(publicPath, 'img/icons/favicon-16x16.png'),
+      appleTouchIcon: path.join(publicPath, 'img/icons/apple-touch-icon.png'),
+      maskIcon: null,
+      msTileImage: null,
     },
     manifestOptions: {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      start_url: '/',
+      start_url: _Base.app.startUrl,
       // eslint-disable-next-line @typescript-eslint/camelcase
       theme_color: _Base.app.themeColor,
       icons: [
-        {
-          src: 'img/icons/apple-touch-icon.png',
-          sizes: '180x180',
-          type: 'image/png',
-        },
         {
           src: 'img/icons/icon-192x192.png',
           sizes: '192x192',
@@ -75,6 +75,11 @@ module.exports = {
         {
           src: 'img/icons/icon-512x512.png',
           sizes: '512x512',
+          type: 'image/png',
+        },
+        {
+          src: 'img/icons/apple-touch-icon.png',
+          sizes: '180x180',
           type: 'image/png',
         },
       ].map(iconConfig => ({
