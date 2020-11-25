@@ -54,7 +54,7 @@ module.exports = {
     msTileColor: _Base.app.themeColor,
     backgroundColor: _Base.app.themeColor,
     appleMobileWebAppCapable: 'yes',
-    iconPath: {
+    iconPaths: {
       favicon32: path.join(publicPath, 'img/icons/favicon-32x32.png'),
       favicon16: path.join(publicPath, 'img/icons/favicon-16x16.png'),
       appleTouchIcon: path.join(publicPath, 'img/icons/apple-touch-icon.png'),
@@ -75,11 +75,6 @@ module.exports = {
         {
           src: 'img/icons/icon-512x512.png',
           sizes: '512x512',
-          type: 'image/png',
-        },
-        {
-          src: 'img/icons/apple-touch-icon.png',
-          sizes: '180x180',
           type: 'image/png',
         },
       ].map(iconConfig => ({
