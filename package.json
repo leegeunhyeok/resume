@@ -1,40 +1,31 @@
 {
   "name": "resume",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "author": "Geunhyeok LEE <dev.ghlee@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build:report": "vue-cli-service build --report",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:report": "vue-cli-service build --report"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leegeunhyeok/resume.git"
-  },
-  "author": "Geunhyeok LEE <dev.ghlee@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/leegeunhyeok/resume/issues"
-  },
-  "homepage": "https://github.com/leegeunhyeok/resume#readme",
   "dependencies": {
     "axios": "^0.21.0",
     "register-service-worker": "^1.7.1",
-    "vue": "^3.0.1",
-    "vue-router": "^4.0.0-beta.13",
-    "vuex": "^4.0.0-beta.4"
+    "vue": "^3.0.3",
+    "vue-router": "^4.0.0-rc.5",
+    "vuex": "^4.0.0-rc.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-pwa": "^4.5.8",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/cli-plugin-babel": "^4.5.9",
+    "@vue/cli-plugin-eslint": "^4.5.9",
+    "@vue/cli-plugin-pwa": "^4.5.9",
+    "@vue/cli-plugin-router": "^4.5.9",
+    "@vue/cli-plugin-typescript": "^4.5.9",
+    "@vue/cli-plugin-vuex": "^4.5.9",
+    "@vue/cli-service": "^4.5.9",
+    "@vue/compiler-sfc": "^3.0.3",
     "@vue/eslint-config-typescript": "^5.0.2",
     "core-js": "^3.7.0",
     "eslint": "^6.7.2",
@@ -42,6 +33,15 @@
     "inject-assets-list-webpack-plugin": "^1.0.3",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
-    "typescript": "~3.9.3"
+    "typescript": "^3.9.7"
+  },
+  "bugs": {
+    "url": "https://github.com/leegeunhyeok/resume/issues"
+  },
+  "homepage": "https://github.com/leegeunhyeok/resume#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leegeunhyeok/resume.git"
   }
 }

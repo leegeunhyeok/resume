@@ -492,6 +492,12 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Change Log
 
+- `1.0.2` (2020.11.27)
+  - Web font issue fixed (Wrong font name)
+  - PWA configuration fixed + Safari splash images
+  - Add app.startUrl config (Web app manifest's start_url option)
+  - Add date(year) label to project item
+  - Vue 3.0.1 -> 3.0.3 with plugins
 - `1.0.1` (2020.11.22)
   - Mobile safari scroll issue fixed (at intro page)
   - Now loading Github repository star only once at intro page
