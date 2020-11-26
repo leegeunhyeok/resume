@@ -55,9 +55,10 @@ module.exports = {
     backgroundColor: _Base.app.themeColor,
     appleMobileWebAppCapable: 'yes',
     iconPaths: {
-      favicon32: path.join(publicPath, 'img/icons/favicon-32x32.png'),
-      favicon16: path.join(publicPath, 'img/icons/favicon-16x16.png'),
-      appleTouchIcon: path.join(publicPath, 'img/icons/apple-touch-icon.png'),
+      // Auto mapping with publicPath
+      favicon32: 'img/icons/favicon-32x32.png',
+      favicon16: 'img/icons/favicon-16x16.png',
+      appleTouchIcon: 'img/icons/apple-touch-icon.png',
       maskIcon: null,
       msTileImage: null,
     },
