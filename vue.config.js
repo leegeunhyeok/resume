@@ -19,6 +19,7 @@ const generateGAScript = trackingId => `
 `;
 
 const publicPath = process.env.NODE_ENV === 'development' ? '/' : _Base.publicPath || '/dist';
+const themeColor = '#ffffff';
 
 module.exports = {
   productionSourceMap: false,
@@ -50,9 +51,9 @@ module.exports = {
   },
   pwa: {
     name: _Base.app.name,
-    themeColor: _Base.app.themeColor,
-    msTileColor: _Base.app.themeColor,
-    backgroundColor: _Base.app.themeColor,
+    themeColor,
+    msTileColor: themeColor,
+    backgroundColor: themeColor,
     appleMobileWebAppCapable: 'yes',
     iconPaths: {
       // Auto mapping with publicPath
@@ -66,7 +67,7 @@ module.exports = {
       // eslint-disable-next-line @typescript-eslint/camelcase
       start_url: _Base.app.startUrl,
       // eslint-disable-next-line @typescript-eslint/camelcase
-      theme_color: _Base.app.themeColor,
+      theme_color: themeColor,
       icons: [
         {
           src: 'img/icons/icon-192x192.png',

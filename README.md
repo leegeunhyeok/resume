@@ -105,7 +105,7 @@ Base configuration: [src/data/\_base.json](src/data/_base.json)
 | `publicPath`             | Webpack [publicPath](https://webpack.js.org/guides/public-path) |                 `/`                 |
 | `app`                    | PWA Configuration                                               |                  -                  |
 | `app.name`               | PWA Name                                                        |              `Résume`               |
-| `app.themeColor`         | PWA Theme color (CSS Color)                                     |              `#ffffff`              |
+| `app.startUrl`           | Web app manifest's start_url                                    |                 `/`                 |
 | `title`                  | Web title (in head)                                             |      `Résume | Geunhyeok LEE`       |
 | `ga`                     | Google analytics tracking ID (Optional)                         |          `UA-000000000-0`           |
 | `introText[]`            | Intro text (Each line), og description                          | `["For better", "Web experience."]` |
@@ -130,7 +130,7 @@ Example
   "publicPath": "/",
   "app": {
     "name": "Résume",
-    "themeColor": "#ffffff"
+    "startUrl": "/"
   },
   "title": "Résume | Geunhyeok LEE",
   "ga": "UA-000000000-0",
