@@ -10,8 +10,13 @@
       <h2>{{ data.name }}</h2>
       <p>{{ data.description }}</p>
     </div>
-    <div class="project-item__star" v-if="data.star !== -1">
-      {{ data.star }}
+    <div class="project-item__label">
+      <div class="project-item__label__star" v-if="data.star !== -1">
+        {{ data.star }}
+      </div>
+      <div class="project-item__label__year" v-if="data.date">
+        {{ getYear(data.date) }}
+      </div>
     </div>
     <div class="project-item__tag">
       <Tag
@@ -48,6 +53,7 @@ export default defineComponent({
     return {
       star,
       textColor,
+      getYear: (date: string) => new Date(date).getFullYear(),
       more: () => props.data.url && openPage(props.data.url),
       assetFrom,
     };
@@ -131,16 +137,29 @@ $overlap: 7px;
     }
   }
 
-  &__star {
+  &__label {
     @include over-label;
-    left: 0.5rem;
-    background-image: url('~@/assets/star.svg');
-    background-size: 24px;
-    background-position: 2px;
-    background-repeat: no-repeat;
     padding: 5px;
-    padding-left: 28px;
+    left: 0.5rem;
     color: #fff;
+
+    & > div {
+      display: inline-block;
+    }
+
+    &__star {
+      background-image: url('~@/assets/star.svg');
+      background-size: 1.5rem;
+      background-position: 0px;
+      background-repeat: no-repeat;
+      padding-left: 24px;
+
+      &::after {
+        content: '|';
+        margin: 0 5px;
+        opacity: 0.3;
+      }
+    }
   }
 
   &__tag {
