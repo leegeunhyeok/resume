@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const pkg = require('./package.json');
 const _Base = require('./src/data/_base.json');
 const InjectAssetsListWebpackPlugin = require('inject-assets-list-webpack-plugin');
 
@@ -50,6 +51,12 @@ module.exports = {
     });
   },
   pwa: {
+    workboxPluginMode: 'InjectManifest',
+    workboxOptions: {
+      swSrc: 'src/service-worker.ts',
+      swDest: 'service-worker.js',
+      include: [pkg.version],
+    },
     name: _Base.app.name,
     themeColor,
     msTileColor: themeColor,
