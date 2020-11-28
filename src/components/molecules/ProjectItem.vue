@@ -10,12 +10,13 @@
       <h2>{{ data.name }}</h2>
       <p>{{ data.description }}</p>
     </div>
-    <div class="project-item__label">
+    <div class="project-item__label" v-show="data.star !== -1 || projectYear">
       <div class="project-item__label__star" v-if="data.star !== -1">
         {{ data.star }}
       </div>
-      <div class="project-item__label__year" v-if="data.date">
-        {{ getYear(data.date) }}
+      <span v-show="data.star !== -1 && projectYear">|</span>
+      <div class="project-item__label__year" v-if="projectYear">
+        {{ projectYear }}
       </div>
     </div>
     <div class="project-item__tag">
@@ -49,11 +50,12 @@ export default defineComponent({
   setup(props) {
     const star = ref(-1);
     const textColor = computed(() => props.data.textColor || null);
+    const projectYear = new Date(props.data.date).getFullYear() || 0;
 
     return {
       star,
       textColor,
-      getYear: (date: string) => new Date(date).getFullYear(),
+      projectYear,
       more: () => props.data.url && openPage(props.data.url),
       assetFrom,
     };
@@ -153,12 +155,11 @@ $overlap: 7px;
       background-position: 0px;
       background-repeat: no-repeat;
       padding-left: 24px;
+    }
 
-      &::after {
-        content: '|';
-        margin: 0 5px;
-        opacity: 0.3;
-      }
+    & > span {
+      margin: 0 5px;
+      opacity: 0.3;
     }
   }
 
