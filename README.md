@@ -492,6 +492,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Change Log
 
+- `1.0.3` (2020.11.30)
+  - PWA issue fixed (Now work perfectly)
 - `1.0.2` (2020.11.27)
   - Web font issue fixed (Wrong font name)
   - PWA configuration fixed + Safari splash images

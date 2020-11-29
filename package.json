@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "build:github": "GITHUB_PAGES=1 vue-cli-service build",
     "build:report": "vue-cli-service build --report"
   },
   "dependencies": {
