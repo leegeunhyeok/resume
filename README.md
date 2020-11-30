@@ -100,28 +100,28 @@ git reset --hard HEAD~
 
 Base configuration: [src/data/\_base.json](src/data/_base.json)
 
-| Property                 | Description                                                     |               Example               |
-| :----------------------- | :-------------------------------------------------------------- | :---------------------------------: |
-| `publicPath`             | Webpack [publicPath](https://webpack.js.org/guides/public-path) |                 `/`                 |
-| `app`                    | PWA Configuration                                               |                  -                  |
-| `app.name`               | PWA Name                                                        |              `Résume`               |
-| `app.startUrl`           | Web app manifest's start_url                                    |                 `/`                 |
-| `title`                  | Web title (in head)                                             |      `Résume | Geunhyeok LEE`       |
-| `ga`                     | Google analytics tracking ID (Optional)                         |          `UA-000000000-0`           |
-| `introText[]`            | Intro text (Each line), og description                          | `["For better", "Web experience."]` |
-| `profile`                | Your profile informations                                       |                  -                  |
-| `profile.name`           | Name                                                            |           `Geunhyeok LEE`           |
-| `profile.email`          | Email                                                           |        `dev.ghlee@gmail.com`        |
-| `profile.photo`          | Profile photo filename at `src/assets`                          |            `avatar.png`             |
-| `profile.introduce`      | Introduce your self                                             |         `Makes web better`          |
-| `profile.social[]`       | Social informations in Contact app ([more](#social))            |                  -                  |
-| `profile.social[].icon`  | Social Icon (Check SocialIcon)                                  |              `github`               |
-| `profile.social[].label` | Social text to be displayed                                     |              `Github`               |
-| `profile.social[].url`   | Page URL to go                                                  |  `https://github.com/leegeunhyeok`  |
-| `profile.skill[]`        | Your own skills list ([more](#skill))                           |                  -                  |
-| `profile.skill[].label`  | Skill text to be displayed                                      |            `TypeScript`             |
-| `profile.skill[].color`  | Skill's dot color ([more](#colors))                             |                `ts`                 |
-| `profile.hobby[]`        | Your hobby (Max: 2)                                             |      `["프로그래밍", "운동"]`       |
+| Property                 | Description                                                                                                      |               Example               |
+| :----------------------- | :--------------------------------------------------------------------------------------------------------------- | :---------------------------------: |
+| `publicPath`             | Webpack [publicPath](https://webpack.js.org/guides/public-path) (If you run `build:github`, override to `/dist`) |                 `/`                 |
+| `app`                    | PWA Configuration                                                                                                |                  -                  |
+| `app.name`               | PWA Name                                                                                                         |              `Résume`               |
+| `app.startUrl`           | Web app manifest's start_url                                                                                     |                 `/`                 |
+| `title`                  | Web title (in head)                                                                                              |      `Résume | Geunhyeok LEE`       |
+| `ga`                     | Google analytics tracking ID (Optional)                                                                          |          `UA-000000000-0`           |
+| `introText[]`            | Intro text (Each line), og description                                                                           | `["For better", "Web experience."]` |
+| `profile`                | Your profile informations                                                                                        |                  -                  |
+| `profile.name`           | Name                                                                                                             |           `Geunhyeok LEE`           |
+| `profile.email`          | Email                                                                                                            |        `dev.ghlee@gmail.com`        |
+| `profile.photo`          | Profile photo filename at `src/assets`                                                                           |            `avatar.png`             |
+| `profile.introduce`      | Introduce your self                                                                                              |         `Makes web better`          |
+| `profile.social[]`       | Social informations in Contact app ([more](#social))                                                             |                  -                  |
+| `profile.social[].icon`  | Social Icon (Check SocialIcon)                                                                                   |              `github`               |
+| `profile.social[].label` | Social text to be displayed                                                                                      |              `Github`               |
+| `profile.social[].url`   | Page URL to go                                                                                                   |  `https://github.com/leegeunhyeok`  |
+| `profile.skill[]`        | Your own skills list ([more](#skill))                                                                            |                  -                  |
+| `profile.skill[].label`  | Skill text to be displayed                                                                                       |            `TypeScript`             |
+| `profile.skill[].color`  | Skill's dot color ([more](#colors))                                                                              |                `ts`                 |
+| `profile.hobby[]`        | Your hobby (Max: 2)                                                                                              |      `["프로그래밍", "운동"]`       |
 
 Example
 
@@ -462,10 +462,15 @@ npm run serve
 ### Compiles and minifies for production
 
 ```bash
+# Default build
 npm run build
 
+# Build for GitHub pages
+npm run build:github
+
+
 # Build & Generate bundle analyzer
-# => dist/report.html
+# Check: dist/report.html
 npm run build:report
 ```
 
@@ -494,6 +499,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 - `1.0.3` (2020.11.30)
   - PWA issue fixed (Now work perfectly)
+  - Safari date issue fixed
+  - Add new build command for deploy GitHub pages!
+  - Add 404 handling page (Redirect to home)
 - `1.0.2` (2020.11.27)
   - Web font issue fixed (Wrong font name)
   - PWA configuration fixed + Safari splash images

@@ -1,6 +1,6 @@
 {
   "name": "resume",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Geunhyeok LEE <dev.ghlee@gmail.com>",
   "scripts": {
     "serve": "vue-cli-service serve",
