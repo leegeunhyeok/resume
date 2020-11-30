@@ -19,6 +19,7 @@ const generateGAScript = trackingId => `
   </script>
 `;
 
+const outputDir = 'dist';
 const publicPath =
   process.env.NODE_ENV === 'development'
     ? '/'
@@ -35,6 +36,7 @@ if (process.env.GITHUB_PAGES) {
 
 module.exports = {
   productionSourceMap: false,
+  outputDir,
   publicPath,
   configureWebpack: {
     devtool: process.env.NODE_ENV === 'development' ? 'inline-source-map' : false,
@@ -56,7 +58,7 @@ module.exports = {
     config.plugin('copy').tap(args => {
       args[0].push({
         from: path.resolve(__dirname, 'package.json'),
-        to: path.resolve(__dirname, 'dist/package.json'),
+        to: path.resolve(__dirname, outputDir, 'package.json'),
       });
       return args;
     });
@@ -75,8 +77,26 @@ module.exports = {
   pwa: {
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
-      cacheId: 'resume3_' + pkg.version,
+      cacheId: 'resume_' + pkg.version,
+      exclude: [/\.html$/],
       cleanupOutdatedCaches: true,
+      skipWaiting: true,
+      clientsClaim: true,
+      swDest: path.resolve(process.env.GITHUB_PAGES ? '.' : outputDir, 'service-worker.js'),
+      runtimeCaching: [
+        {
+          urlPattern: /index\.html/,
+          handler: 'NetworkFirst',
+        },
+        {
+          urlPattern: '/',
+          handler: 'NetworkFirst',
+        },
+        {
+          urlPattern: new RegExp('^https://cdn.jsdelivr.net(.*)'),
+          handler: 'CacheFirst',
+        },
+      ],
     },
     name: _Base.app.name,
     themeColor,
