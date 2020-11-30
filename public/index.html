@@ -71,6 +71,9 @@
       href="<%= htmlWebpackPlugin.options.publicPath %>/img/splash/splash_1536x2048.png"
     />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script>
+      var IS_GP_MODE = '<%= htmlWebpackPlugin.options.gp %>';
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <%= htmlWebpackPlugin.options.gaScript %>
   </head>

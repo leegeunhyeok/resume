@@ -71,6 +71,7 @@ module.exports = {
       args[0].publicPath = publicPath.replace(/\/+$/, '');
       args[0].gaScript = _Base.ga ? generateGAScript(_Base.ga) : '';
       args[0].description = _Base.introText.join(' ');
+      args[0].GITHUB_PAGES_MODE = !!process.env.GITHUB_PAGES;
       return args;
     });
   },

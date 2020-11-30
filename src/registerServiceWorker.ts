@@ -2,9 +2,12 @@
 
 import { register } from 'register-service-worker';
 
+declare const IS_GP_MODE: boolean;
+
 if (process.env.NODE_ENV === 'production') {
-  register(`${process.env.BASE_URL}service-worker.js`, {
-    registrationOptions: { scope: process.env.BASE_URL },
+  const entryPath = IS_GP_MODE ? '/' : process.env.BASE_URL;
+  register(`${entryPath}service-worker.js`, {
+    registrationOptions: { scope: entryPath },
     ready() {
       console.log(
         'App is being served from cache by a service worker.\n' +
