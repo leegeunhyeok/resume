@@ -90,7 +90,7 @@ git checkout src/data
 # If you want rollback more data, follow this example
 # Result: Rollback README.md
 # git reset -- README.md
-# git checkout READMD.md
+# git checkout README.md
 
 # !! Check your template data before commit !!
 # 5-1. (On Success 🎉)  Keep going
