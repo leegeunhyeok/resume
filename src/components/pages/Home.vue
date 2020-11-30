@@ -31,6 +31,7 @@ export default defineComponent({
       ProjectTemplateData.content.map(async content => {
         if (content.url && content.url.startsWith('https://github.com')) {
           const [user, repository] = content.url.replace('https://github.com/', '').split('/');
+          content.date = content.date.replaceAll('.', '-');
           return { ...content, star: await getRepositoryStar(user, repository) } as ProjectData;
         } else {
           return { ...content, star: -1 } as ProjectData;
