@@ -1,6 +1,6 @@
-# Deploy - Github Page
+# Deploy - GitHub Page
 
-## 1. Create Github repository
+## 1. Create GitHub repository
 
 <img alt="create repository 1" src="gp_1.jpg" width="700">
 
@@ -10,39 +10,27 @@
 
 - Configuration your own template data - [Template configuration](https://github.com/leegeunhyeok/resume#-template-configuration)
 
-## 3. Build configuration
-
-- `src/data/_base.json`
-
-```js
-{
-  "publicPath": "/dist", // set publicPath to /dist
-  ...
-}
-```
-
-## 4. Build
+## 3. Build
 
 ```bash
 # Install dependencies
 npm install
 
-# Build
-npm run build
+# Build for GitHub pages
+npm run build:github
 ```
 
-❗️ and move `dist/index.html` to `./` (Repository root directory)
-
-## 5. Commit and Push
+## 4. Commit and Push
 
 ```bash
-# Staging all changes (build result included!)
+# Staging all changes and commit
 git add .
+git commit -m "COMMIT MESSAGE"
 
 # Your remote/branch
 git push origin master
 ```
 
-## 6. Enjoy!
+## 5. Enjoy!
 
-🎉 Go to your Github pages!
+🎉 Go to your GitHub pages!
