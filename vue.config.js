@@ -31,7 +31,7 @@ if (process.env.GITHUB_PAGES) {
   console.log('> 1. npm run build:github (current)');
   console.log('> 2. git add .');
   console.log('> 3. git commit -m "COMMIT MESSAGE"');
-  console.log('> 4. git push origin master"');
+  console.log('> 4. git push origin master');
 }
 
 module.exports = {
