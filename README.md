@@ -4,6 +4,13 @@
 
   <img src="./src/assets/avatar.png" width="250">
   <br>
+
+![version](https://img.shields.io/github/v/tag/leegeunhyeok/resume?label=version)
+![vue3](https://img.shields.io/github/package-json/dependency-version/leegeunhyeok/resume/vue?color=lightgreen)
+![license](https://img.shields.io/github/license/leegeunhyeok/resume?color=yellow)
+
+![stars](https://img.shields.io/github/stars/leegeunhyeok/resume?style=social)
+
   <img src="./src/assets/pwa-support.png" width="150">
 
 Geunhyeok's resume template. [Demo](https://this.geundung.dev)
