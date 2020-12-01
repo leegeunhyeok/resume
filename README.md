@@ -504,6 +504,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Change Log
 
+- `1.0.4` (2020.12.01)
+  - Safari font rendering issue (Auto scaled up) fixed
+  - Updated to TypeScript 4
 - `1.0.3` (2020.11.30)
   - PWA issue fixed (Now work perfectly)
   - Safari date issue fixed
