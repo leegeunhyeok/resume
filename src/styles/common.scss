@@ -136,6 +136,7 @@ html {
   -webkit-touch-callout: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
   font-size: 12px;
 
   @include size(sm) {
