@@ -27,7 +27,7 @@ export const imagePreload = (imageSources: string[], onProgress?: Function): Pro
 
   return Promise.all(
     imageSources.map(source => {
-      return new Promise(resolve => {
+      return new Promise<void>(resolve => {
         const end = () => {
           const percent = (++count / total) * 100;
           typeof onProgress === 'function' && onProgress(percent);
